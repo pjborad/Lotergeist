@@ -1,0 +1,5 @@
+{
+  "methylprednisolone": { "onList": false, "soleSource": true, "substitute": "Triamcinolone 40 mg/mL", "unit": "mL", "drugUnitPrice": 1.12, "substituteUnitPrice": 1.54 },
+  "ondansetron": { "onList": false, "soleSource": false, "substitute": "Ondansetron 4 mg tablets (non-ODT)", "unit": "each", "drugUnitPrice": 0.31, "substituteUnitPrice": 0.09 },
+  "insulin": { "onList": true, "soleSource": false, "substitute": "Insulin degludec 100 units/mL", "unit": "mL", "drugUnitPrice": 24.1, "substituteUnitPrice": 27.35 }
+}

@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Keep RPA selectors in sync with RxTerm 98",
+      "trigger": "PostFileSave",
+      "description": "When the RxTerm 98 mock changes, regenerate rpa/selectors.json and run the RPA smoke test.",
+      "matcher": "apps/rxterm98/src/.*\\.ts$",
+      "action": {
+        "type": "agent",
+        "prompt": "apps/rxterm98/src/app.ts changed. Check packages/grave-robber/rpa/selectors.json against the markup it renders (input names, data-key links, #pager, #screen, .row). Update the JSON if any selector no longer matches, then run `npx vitest run packages/grave-robber apps/rxterm98` and report the result in one or two sentences. Do not touch anything else."
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "login": {
+    "user": "input[name=user]",
+    "pass": "input[name=pass]",
+    "submit": "button[type=submit]"
+  },
+  "menu": {
+    "dispenseHistory": "a[data-key=F3]",
+    "fillQueue": "a[data-key=F2]"
+  },
+  "history": {
+    "ndc": "input[name=ndc]",
+    "lot": "input[name=lot]",
+    "submit": "button[type=submit]",
+    "next": "a[data-key=F8]",
+    "pager": "#pager",
+    "screen": "#screen",
+    "rows": ".row"
+  },
+  "logout": "a[data-key=F10]",
+  "queue": {
+    "row": "a[data-rx=\"{rx}\"]",
+    "back": "a[data-key=F3]",
+    "screen": "#screen"
+  },
+  "rx": {
+    "notes": "a[data-key=F6]",
+    "noteInput": "input[name=note]",
+    "submit": "button[type=submit]",
+    "note": "#note",
+    "back": "a[data-key=F3]",
+    "screen": "#screen"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@bsrx/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/server.ts",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts"
+  },
+  "dependencies": {
+    "@bsrx/gs1": "workspace:*",
+    "@bsrx/coroner": "workspace:*",
+    "@bsrx/summoner": "workspace:*",
+    "@bsrx/crypt-seed": "workspace:*",
+    "@bsrx/tracker": "workspace:*",
+    "@bsrx/grave-robber": "workspace:*",
+    "@bsrx/undertaker": "workspace:*",
+    "@bsrx/hearse": "workspace:*",
+    "fastify": "5.12.8",
+    "@fastify/cors": "11.4.1",
+    "node-cron": "4.6.0",
+    "zod": "3.25.76",
+    "@fastify/static": "10.1.10"
+  },
+  "devDependencies": {
+    "@bsrx/rxterm98": "workspace:*"
+  }
+}

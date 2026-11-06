@@ -1,0 +1,32 @@
+[
+  {
+    "recall_number": "D-0417-2026",
+    "classification": "Class II",
+    "status": "Ongoing",
+    "product_description": "Methylprednisolone Acetate Injectable Suspension, 40 mg/mL, 5 mL vial",
+    "code_info": "Lot PRORX050925-1, BUD November 4, 2025; Lot PRORX050925-3, BUD November 6, 2025; NDC 70004-417-05",
+    "reason_for_recall": "Lack of assurance of sterility: particulate matter observed in retained samples.",
+    "recalling_firm": "Hollow Creek Compounding (synthetic)",
+    "report_date": "20261105"
+  },
+  {
+    "recall_number": "D-0522-2026",
+    "classification": "Class II",
+    "status": "Ongoing",
+    "product_description": "Ondansetron Orally Disintegrating Tablets, 4 mg, 30-count bottle",
+    "code_info": "lot code No Expiration Date on product: a) 224010, b) 224011; NDC 70004-088-12; UPC 3 70004 08812 4",
+    "reason_for_recall": "Failed dissolution specifications at the 6-month stability interval.",
+    "recalling_firm": "Marrowfield Labs (synthetic)",
+    "report_date": "20261103"
+  },
+  {
+    "recall_number": "D-0603-2026",
+    "classification": "Class I",
+    "status": "Ongoing",
+    "product_description": "Insulin Glargine 100 units/mL, 5 x 3 mL prefilled pens",
+    "code_info": "Lot Nos.: GX4471A exp 03/2027, GX4471B exp 03/2027; Serial range 000510–000980; NDC 70004-623-15",
+    "reason_for_recall": "Temperature excursion during distribution; potency cannot be assured.",
+    "recalling_firm": "Nightjar Biologics (synthetic)",
+    "report_date": "20261104"
+  }
+]

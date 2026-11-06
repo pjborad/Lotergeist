@@ -1,0 +1,7 @@
+{
+  "name": "grave-robber",
+  "description": "RPA authoring against the RxTerm 98 mock and the fax inbox, with Playwright.",
+  "prompt": "You work on packages/grave-robber and apps/rxterm98. Keep every selector in packages/grave-robber/rpa/selectors.json. The bot may only visit allowlisted hosts (RPA-5). Rows never contain serials: do not invent them in the bot. After a change run `npx vitest run packages/grave-robber apps/rxterm98`.",
+  "tools": ["read", "write", "shell"],
+  "resources": ["file://.kiro/steering/pharmacy-safety.md", "file://.kiro/specs/grave-robber/requirements.md", "file://.kiro/specs/grave-robber/design.md"]
+}

@@ -1,0 +1,2933 @@
+[
+  {
+    "status": "Ongoing",
+    "city": "Saint Louis",
+    "state": "MO",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "M018"
+      ],
+      "brand_name": [
+        "ARTIFICIAL TEARS"
+      ],
+      "generic_name": [
+        "ARTIFICIAL TEARS"
+      ],
+      "manufacturer_name": [
+        "AvPAK"
+      ],
+      "product_ndc": [
+        "50268-043"
+      ],
+      "product_type": [
+        "HUMAN OTC DRUG"
+      ],
+      "route": [
+        "OPHTHALMIC"
+      ],
+      "substance_name": [
+        "DEXTRAN 70",
+        "GLYCERIN",
+        "HYPROMELLOSES"
+      ],
+      "rxcui": [
+        "900138"
+      ],
+      "spl_id": [
+        "5606f407-17ba-2cdc-e063-6394a90a7dd2"
+      ],
+      "spl_set_id": [
+        "f18bebf2-1936-658f-e053-2a95a90a5012"
+      ],
+      "package_ndc": [
+        "50268-043-15"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "nui": [
+        "N0000184175",
+        "N0000009361",
+        "N0000010288",
+        "N0000185370",
+        "N0000175629",
+        "N0000184306",
+        "N0000185001",
+        "M0000728",
+        "M0009417"
+      ],
+      "pharm_class_epc": [
+        "Plasma Volume Expander [EPC]",
+        "Non-Standardized Chemical Allergen [EPC]"
+      ],
+      "pharm_class_pe": [
+        "Increased Intravascular Volume [PE]",
+        "Increased Histamine Release [PE]",
+        "Cell-mediated Immunity [PE]",
+        "Increased IgG Production [PE]"
+      ],
+      "pharm_class_moa": [
+        "Osmotic Activity [MoA]"
+      ],
+      "pharm_class_cs": [
+        "Allergens [CS]",
+        "Glycerol [CS]"
+      ],
+      "unii": [
+        "7SA290YK68",
+        "PDC6A3C0OX",
+        "3NXW29V3WO"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96741",
+    "recalling_firm": "BRS Analytical Services, LLC",
+    "address_1": "11697 Lakeside Crossing Ct",
+    "address_2": "N/A",
+    "postal_code": "63146-8606",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the USA",
+    "recall_number": "D-0404-2025",
+    "product_description": "Artificial Tears Ophthalmic Solution, Dextran 70.01%/Glycerin 0.2%/Hypromellose 0.3% (Eye Lubricants) Lubricant Eye Drops, STERILE, 0.5 FL OZ (15 mL) per dropper bottle, Distributed by: AvKARE, Pulaski, TN 38478, NDC: 50268-043-15.",
+    "product_quantity": "13,872 cases (24 cartons per case)",
+    "reason_for_recall": "cGMP deviations and lack of assurance of sterility.",
+    "recall_initiation_date": "20250423",
+    "center_classification_date": "20250506",
+    "report_date": "20250514",
+    "code_info": "Lot, expiry:  Lot 126, exp 10/26/25; Lot 127, exp 10/30/25; Lot 128, exp 11/02/25; Lot 129, exp 11/06/25; Lot 162, exp 5/09/26; Lot 163, exp 5/14/26; Lot 164, exp 5/20/26; Lot 165, exp 5/23/26; Lot 166, exp 5/29/26; Lot 167, exp 6/03/26; Lot 168, exp 6/06/26; Lot 169, exp 6/10/26; Lot 170, exp 6/13/26; Lot 193, exp 10/07/26; Lot 194, exp 10/10/26; Lot 195, exp 10/14/26; Lot 196, exp 10/17/26; Lot 197, exp 10/21/26; Lot 198, exp 10/24/26; Lot 199, exp 10/30/26.",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Parsippany",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "97755",
+    "recalling_firm": "Teva Pharmaceuticals USA, Inc",
+    "address_1": "400 Interpace Pkwy Bldg A",
+    "address_2": "N/A",
+    "postal_code": "07054-1120",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "U.S. Nationwide",
+    "recall_number": "D-0105-2026",
+    "product_description": "Prazosin Hydrochloride, Capsules, USP, 2 mg, Rx only, Distributed by TEVA PHARMACEUTICALS USA, INC., North Wales, PA 19454, a) 100 Capsules, NDC 0093-4068-01, b) 1000 Capsules, NDC 0093-4068-10",
+    "product_quantity": "291,512 bottles",
+    "reason_for_recall": "CGMP Deviations-Test results for N-nitroso Prazosin impurity C that are above the Carcinogenic Potency Categorization Approach (CPCA) acceptable intake limit for the above specified lots.",
+    "recall_initiation_date": "20251007",
+    "center_classification_date": "20251024",
+    "report_date": "20251105",
+    "code_info": "a) NDC 0093-4068-01: Lot # 3010398A, 3010399A, 3010400A, 3010401A, 3010353A, Exp Date: 12/2025; Lot # 3010439A, 3010388A, Exp Date: 01/2026; Lot # 3010526A, 3010527A, Exp Date: 03/2026; Lot # 3010591A, 07/2026; Lot # 3010343A, Exp Date: 10/2025; Lot # 3010352A, Exp Date: 11/2025; Lot # 3010468A, 3010469A, 3010461A, Exp Date: 02/2026; Lot # 3010629A, Exp Date:  09/2026; Lot # 3010653A, Exp Date: 01/2027; Lot # 3010654A, 3010679A, 3010702A, Exp Date: 02/2027; Lot # 3010547A, Exp Date: 04/2026  b) NDC 0093-4068-10: Lot # 3010402A Exp Date: 02/2028; Lot # 3010593A, Exp Date: 07/2026, Lot # 3010610A, Exp Date: 09/2026"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Mahwah",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA078251"
+      ],
+      "brand_name": [
+        "CARVEDILOL"
+      ],
+      "generic_name": [
+        "CARVEDILOL"
+      ],
+      "manufacturer_name": [
+        "Glenmark Pharmaceuticals Inc., USA"
+      ],
+      "product_ndc": [
+        "68462-162",
+        "68462-163",
+        "68462-164",
+        "68462-165"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "CARVEDILOL"
+      ],
+      "rxcui": [
+        "200031",
+        "200032",
+        "200033",
+        "686924"
+      ],
+      "spl_id": [
+        "5f5b2d20-cc2a-4e91-b2b9-260e7438ab2c"
+      ],
+      "spl_set_id": [
+        "c4a21f67-7812-4634-beba-f8e85c63c5f2"
+      ],
+      "package_ndc": [
+        "68462-162-60",
+        "68462-162-01",
+        "68462-162-18",
+        "68462-162-05",
+        "68462-162-10",
+        "68462-163-60",
+        "68462-163-01",
+        "68462-163-18",
+        "68462-163-05",
+        "68462-163-10",
+        "68462-164-60",
+        "68462-164-01",
+        "68462-164-18",
+        "68462-164-05",
+        "68462-164-10",
+        "68462-165-60",
+        "68462-165-01",
+        "68462-165-18",
+        "68462-165-05",
+        "68462-165-10"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0368462162019",
+        "0368462163016",
+        "0368462164013",
+        "0368462165010"
+      ],
+      "nui": [
+        "N0000000099",
+        "N0000009923",
+        "N0000009924",
+        "N0000175553",
+        "N0000175556"
+      ],
+      "pharm_class_moa": [
+        "Adrenergic alpha-Antagonists [MoA]",
+        "Adrenergic beta1-Antagonists [MoA]",
+        "Adrenergic beta2-Antagonists [MoA]"
+      ],
+      "pharm_class_epc": [
+        "alpha-Adrenergic Blocker [EPC]",
+        "beta-Adrenergic Blocker [EPC]"
+      ],
+      "unii": [
+        "0K47UL67F2"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96861",
+    "recalling_firm": "Glenmark Pharmaceuticals Inc., USA",
+    "address_1": "750 Corporate Dr",
+    "address_2": "N/A",
+    "postal_code": "07430-2009",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "U.S. Nationwide",
+    "recall_number": "D-0449-2025",
+    "product_description": "Carvedilol Tablets USP 6.25 mg, a.)100-count bottle (NDC 68462-163-01), b.) 500-count bottle (NDC 68462-163-05) Rx Only, Manufactured by: Glenmark Pharmaceuticals Ltd., Manufactured for: Glenmark Pharmaceuticals Inc., USA, Mahwah, NJ 07430.",
+    "product_quantity": "[100 Tablet Bottles] 90,000 bottles; [500 Tablet Bottles] 324,288 bottles",
+    "reason_for_recall": "CGMP Deviations; presence 'N-Nitroso Carvedilol I' Impurity above the recommended acceptable intake limit",
+    "recall_initiation_date": "20250228",
+    "center_classification_date": "20250528",
+    "report_date": "20250604",
+    "code_info": "[100-Count Bottles]    Lot 19231618, exp Mar-25; 19232064, exp Apr-25; 19232324, May-25; 19233369, Exp Jul-25;  Lot 19234162, Exp Sep-25; Lot 19240543, Exp Jan-26   [500-Count Bottles]   Lots 19231174, 19231199, 19231164, Exp Feb-25, 19231517,19231527, 19231566,19231568,19231595, 19231618,19231634,19231638, 19231448, Exp Mar-25, 19232043,19232051,19232064, Apr-25, 19232322, 19232324, 19232365, 19232380, 19232389, Exp May-25; Lots 19232736, 19232743, 19232746, 19232756, 19232757, Exp Jun-25; Lots 19233369, 19233371, 19233405, 19233416, Exp Jul-25; Lots 19234162, 19234183, 19234192, 19234204, 19234223, 19234243, 19234263, 19234165, 19234242, Exp Sep-25; Lots 19234743, 19234774, 19234993, Exp Nov-25; Lots 19240223, 19240203, 19240211, 19240214, 19240247, 19240249, 19240272, 19240319, Exp Dec-25; Lot 19240543, Exp Jan-26"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Bedminster",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA209288"
+      ],
+      "brand_name": [
+        "ATORVASTATIN CALCIUM"
+      ],
+      "generic_name": [
+        "ATORVASTATIN CALCIUM"
+      ],
+      "manufacturer_name": [
+        "Ascend Laboratories, LLC"
+      ],
+      "product_ndc": [
+        "67877-511",
+        "67877-512",
+        "67877-513",
+        "67877-514"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "ATORVASTATIN CALCIUM TRIHYDRATE"
+      ],
+      "rxcui": [
+        "259255",
+        "617310",
+        "617311",
+        "617312"
+      ],
+      "spl_id": [
+        "777b866a-796a-4d15-8cb6-dd0c9a1856e2"
+      ],
+      "spl_set_id": [
+        "67e60880-091a-4df7-8696-6e6c42a490e2"
+      ],
+      "package_ndc": [
+        "67877-511-90",
+        "67877-511-05",
+        "67877-511-10",
+        "67877-511-55",
+        "67877-511-33",
+        "67877-511-38",
+        "67877-512-90",
+        "67877-512-05",
+        "67877-512-10",
+        "67877-512-44",
+        "67877-512-33",
+        "67877-512-38",
+        "67877-513-90",
+        "67877-513-05",
+        "67877-513-10",
+        "67877-513-23",
+        "67877-513-33",
+        "67877-513-38",
+        "67877-514-90",
+        "67877-514-05",
+        "67877-514-10",
+        "67877-514-33",
+        "67877-514-38"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0367877512051",
+        "0367877513102",
+        "0367877514109"
+      ],
+      "unii": [
+        "48A5M73Z4Q"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "97639",
+    "recalling_firm": "Ascend Laboratories, LLC",
+    "address_1": "135 Us Highway 202 206 Ste 15",
+    "address_2": "",
+    "postal_code": "07921-2608",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "U.S. Nationwide",
+    "recall_number": "D-0019-2026",
+    "product_description": "Atorvastatin Calcium Tablets USP, 20 mg, Rx Only, a). 90-count(NDC 67877-512-90),  b). 500-count (NDC 67877-512-05), c). 1000-count(NDC 67877-512-10),Manufactured by: Alkem Laboratories, Ltd. India, Distributed by: Ascend Laboratories, LLC, Parsippany, NJ 07054.",
+    "product_quantity": "",
+    "reason_for_recall": "Failed Dissolution Specifications",
+    "recall_initiation_date": "20250919",
+    "center_classification_date": "20251010",
+    "report_date": "20251022",
+    "code_info": "Lot #: 25140150, Exp.  Dec. 2026 Lot #: 25140173, Exp. Dec. 2026 Lot #: 25140172, Exp. Dec. 2026 Lot #: 24144720, Exp. Nov. 2026 Lot #: 24144798, Exp.  Nov. 2026 Lot #: 24144692, Exp. Oct. 2026 Lot #: 24143755, Exp.  Aug. 2026 Lot #: 24143913, Exp. Aug. 2026 Lot #: 24143754, Exp.  Aug. 2026 Lot #: 24143047, Exp. June 2026 Lot #: 24142936, Exp. July 2026",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Bedminster",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA203269"
+      ],
+      "brand_name": [
+        "RIZATRIPTAN BENZOATE"
+      ],
+      "generic_name": [
+        "RIZATRIPTAN BENZOATE"
+      ],
+      "manufacturer_name": [
+        "Ascend Laboratories, LLC"
+      ],
+      "product_ndc": [
+        "67877-261",
+        "67877-262"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "RIZATRIPTAN BENZOATE"
+      ],
+      "rxcui": [
+        "312840",
+        "314209"
+      ],
+      "spl_id": [
+        "9fd3ccaa-ae93-475b-9591-5c4af70f51c5"
+      ],
+      "spl_set_id": [
+        "07e66554-bc85-4853-9f40-1249617630a9"
+      ],
+      "package_ndc": [
+        "67877-261-30",
+        "67877-261-01",
+        "67877-261-05",
+        "67877-261-18",
+        "67877-261-25",
+        "67877-262-30",
+        "67877-262-01",
+        "67877-262-05",
+        "67877-262-18",
+        "67877-262-25"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0367877261300"
+      ],
+      "unii": [
+        "WR978S7QHH"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96770",
+    "recalling_firm": "Ascend Laboratories, LLC",
+    "address_1": "135 Us Highway 202 206 Ste 15",
+    "address_2": "N/A",
+    "postal_code": "07921-2608",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Two or more of the following: Email, Fax, Letter, Press Release, Telephone, Visit",
+    "distribution_pattern": "US Nationwide.",
+    "recall_number": "D-0534-2025",
+    "product_description": "Rizatriptan Benzoate Tablets, USP, 10 mg, 18 (3x6) Unit Dose Tablets, Rx Only, Manufactured by: Alkem Laboratories Ltd., INDIA, Distributed by: Ascend Laboratories LLC, Parsippany, NJ 07054, NDC 67877-262-18",
+    "product_quantity": "N/A",
+    "reason_for_recall": "CGMP Deviations: detection of N-nitroso-dimethyl-rizatriptan impurity, above the FDA recommended acceptable intake limit.",
+    "recall_initiation_date": "20250709",
+    "center_classification_date": "20250717",
+    "report_date": "20250723",
+    "code_info": "Lot 22143653, 22143675, Exp Date: July 2025; Lot 22144528, Exp Date: September 2025; Lot 22144977, Exp Date: November 2025; Lot 23140257, Exp Date: December 2025; Lot 23140999, Exp Date: Feb. 2026; Lot 23141900, 23142118, 23142120, 23142123, Exp Date: May 2026; Lot 23144563, 23144565, Exp Date: November 2026; Lot 24142623, Exp Date: May 2027;  Lot 24142624, 24142626, 24143469, Exp Date: Jun. 2027."
+  },
+  {
+    "status": "Ongoing",
+    "city": "Bedminster",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA209288"
+      ],
+      "brand_name": [
+        "ATORVASTATIN CALCIUM"
+      ],
+      "generic_name": [
+        "ATORVASTATIN CALCIUM"
+      ],
+      "manufacturer_name": [
+        "Ascend Laboratories, LLC"
+      ],
+      "product_ndc": [
+        "67877-511",
+        "67877-512",
+        "67877-513",
+        "67877-514"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "ATORVASTATIN CALCIUM TRIHYDRATE"
+      ],
+      "rxcui": [
+        "259255",
+        "617310",
+        "617311",
+        "617312"
+      ],
+      "spl_id": [
+        "777b866a-796a-4d15-8cb6-dd0c9a1856e2"
+      ],
+      "spl_set_id": [
+        "67e60880-091a-4df7-8696-6e6c42a490e2"
+      ],
+      "package_ndc": [
+        "67877-511-90",
+        "67877-511-05",
+        "67877-511-10",
+        "67877-511-55",
+        "67877-511-33",
+        "67877-511-38",
+        "67877-512-90",
+        "67877-512-05",
+        "67877-512-10",
+        "67877-512-44",
+        "67877-512-33",
+        "67877-512-38",
+        "67877-513-90",
+        "67877-513-05",
+        "67877-513-10",
+        "67877-513-23",
+        "67877-513-33",
+        "67877-513-38",
+        "67877-514-90",
+        "67877-514-05",
+        "67877-514-10",
+        "67877-514-33",
+        "67877-514-38"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0367877512051",
+        "0367877513102",
+        "0367877514109"
+      ],
+      "unii": [
+        "48A5M73Z4Q"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "97639",
+    "recalling_firm": "Ascend Laboratories, LLC",
+    "address_1": "135 Us Highway 202 206 Ste 15",
+    "address_2": "",
+    "postal_code": "07921-2608",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "U.S. Nationwide",
+    "recall_number": "D-0020-2026",
+    "product_description": "Atorvastatin Calcium Tablets USP, 80 mg, Rx Only, a). 90-count(NDC 67877-514-90), b). 500-count(NDC 67877-514-05), Manufactured by: Alkem Laboratories, Ltd. India, Distributed by: Ascend Laboratories, LLC, Parsippany, NJ 07054",
+    "product_quantity": "",
+    "reason_for_recall": "Failed Dissolution Specifications",
+    "recall_initiation_date": "20250919",
+    "center_classification_date": "20251010",
+    "report_date": "20251022",
+    "code_info": "Lot#: 25140249, Exp. Dec. 2026 Lot#: 25140247, Exp. Dec. 2026 Lot#: 24144999, Exp. Nov. 2026 Lot#: 24144942, Exp. Nov. 2026 Lot#: 24144845, Exp. Nov. 2026 Lot#: 24144713, Exp. Nov. 2026 Lot#: 24144652, Exp. Oct. 2026 Lot#: 24143898, Exp. Aug. 2026 Lot#: 24143412, Exp. Aug. 2026 Lot#: 24143582, Exp. Aug. 2026",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Mahwah",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA078251"
+      ],
+      "brand_name": [
+        "CARVEDILOL"
+      ],
+      "generic_name": [
+        "CARVEDILOL"
+      ],
+      "manufacturer_name": [
+        "Glenmark Pharmaceuticals Inc., USA"
+      ],
+      "product_ndc": [
+        "68462-162",
+        "68462-163",
+        "68462-164",
+        "68462-165"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "CARVEDILOL"
+      ],
+      "rxcui": [
+        "200031",
+        "200032",
+        "200033",
+        "686924"
+      ],
+      "spl_id": [
+        "5f5b2d20-cc2a-4e91-b2b9-260e7438ab2c"
+      ],
+      "spl_set_id": [
+        "c4a21f67-7812-4634-beba-f8e85c63c5f2"
+      ],
+      "package_ndc": [
+        "68462-162-60",
+        "68462-162-01",
+        "68462-162-18",
+        "68462-162-05",
+        "68462-162-10",
+        "68462-163-60",
+        "68462-163-01",
+        "68462-163-18",
+        "68462-163-05",
+        "68462-163-10",
+        "68462-164-60",
+        "68462-164-01",
+        "68462-164-18",
+        "68462-164-05",
+        "68462-164-10",
+        "68462-165-60",
+        "68462-165-01",
+        "68462-165-18",
+        "68462-165-05",
+        "68462-165-10"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0368462162019",
+        "0368462163016",
+        "0368462164013",
+        "0368462165010"
+      ],
+      "nui": [
+        "N0000000099",
+        "N0000009923",
+        "N0000009924",
+        "N0000175553",
+        "N0000175556"
+      ],
+      "pharm_class_moa": [
+        "Adrenergic alpha-Antagonists [MoA]",
+        "Adrenergic beta1-Antagonists [MoA]",
+        "Adrenergic beta2-Antagonists [MoA]"
+      ],
+      "pharm_class_epc": [
+        "alpha-Adrenergic Blocker [EPC]",
+        "beta-Adrenergic Blocker [EPC]"
+      ],
+      "unii": [
+        "0K47UL67F2"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96861",
+    "recalling_firm": "Glenmark Pharmaceuticals Inc., USA",
+    "address_1": "750 Corporate Dr",
+    "address_2": "N/A",
+    "postal_code": "07430-2009",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "U.S. Nationwide",
+    "recall_number": "D-0448-2025",
+    "product_description": "Carvedilol Tablets USP 3.125mg Tablets  a.)100-count bottle (NDC 68462-162-01), b.) 500-count bottle (NDC 68462-162-05),  Rx Only, Manufactured by: Glenmark Pharmaceuticals Ltd., Manufactured for: Glenmark Pharmaceuticals Inc., USA, Mahwah, NJ 07430.",
+    "product_quantity": "[100 Tablet Bottles] 59,952 bottles; [500 Tablet Bottles] 155,976 bottles",
+    "reason_for_recall": "CGMP Deviations; presence 'N-Nitroso Carvedilol I' Impurity above the recommended acceptable intake limit",
+    "recall_initiation_date": "20250228",
+    "center_classification_date": "20250528",
+    "report_date": "20250604",
+    "code_info": "[100-Count Bottles]   Lot 19231450, Exp Mar-25, 19233345, Exp Jul-25; Lot 19234275, Exp Sep-25; Lot 19240280, Exp DEC-25  [500-Count Bottles]   Lot 19231450, 19231464, 19231471, 19231493, Exp Mar-25, 19232083, 19232103 Exp Apr-25, 19232658, Exp Jun-25; Lot 19233328, 19233343, 19233344, 19233345, Exp Jul-25; Lot 19234275, Exp Sep-25; Lots 19234843,  19235039, Exp Nov-25; Lots 19240280, 19240296, Dec-25"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Parsippany",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "97755",
+    "recalling_firm": "Teva Pharmaceuticals USA, Inc",
+    "address_1": "400 Interpace Pkwy Bldg A",
+    "address_2": "N/A",
+    "postal_code": "07054-1120",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "U.S. Nationwide",
+    "recall_number": "D-0104-2026",
+    "product_description": "Prazosin Hydrochloride, Capsules, USP, 1 mg, Rx only, Distributed by TEVA PHARMACEUTICALS USA, INC., North Wales, PA 19454, a) 100 Capsules, NDC 0093-4067-01, b) 1000 Capsules, NDC 0093-4067-10",
+    "product_quantity": "181,659 bottles",
+    "reason_for_recall": "CGMP Deviations-Test results for N-nitroso Prazosin impurity C that are above the Carcinogenic Potency Categorization Approach (CPCA) acceptable intake limit for the above specified lots.",
+    "recall_initiation_date": "20251007",
+    "center_classification_date": "20251024",
+    "report_date": "20251105",
+    "code_info": "a) NDC 0093-4067-01: Lot # 3010544A and 3010545A, Exp Date: 10/2025; Lot # 3010567A, Exp Date: 12/2025; Lot # 3010590A, Exp Date: 02/2026; Lot # 3010601A, 3010602A, 3010603A, Exp Date: 03/2026; Lot # 3010652A, 3010670A, 3010671A, Exp Date: 07/2026; Lot # 3010678A, 3010700A, 3010701A, Exp Date: 08/2026  b) NDC 0093-4067-10: Lot # 3010440A, Exp Date: 12/2025; Lot # 3010672A, Exp Date: 07/2026"
+  },
+  {
+    "status": "Ongoing",
+    "city": "New Albany",
+    "state": "OH",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA090534"
+      ],
+      "brand_name": [
+        "NICARDIPINE HYDROCHLORIDE"
+      ],
+      "generic_name": [
+        "NICARDIPINE HYDROCHLORIDE"
+      ],
+      "manufacturer_name": [
+        "Civica, Inc."
+      ],
+      "product_ndc": [
+        "72572-470"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "INTRAVENOUS"
+      ],
+      "substance_name": [
+        "NICARDIPINE HYDROCHLORIDE"
+      ],
+      "rxcui": [
+        "858607"
+      ],
+      "spl_id": [
+        "fba70df6-5d37-4a12-bce3-e6fb1b0c72b2"
+      ],
+      "spl_set_id": [
+        "30fb3a4d-fa75-42fd-b4b6-2a21f202027f"
+      ],
+      "package_ndc": [
+        "72572-470-01",
+        "72572-470-10"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "unii": [
+        "K5BC5011K3"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96695",
+    "recalling_firm": "American Regent, Inc.",
+    "address_1": "6610 New Albany Rd E",
+    "address_2": "",
+    "postal_code": "43054-8730",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the USA",
+    "recall_number": "D-0398-2025",
+    "product_description": "niCARdipine Hydrochloride Injection, USP, 25 mg/10 mL (2.5 mg/mL), 10 mL Single Dose Vial, Rx Only, Mfd for: Civica, Inc., Lehi, UT 84043,Mfd by: American Regent, Inc., New Albany, OH 43064. NDC Carton: 72572-470-10/ NDC Vial: 72572-470-01.",
+    "product_quantity": "29,777 (cartons of 10 x 10mL vials)",
+    "reason_for_recall": "Lack of sterility assurance: Product leakage around the vial neck, which could potentially result in a lack of sterility assurance.",
+    "recall_initiation_date": "20250418",
+    "center_classification_date": "20250501",
+    "report_date": "20250507",
+    "code_info": "Lots, expiry: Lot 24025N0C0, 6/30/2025; Lot 24115N0C0, 10/31/2025; Lot 24116N0C0, 3/31/2026; Lot 24160N0C0, 12/31/2025; Lot 24217N0C0, 01/31/2026; Lot 24288N0C0, 04/30/2026; Lot 24331N0C0, 5/31/2026",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Elmwood Park",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class III",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "98036",
+    "recalling_firm": "Glenmark Pharmaceuticals Inc., USA",
+    "address_1": "619 River Dr",
+    "address_2": "",
+    "postal_code": "07407-1317",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the USA",
+    "recall_number": "D-0199-2026",
+    "product_description": "Bisoprolol Fumarate and Hydrochlorothiazide Tablets, USP, 2.5 mg/6.25 mg, packaged as (a) 30-count bottles, NDC-68462-878-30; (b) 100-count bottle, NDC-68462-878-01; (c) 500-count bottles, NDC-68462-878-05; Rx Only, Manufactured by: Glenmark Pharmaceuticals Limited, Pithampur, Madhya Pradesh 454775, Inda. Manufactured for: Glenmark Pharmaceuticals, Inc., USA, Mahwah, NJ 07430.",
+    "product_quantity": "11,136 bottles",
+    "reason_for_recall": "Cross Contamination with Other Products: Testing of reserve samples showed presence of traces of ezetimibe",
+    "recall_initiation_date": "20251121",
+    "center_classification_date": "20251201",
+    "report_date": "20251210",
+    "code_info": "Lot #: (a): Lot 17232401, exp 11/2025; Lot 17240974, exp 05/2026 (b): Lot 17232401, exp 11/2025; Lot 17240974, exp 05/2026 (c): Lot 17232401, exp 11/2025; Lot 17240974, exp 05/2026",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Racine",
+    "state": "WI",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96324",
+    "recalling_firm": "Johnson, S C and Son, Inc",
+    "address_1": "1525 Howe St",
+    "address_2": "",
+    "postal_code": "53403-2237",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "",
+    "distribution_pattern": "Nationwide within the United States and Canada",
+    "recall_number": "D-0276-2025",
+    "product_description": "Kids by babyganics SPF 50 mineral sunscreen totally tropical (titanium dioxide 3/5%, zinc oxide 7.25%), packaged in 3 OZ spray bottles, Dist. by KAS Direct LLC, 1525 Howe St. Racine, WI 53403, UPC 813277019923 and UPC 813277019916",
+    "product_quantity": "493,462 units",
+    "reason_for_recall": "Chemical Contamination",
+    "recall_initiation_date": "20250213",
+    "center_classification_date": "20250312",
+    "report_date": "20250319",
+    "code_info": "UPC 813277019916  Lot #: A033 / 5880343A, A054 / 2030633A, A058 / 2050633A, A058 / 2050633B, A058 / 2060633A, A058 / 2070633A, A058 / 2040633A, A059 / 2080633A, Exp. Date Feb-25;  A314 / 4513223A, Exp. Date Nov-25; C054 / 2090774A, C057 / 2100774A, Exp. Date Feb-26; C131 / 3201394A, C131 / 3211394A, C131 / 3211394B, C131 / 3211394C, Exp. Date May-26  UPC 813277019923  Lot #: A060 / 3780693A, A060 / 3780693B, Exp. Date Mar-25; C067 / 2110774A, C067 / 2110774B, C067 / 2110774C, Exp. Date Mar-26; C169 / 7921734A, C169 / 7921734B, Exp. Date Jun-26",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Wichita",
+    "state": "KS",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "97540",
+    "recalling_firm": "Fagron Compounding Services",
+    "address_1": "8710 E 34th St N",
+    "address_2": "N/A",
+    "postal_code": "67226-2636",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "USA nationwide.",
+    "recall_number": "D-0646-2025",
+    "product_description": "bevacizumab (Avastin) Injection, 1.25mg/0.05mL (0.12 mL Fill), Sterile Single-Dose Syringe, Fagron Sterile Services, 8710 E 34th St N. Wichita, KS 67226",
+    "product_quantity": "109,320 syringes",
+    "reason_for_recall": "Lack of Assurance of Sterility",
+    "recall_initiation_date": "20250829",
+    "center_classification_date": "20250912",
+    "report_date": "20250924",
+    "code_info": "Lot #: C274-000044756, C274-000044757, Exp 8-30-2025; C274-000044832, C274-000044833, Exp 9-4-2025; C274-000044882, C274-000044883, Exp 9-6-2025, C274-000044972, Exp 9-8-2025; C274-000045004, C274-000045005, Exp 9-18-2025 C274-000045108, exp. date 9-13-2025 C274-000045109, exp. date 9-13-2025 C274-000045136, exp. date 9-14-2025 C274-000045137, exp. date 9-14-2025 C274-000045289, exp. date 9-20-2025 C274-000045290, exp. date 9-20-2025 C274-000045350, exp. date 9-22-2025 C274-000045351, exp. date 9-22-2025 C274-000045387, exp. date 9-25-2025 C274-000045388, exp. date 9-25-2025 C274-000045516, exp. date 9-27-2025 C274-000045517, exp. date 9-27-2025 C274-000045586, exp. date 10-2-2025 C274-000045587, exp. date 10-2-2025 C274-000045676, exp. date 10-4-2025 C274-000045677, exp. date 10-4-2025 C274-000045707, exp. date 10-5-2025 C274-000045708, exp. date 10-5-2025 C274-000045754, exp. date 10-9-2025 C274-000045755, exp. date 10-9-2025 C274-000045840, exp. date 10-11-2025 C274-000045841, exp. date 10-11-2025 C274-000046048, exp. date 10-24-2025 C274-000046049, exp. date 10-24-2025 C274-000046095, exp. date 10-25-2025 C274-000046096, exp. date 10-25-2025 C274-000046122, exp. date 10-26-2025 C274-000046123, exp. date 10-26-2025 C274-000046164, exp. date 10-30-2025 C274-000046165, exp. date 10-30-2025 C274-000046191, exp. date 10-31-2025 C274-000046192, exp. date 10-31-2025 C274-000046240, exp. date 11-1-2025 C274-000046241, exp. date 11-1-2025 C274-000046315, exp. date 11-6-2025 C274-000046316, exp. date 11-6-2025 C274-000046345, exp. date 11-7-2025 C274-000046346, exp. date 11-7-2025 C274-000046515, exp. date 11-14-2025 C274-000046516, exp. date 11-14-2025 C274-000046603, exp. date 11-16-2025 C274-000046657, exp. date 11-20-2025 C274-000047136, exp. date 12-12-2025"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Mahwah",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA078251"
+      ],
+      "brand_name": [
+        "CARVEDILOL"
+      ],
+      "generic_name": [
+        "CARVEDILOL"
+      ],
+      "manufacturer_name": [
+        "Glenmark Pharmaceuticals Inc., USA"
+      ],
+      "product_ndc": [
+        "68462-162",
+        "68462-163",
+        "68462-164",
+        "68462-165"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "CARVEDILOL"
+      ],
+      "rxcui": [
+        "200031",
+        "200032",
+        "200033",
+        "686924"
+      ],
+      "spl_id": [
+        "5f5b2d20-cc2a-4e91-b2b9-260e7438ab2c"
+      ],
+      "spl_set_id": [
+        "c4a21f67-7812-4634-beba-f8e85c63c5f2"
+      ],
+      "package_ndc": [
+        "68462-162-60",
+        "68462-162-01",
+        "68462-162-18",
+        "68462-162-05",
+        "68462-162-10",
+        "68462-163-60",
+        "68462-163-01",
+        "68462-163-18",
+        "68462-163-05",
+        "68462-163-10",
+        "68462-164-60",
+        "68462-164-01",
+        "68462-164-18",
+        "68462-164-05",
+        "68462-164-10",
+        "68462-165-60",
+        "68462-165-01",
+        "68462-165-18",
+        "68462-165-05",
+        "68462-165-10"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0368462162019",
+        "0368462163016",
+        "0368462164013",
+        "0368462165010",
+        "202517231315"
+      ],
+      "nui": [
+        "N0000000099",
+        "N0000009923",
+        "N0000009924",
+        "N0000175553",
+        "N0000175556"
+      ],
+      "pharm_class_moa": [
+        "Adrenergic alpha-Antagonists [MoA]",
+        "Adrenergic beta1-Antagonists [MoA]",
+        "Adrenergic beta2-Antagonists [MoA]"
+      ],
+      "pharm_class_epc": [
+        "alpha-Adrenergic Blocker [EPC]",
+        "beta-Adrenergic Blocker [EPC]"
+      ],
+      "unii": [
+        "0K47UL67F2"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96162",
+    "recalling_firm": "Glenmark Pharmaceuticals Inc., USA",
+    "address_1": "750 Corporate Dr",
+    "address_2": "",
+    "postal_code": "07430-2009",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the U.S",
+    "recall_number": "D-0215-2025",
+    "product_description": "Carvedilol Tablets, USP, 25 mg, Rx only, a)500 Tablets, NDC 68462-165-05; b) 100 Tablets, NDC 68462-165-01, Manufactured for Glenmark Pharmaceuticals, NJ.",
+    "product_quantity": "",
+    "reason_for_recall": "CGMP Deviations:N-Nitroso Carvedilol I impurity (NNCI-I) were found to be failing per current FDA recommended limit.",
+    "recall_initiation_date": "20250122",
+    "center_classification_date": "20250203",
+    "report_date": "20250212",
+    "code_info": "Lot numbers: a) 17230500, 17230509,17230526,17230546,17230551,17230603,17230628, 17230642,17230645,17230681, Exp.:02/2025; 17230829,17230832,17230854, 17230864,17230874,17230876,17230889,17230894, Exp.: 03/2025; 17230960, 17230964,17230976,17230981,17230985,17231161,17231171, Exp.: 04/2025 17231315,17231318,17231332,17231333,17231365, Exp.: 05/2025; 17231539, 17231563, Exp.: 06/2025; 17231653,17231662,17231663,17231680,17231691, 17231781,17231782,17231789, Exp.: 07/2025;17231838,17231880, Exp.: 08/2025; 17232144,17232147,17232151, Exp.: 09/2025; 17232369,17232370,17232408,17232409, 17232416,17232504,17232522,17232531,17232538,17232543, Exp.: 11/2025; 17240377,17240385,17240415,17240422,17240430,17240510, Exp.: 02/2026.  b) 17230551, 17240377, Exp.:02/2025",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Clark",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96390",
+    "recalling_firm": "L'Oreal USA",
+    "address_1": "222 Terminal Ave",
+    "address_2": "",
+    "postal_code": "07066-1317",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the USA",
+    "recall_number": "D-0419-2025",
+    "product_description": "La Roche-Posay Laboratoire Dermatologique Effaclar Duo Dual Action Acne Treatment, 5.5% Benzoyl Peroxide Acne Medication, a) UPC 3606000508804, 20 mL (0.7 fl. oz.) Tube per Carton, b) 883140500759, 40 mL (1.35 fl. oz.) Tube per Carton, La Roche-Posay LLC, 10 Hudson Yards, New York, NY 10001, La Roche-Posay, France.",
+    "product_quantity": "",
+    "reason_for_recall": "cGMP Deviations: The recall was initiated due to detected trace levels of benzene in a specific lot of this product lot (MYX46W), however out of an abundance of caution, the firm voluntarily recalled all La Roche-Posay Effaclar Duo Dual Action Acne Treatment lots.",
+    "recall_initiation_date": "20250305",
+    "center_classification_date": "20250509",
+    "report_date": "20250521",
+    "code_info": "a) Lot #s, Expiration dates: MYX30W 03/2025 MYX43W 04/2025 MYX41W 04/2025 MYX42W 04/2025 MYX40W 04/2025 MYX51W 05/2025 MYX50W 05/2025 MYX60W 05/2025 MYX71W 06/2025 MYX90W 08/2025 MYX91W 09/2025 MYX92W 08/2025 MYXO0W 09/2025 MYX93W  09/2025 MYXD1W  11/2025 MYXD2W  11/2025 MYXDOW 09/2025 MYXD4W  11/2025 MYXD3W  11/2025 MYY22W  02/2026 MYY21W  02/2026 MYY20W  02/2026 MYY41W  04/2026 MYY40W  04/2026 MYY42W  04/2026 MYY43W  04/2026 MYY52W  05/2026 MYY51W  05/2026 MYY50W  05/2026 MYY60W  06/2026  b) Lot #s, Expiration dates MYX31W  3/2025  MYX32W  3/2025  MYX33W  3/2025  MYX34W  3/2025  MYX35W  3/2025  MYX40W  3/2025  MYX41W  4/2025  MYX42W  4/2025  MYX44W  4/2025  MYX45W  4/2025   MYX47W  4/2025  MYX48W  4/2025  MYX49W  4/2025  MYX50W  5/2025  MYX51W  5/2025  MYX52W  5/2025  MYX70W  6/2025  MYX71W  6/2025  MYX72W  7/2025  MYX73W  7/2025  MYX74W  7/2025  MYX75W  7/2025  MYX77W  7/2025  MYX78W  7/2025  MYX80W  8/2025  MYX81W  7/2025  MYX82W  8/2025  MYX83W  8/2025  MYX84W  7/2025  MYXO0W  9/2025  MYXO1W  8/2025  MYXO3W  8/2025  MYXO4W  9/2025  MYXO5W  9/2025  MYXO7W  9/2025  MYXO8W  8/2025  MYXO9W  9/2025  MYXD0W  11/2025  MYXD1W  12/2025  MYXD2W  11/2025  MYXD3W  11/2025  MYXD4W  11/2025  MYXD5W  11/2025  MYXD6W  12/2025  MYY22W  02/2026  MYY23W  02/2026  MYY30W  02/2026  MYY31W  03/2026  MYY32W  03/2026  MYY40W  03/2026  MYY41W  04/2026  MYY42W  04/2026  MYY43W  04/2026  MYY51W  04/2026  MYY60W  06/2026  MYY61W  06/2026  MYY62W  06/2026  MYY63W  06/2026  MYY64W    06/2026 MYY65W    06/2026 MYY66W    06/2026",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Camarillo",
+    "state": "CA",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA203899"
+      ],
+      "brand_name": [
+        "NIACIN"
+      ],
+      "generic_name": [
+        "NIACIN"
+      ],
+      "manufacturer_name": [
+        "Golden State Medical Supply, Inc."
+      ],
+      "product_ndc": [
+        "51407-267",
+        "51407-268"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "NIACIN"
+      ],
+      "rxcui": [
+        "1098134",
+        "1098141"
+      ],
+      "spl_id": [
+        "4f87399c-e97f-1fb8-e063-6294a90a509e"
+      ],
+      "spl_set_id": [
+        "8eff9205-84ac-e69d-e053-2995a90aad4b"
+      ],
+      "package_ndc": [
+        "51407-267-90",
+        "51407-268-90"
+      ],
+      "original_packager_product_ndc": [
+        "62175-320",
+        "62175-322"
+      ],
+      "nui": [
+        "N0000175594",
+        "M0014839"
+      ],
+      "pharm_class_epc": [
+        "Nicotinic Acid [EPC]"
+      ],
+      "pharm_class_cs": [
+        "Nicotinic Acids [CS]"
+      ],
+      "unii": [
+        "2679MF687A"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "97859",
+    "recalling_firm": "Golden State Medical Supply Inc.",
+    "address_1": "5187 Camino Ruiz",
+    "address_2": "",
+    "postal_code": "93012-8601",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the USA",
+    "recall_number": "D-0158-2026",
+    "product_description": "NIACIN Extended-Release Tablets, USP, 1,000 mg, 90 tablets per bottle, Rx only, Manufactured by: Kremers Urban Pharmaceuticals, Inc., a subsidiary of Lannett Company, Inc., Seymour, IN 47274.  Packaged by GSMS, Incorporated, Carmarillo, CA 93012.  NDC:  51407-268-90",
+    "product_quantity": "24,869 bottles",
+    "reason_for_recall": "Failed Dissolution Specifications",
+    "recall_initiation_date": "20251020",
+    "center_classification_date": "20251119",
+    "report_date": "20251126",
+    "code_info": "Lot, expiry: GS044385, exp 10/2025  ; GS044979, exp 10/2025  ; GS045797, exp 12/2025  ; GS046415, exp 12/2025  ; GS047197, exp 02/2026  ; GS047786, exp 02/2026  ; GS048477, exp 02/2026  ; GS049480, exp 03/2026  ; GS048873, exp 03/2026  ; GS049733, exp 03/2026  ; GS050224, exp 03/2026  ; GS050721, exp 03/2026  ; GS050722, exp 03/2026  ; GS051145, exp 03/2026  ; GS051726, exp 03/2026  ; GS052484, exp 03/2026  ; GS053612, exp 04/2026  ; GS054987, exp 05/2026  ; GS054409, exp 05/2026  ; GS055697, exp 05/2026  ; GS056192, exp 05/2026  ; GS056886, exp 05/2026  ; GS058077, exp 05/2026  ; GS057330, exp 05/2026",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Dublin",
+    "state": "OH",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA090858"
+      ],
+      "brand_name": [
+        "GABAPENTIN"
+      ],
+      "generic_name": [
+        "GABAPENTIN"
+      ],
+      "manufacturer_name": [
+        "Cardinal Health 107, LLC"
+      ],
+      "product_ndc": [
+        "55154-3363",
+        "55154-7992",
+        "55154-7993"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "GABAPENTIN"
+      ],
+      "rxcui": [
+        "310430",
+        "310431",
+        "310432"
+      ],
+      "spl_id": [
+        "f87a3e04-b5ac-41b5-9b3b-f78c75a71277"
+      ],
+      "spl_set_id": [
+        "41844c21-9e2a-4332-a8ff-9b71ae9032b0"
+      ],
+      "package_ndc": [
+        "55154-3363-0",
+        "55154-7992-0",
+        "55154-7993-0",
+        "0904-6665-61"
+      ],
+      "original_packager_product_ndc": [
+        "0904-6665",
+        "0904-6666",
+        "0904-6667"
+      ],
+      "upc": [
+        "0055154336307",
+        "0055154799201"
+      ],
+      "nui": [
+        "N0000008486"
+      ],
+      "pharm_class_pe": [
+        "Decreased Central Nervous System Disorganized Electrical Activity [PE]"
+      ],
+      "unii": [
+        "6CW7F3G59X"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "97777",
+    "recalling_firm": "The Harvard Drug Group LLC",
+    "address_1": "7000 Cardinal Pl",
+    "address_2": "",
+    "postal_code": "43017-1091",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "",
+    "distribution_pattern": "US Nationwide.",
+    "recall_number": "D-0031-2026",
+    "product_description": "Gabapentin Capsules, USP, 100 mg, 10 Capsules (10 x 1 blister pack), Rx only, Packaged and Distributed by: Major Pharmaceuticals, Indianapolis, IN 46268, USA, NDC 0904-6665-61 (Blister pack), NDC 55154-3363-0 (Outer Bag).",
+    "product_quantity": "",
+    "reason_for_recall": "Failed Impurities/Degradation Specifications: an out of specification result obtained during routine stability testing for Highest Unknown Impurity .",
+    "recall_initiation_date": "20251010",
+    "center_classification_date": "20251017",
+    "report_date": "20251029",
+    "code_info": "Lot # M04989A [Bag], M04989 [Blister Pack], Exp Date: 02/2026; Lot # M05056A [Bag], M05056 [Blister Pack], Exp Date: 04/2026; Lot # M05150A [Bag], M05150 [Blister Pack], Exp Date: 07/2026; Lot # M05312A [Bag], M05312 [Blister Pack], and M05342A [Bag], M05342 [Blister Pack], Exp Date: 01/2027.",
+    "more_code_info": ""
+  },
+  {
+    "status": "Terminated",
+    "city": "Ta. Kadi, District Mehsana",
+    "state": "N/A",
+    "country": "India",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96797",
+    "recalling_firm": "KENIL HEALTHCARE PRIVATE LIMITED",
+    "address_1": "Plot 319",
+    "address_2": "Village Acharasan, Ankhol-Vamaj Road",
+    "postal_code": "N/A",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Two or more of the following: Email, Fax, Letter, Press Release, Telephone, Visit",
+    "distribution_pattern": "DE and NC",
+    "recall_number": "D-0434-2025",
+    "product_description": "Maximum Security, Anticavity Gel Toothpaste, Sodium Fluoride 0.22%, Fresh Mint Flavor, NET WT 1.5 OZ (43 g) Tube, Made in India, Dist. by Bob Barker Co. Inc., Fuquay-Varina, NC 27526, NDC 53247-132-04",
+    "product_quantity": "216,720 Tubes",
+    "reason_for_recall": "CGMP Deviations",
+    "recall_initiation_date": "20250424",
+    "center_classification_date": "20250519",
+    "termination_date": "20260219",
+    "report_date": "20250528",
+    "code_info": "Lot B0013, Exp Date: 05/31/2026; Lot B0018, Exp Date: 06/30/2026; Lot B0053, B0054, Exp Date: 07/31/2026; Lot B0090, B0091, B0092, B0093, B0094, B0095, B0096, B0097, B0098, B0099, B0100, B0101, Exp Date: 09/30/2026"
+  },
+  {
+    "status": "Ongoing",
+    "city": "North Bergen",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class I",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "97277",
+    "recalling_firm": "DermaRite Industries, LLC",
+    "address_1": "7777 W Side Ave",
+    "address_2": "N/A",
+    "postal_code": "07047-6436",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide within the USA",
+    "recall_number": "D-0610-2025",
+    "product_description": "DermaKleen, Health Care Antiseptic Lotion Soap with Vitamin E (Chloroxylenol 0.2%), packaged in a) 800 ml (27 fl. oz.) bag-n-box (NDC 61924-092-27)  and b) 1000ml (34 fl. oz.) bag-n-box (NDC 61924-092-34) , DermaRite Industries LLC, 7777 West Side Avenue, North Bergen, NJ 07047.",
+    "product_quantity": "11,321 bag in boxes",
+    "reason_for_recall": "Microbial Contamination of Non-Sterile Drug Product: The products were found to be contaminated with the bacteria Burkholderia cepecia.",
+    "recall_initiation_date": "20250717",
+    "center_classification_date": "20250902",
+    "report_date": "20250910",
+    "code_info": "Lot # and Expiration Date: a) 30550A, Exp. Date 7/2025; 30670A, 30682A, Exp. Date 8/2025; 40025A, Exp. Date 1/2026; 40375A, Exp. Date 4/2026; 40427A, 40436A, Exp. Date 5/2026; 50068A, Exp. Date 1/2027.  b)30586A, 30586B, 30626A, Exp. Date 7/2025; 30628A, 30657A, Exp. Date 8/2025;   30741A, Exp. Date 7/2025; 30871A, Exp. Date 10/2025; 40002A, Exp. Date 12/2025; 40012A, Exp. Date 1/2026; 40301A, Exp. Date 3/2026; 40789 A, Exp. Date 9/2026; 50068B, Exp. Date 1/2027; 50144A, 50149A, Exp. Date 2/2027."
+  },
+  {
+    "status": "Ongoing",
+    "city": "Saint Louis",
+    "state": "MO",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96741",
+    "recalling_firm": "BRS Analytical Services, LLC",
+    "address_1": "11697 Lakeside Crossing Ct",
+    "address_2": "N/A",
+    "postal_code": "63146-8606",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the USA",
+    "recall_number": "D-0405-2025",
+    "product_description": "Carboxymethylcellulose Sodium Ophthalmic Gel 1%, Carboxymethlycellulose Sodium 1% Eye Lubricant, Lubricant Eye Gel, Soothing Gel, Sterile, 0.5 FL OZ (15mL) per bottle, Distributed by: AvKARE, Pulaski, TN 38478, NDC: 50268-066-15.",
+    "product_quantity": "1,610 cases (24 cartons per case)",
+    "reason_for_recall": "cGMP deviations and lack of assurance of sterility.",
+    "recall_initiation_date": "20250423",
+    "center_classification_date": "20250506",
+    "report_date": "20250514",
+    "code_info": "Lot, expiry:  Lot 114, exp 9/04/25; Lot 115, exp 9/06/25; Lot 116, exp 9/10/25; Lot 207, exp 12/05/26",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Mahwah",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA077662"
+      ],
+      "brand_name": [
+        "GABAPENTIN"
+      ],
+      "generic_name": [
+        "GABAPENTIN"
+      ],
+      "manufacturer_name": [
+        "Glenmark Pharmaceuticals Inc., USA"
+      ],
+      "product_ndc": [
+        "68462-126",
+        "68462-127"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "GABAPENTIN"
+      ],
+      "rxcui": [
+        "310433",
+        "310434"
+      ],
+      "spl_id": [
+        "4da1bae0-701b-4b65-a01e-f4bcedfad849"
+      ],
+      "spl_set_id": [
+        "3865a6e3-112c-490c-82ac-35401336b16e"
+      ],
+      "package_ndc": [
+        "68462-126-01",
+        "68462-126-05",
+        "68462-127-01",
+        "68462-127-05"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0368462127018",
+        "0368462126011"
+      ],
+      "nui": [
+        "N0000008486"
+      ],
+      "pharm_class_pe": [
+        "Decreased Central Nervous System Disorganized Electrical Activity [PE]"
+      ],
+      "unii": [
+        "6CW7F3G59X"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96474",
+    "recalling_firm": "Glenmark Pharmaceuticals Inc., USA",
+    "address_1": "750 Corporate Dr",
+    "address_2": "N/A",
+    "postal_code": "07430-2009",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "U.S. Nationwide",
+    "recall_number": "D-0320-2025",
+    "product_description": "Gabapentin Tablets 600mg, 500-count bottles, Rx Only, Manufactured by: Glenmark Pharmaceuticals Limited, Pithampur, Madhya Pradesh 454775, India, Manufactured for: Glenmark Pharmaceuticals Inc. USA, Mahwah, NJ 07430. NDC# 68462-126-05.",
+    "product_quantity": "N/A",
+    "reason_for_recall": "CGMP Deviations",
+    "recall_initiation_date": "20250313",
+    "center_classification_date": "20250408",
+    "report_date": "20250416",
+    "code_info": "Lot # 17231015, exp. date Apr-25 17231128, exp. date Apr-25 17231138, exp. date Apr-25 17231139, exp. date Apr-25 17231143, exp. date Apr-25 17231144, exp. date Apr-25 17231848, exp. date Aug-25 17231898, exp. date Aug-25 17231977, exp. date Aug-25 17231978, exp. date Aug-25 17232015, exp. date Aug-25 17232016, exp. date Aug-25 17232017, exp. date Aug-25 17232034, exp. date Aug-25 17232041, exp. date Aug-25 17232396, exp. date Nov-25 17232406, exp. date Nov-25 17232410, exp. date Nov-25 17232490, exp. date Nov-25 17240326, exp. date Jan-26 17240327, exp. date Jan-26 17240383, exp. date Feb-26 17240395, exp. date Feb-26 17241863, exp. date Oct-26 17241869, exp. date Oct-26 17241870, exp. date Oct-26 17231256, exp. date May-25 17231386, exp. date May-25 17231387, exp. date May-25 17231407, exp. date May-25 17231417, exp. date May-25 17231418, exp. date May-25 17231754, exp. date Jul-25 17240085, exp. date Dec-25 17240117, exp. date Dec-25 17240131, exp. date Dec-25"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Clark",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96390",
+    "recalling_firm": "L'Oreal USA",
+    "address_1": "222 Terminal Ave",
+    "address_2": "",
+    "postal_code": "07066-1317",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the USA",
+    "recall_number": "D-0418-2025",
+    "product_description": "La Roche-Posay Laboratoire Dermatologique Effaclar Dermatological Acne System, 3 Step Acne Routine Kit, Medicated Gel Cleanser 3.4 fl. oz. (100 mL) Tube, Clarifying Solution 3.4 fl. oz. (100 mL) Tube, Dual Action Acne Treatment 0.7 fl. oz. (20 mL: UPC 883140035275) Tube, (benzoyl peroxide 0.5% and benzoyl peroxide 5.5% and salicylic acid 2%), La Roche-Posay LLC, 10 Hudson Yards, New York, NY 10001, La Roche-Posay, France, UPC 883140035282 (kit).",
+    "product_quantity": "14,460 bottles",
+    "reason_for_recall": "cGMP Deviations: The recall was initiated due to detected trace levels of benzene in a specific lot of this product lot (MYX46W), however out of an abundance of caution, the firm voluntarily recalled all La Roche-Posay Effaclar Duo Dual Action Acne Treatment lots.",
+    "recall_initiation_date": "20250305",
+    "center_classification_date": "20250509",
+    "report_date": "20250521",
+    "code_info": "Lot #s, Expiration Dates: MYX30W, Exp 03/31/2025 MYX32W, Exp 03/31/2025 MYX33W, Exp 03/31/2025 MYX41W, Exp 04/30/2025 MYX42W, Exp 04/30/2025 MYX43W, Exp 04/30/2025 MYX44W, Exp 04/30/2025 MYX45W, Exp 04/30/2025 MYX50W, Exp 05/31/2025 MYX51W, Exp 04/30/2025 MYX52W, Exp 04/30/2025 MYX53W, Exp 05/31/2025 MYX70W, Exp 07/31/2025 MYX80W, Exp 07/31/2025 MYX81W, Exp 07/31/2025 MYX90W, Exp 08/31/2025 MYX91W, Exp 08/31/2025 MYX92W, Exp 08/31/2025 MYX93W, Exp 08/31/2025 MYXD0W, Exp 09/30/2025 MYXO1W, Exp 09/30/2025 MYXO2W, Exp 09/30/2025 MYXO3W, Exp 09/30/2025 MYXO4W, Exp 09/30/2025 MYXO5W, Exp 09/30/2025 MYY21W, Exp 02/28/2026 MYY23W, Exp 02/28/2026 MYY26W, Exp 02/28/2026 MYY27W, Exp 02/28/2026 MYY31W, Exp 03/31/2026 MYY32W, Exp 11/30/2025 MYY33W, Exp 11/30/2025 MYY34W, Exp 03/31/2026 MYY50W, Exp 05/31/2026 MYY51W, Exp 05/31/2026 MYY60W, Exp 05/31/2026 MYY61W, Exp 03/31/2026 MYY62W, Exp 06/30/2026 MYY63W, Exp 06/30/2026 MYY64W, Exp 06/30/2026 MYY72W, Exp 06/30/2026 MYY73W, Exp 06/30/2026 MYY74W, Exp 06/30/2026 MYY75W, Exp 06/30/2026 MYY76W, Exp 06/30/2026.",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Mahwah",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA078251"
+      ],
+      "brand_name": [
+        "CARVEDILOL"
+      ],
+      "generic_name": [
+        "CARVEDILOL"
+      ],
+      "manufacturer_name": [
+        "Glenmark Pharmaceuticals Inc., USA"
+      ],
+      "product_ndc": [
+        "68462-162",
+        "68462-163",
+        "68462-164",
+        "68462-165"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "CARVEDILOL"
+      ],
+      "rxcui": [
+        "200031",
+        "200032",
+        "200033",
+        "686924"
+      ],
+      "spl_id": [
+        "5f5b2d20-cc2a-4e91-b2b9-260e7438ab2c"
+      ],
+      "spl_set_id": [
+        "c4a21f67-7812-4634-beba-f8e85c63c5f2"
+      ],
+      "package_ndc": [
+        "68462-162-60",
+        "68462-162-01",
+        "68462-162-18",
+        "68462-162-05",
+        "68462-162-10",
+        "68462-163-60",
+        "68462-163-01",
+        "68462-163-18",
+        "68462-163-05",
+        "68462-163-10",
+        "68462-164-60",
+        "68462-164-01",
+        "68462-164-18",
+        "68462-164-05",
+        "68462-164-10",
+        "68462-165-60",
+        "68462-165-01",
+        "68462-165-18",
+        "68462-165-05",
+        "68462-165-10"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0368462162019",
+        "0368462163016",
+        "0368462164013",
+        "0368462165010"
+      ],
+      "nui": [
+        "N0000000099",
+        "N0000009923",
+        "N0000009924",
+        "N0000175553",
+        "N0000175556"
+      ],
+      "pharm_class_moa": [
+        "Adrenergic alpha-Antagonists [MoA]",
+        "Adrenergic beta1-Antagonists [MoA]",
+        "Adrenergic beta2-Antagonists [MoA]"
+      ],
+      "pharm_class_epc": [
+        "alpha-Adrenergic Blocker [EPC]",
+        "beta-Adrenergic Blocker [EPC]"
+      ],
+      "unii": [
+        "0K47UL67F2"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96861",
+    "recalling_firm": "Glenmark Pharmaceuticals Inc., USA",
+    "address_1": "750 Corporate Dr",
+    "address_2": "N/A",
+    "postal_code": "07430-2009",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "U.S. Nationwide",
+    "recall_number": "D-0450-2025",
+    "product_description": "Carvedilol Tablets USP 12.5 mg, 500-Count bottle, Rx Only, Manufactured by: Glenmark Pharmaceuticals Ltd., Manufactured for Glenmark Pharmaceuticals Inc., USA, Mahwah, NJ 07430.  NDC: 68462-164-05",
+    "product_quantity": "84,048 bottles",
+    "reason_for_recall": "CGMP Deviations; presence 'N-Nitroso Carvedilol I' Impurity above the recommended acceptable intake limit",
+    "recall_initiation_date": "20250228",
+    "center_classification_date": "20250528",
+    "report_date": "20250604",
+    "code_info": "Lot, Exp: Lots 19231899, 19231922, 19231927, 19231967, 19231979, Exp Apr-25; Lots 19232226, 19232234, 19232265, 1923227,1 Exp May-25; Lots 19232758, 19232759, 19232762, 19232788, Exp Jun-25"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Exton",
+    "state": "PA",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "97808",
+    "recalling_firm": "ProRx LLC",
+    "address_1": "619 Jeffers Cir",
+    "address_2": "N/A",
+    "postal_code": "19341-2540",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "TX and UT",
+    "recall_number": "D-0115-2026",
+    "product_description": "Semaglutide Injection, 10 mg/4 mL (2.5 mg/mL), 4mL Multidose Vial, For Subcutaneous Use, Rx Only, Mfd by: ProRx, 619 Jeffers Cir, Exton, PA 19341.  NDC:  84139-225-04",
+    "product_quantity": "8,400 vials",
+    "reason_for_recall": "Lack of Assurance of Sterility",
+    "recall_initiation_date": "20251015",
+    "center_classification_date": "20251027",
+    "report_date": "20251105",
+    "code_info": "Lot, Best Use Date (BUD):  Lot PRORX050925-1, BUD November 4, 2025;  Lot ProRx051425-5, BUD November 10, 2025; Lot ProRx051425-6, BUD November 10, 2025"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Mahwah",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA078251"
+      ],
+      "brand_name": [
+        "CARVEDILOL"
+      ],
+      "generic_name": [
+        "CARVEDILOL"
+      ],
+      "manufacturer_name": [
+        "Glenmark Pharmaceuticals Inc., USA"
+      ],
+      "product_ndc": [
+        "68462-162",
+        "68462-163",
+        "68462-164",
+        "68462-165"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "CARVEDILOL"
+      ],
+      "rxcui": [
+        "200031",
+        "200032",
+        "200033",
+        "686924"
+      ],
+      "spl_id": [
+        "5f5b2d20-cc2a-4e91-b2b9-260e7438ab2c"
+      ],
+      "spl_set_id": [
+        "c4a21f67-7812-4634-beba-f8e85c63c5f2"
+      ],
+      "package_ndc": [
+        "68462-162-60",
+        "68462-162-01",
+        "68462-162-18",
+        "68462-162-05",
+        "68462-162-10",
+        "68462-163-60",
+        "68462-163-01",
+        "68462-163-18",
+        "68462-163-05",
+        "68462-163-10",
+        "68462-164-60",
+        "68462-164-01",
+        "68462-164-18",
+        "68462-164-05",
+        "68462-164-10",
+        "68462-165-60",
+        "68462-165-01",
+        "68462-165-18",
+        "68462-165-05",
+        "68462-165-10"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0368462162019",
+        "0368462163016",
+        "0368462164013",
+        "0368462165010"
+      ],
+      "nui": [
+        "N0000000099",
+        "N0000009923",
+        "N0000009924",
+        "N0000175553",
+        "N0000175556"
+      ],
+      "pharm_class_moa": [
+        "Adrenergic alpha-Antagonists [MoA]",
+        "Adrenergic beta1-Antagonists [MoA]",
+        "Adrenergic beta2-Antagonists [MoA]"
+      ],
+      "pharm_class_epc": [
+        "alpha-Adrenergic Blocker [EPC]",
+        "beta-Adrenergic Blocker [EPC]"
+      ],
+      "unii": [
+        "0K47UL67F2"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96162",
+    "recalling_firm": "Glenmark Pharmaceuticals Inc., USA",
+    "address_1": "750 Corporate Dr",
+    "address_2": "",
+    "postal_code": "07430-2009",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the U.S",
+    "recall_number": "D-0216-2025",
+    "product_description": "Carvedilol Tablets, USP, 12.5 mg, Rx only, a)500 Tablets, NDC 68462-164-05; b) 100 Tablets, NDC 68462-164-01, Manufactured for Glenmark Pharmaceuticals, NJ.",
+    "product_quantity": "",
+    "reason_for_recall": "CGMP Deviations:N-Nitroso Carvedilol I impurity (NNCI-I) were found to be failing per current FDA recommended limit.",
+    "recall_initiation_date": "20250122",
+    "center_classification_date": "20250203",
+    "report_date": "20250212",
+    "code_info": "Lot numbers: a) 17230658, Exp.: 02/2025; 17230814,17230822, Exp.: 03/2025; 17231004,17231009,17231022, Exp.: 04/2025; 17231393,17231392, Exp.: 05/2025; 17231538, 17231541,17231542, Exp.: 06/2025; 17231710,17231718,17231721,17231722,17231730, Exp': 07/2025; 17232169, Exp.: 09/2025; 17232253, Exp.: 10/2025; 17240220,17240240, Exp.: 01/2026; 17240459, Exp.: 02/2026   b) 17230814, Exp.: 03/2025; 17231392, Exp.:05/2025; 17232260, Exp.: 10/2025.",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Wilmington",
+    "state": "DE",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "NDA214070"
+      ],
+      "brand_name": [
+        "AIRSUPRA"
+      ],
+      "generic_name": [
+        "ALBUTEROL SULFATE AND BUDESONIDE"
+      ],
+      "manufacturer_name": [
+        "AstraZeneca Pharmaceuticals LP"
+      ],
+      "product_ndc": [
+        "0310-9080"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "RESPIRATORY (INHALATION)"
+      ],
+      "substance_name": [
+        "ALBUTEROL SULFATE",
+        "BUDESONIDE"
+      ],
+      "rxcui": [
+        "2665906",
+        "2665912",
+        "2678391",
+        "2678392"
+      ],
+      "spl_id": [
+        "8738de51-e5d3-4ac5-910d-a155169ab78e"
+      ],
+      "spl_set_id": [
+        "e60aa9f9-5139-44df-b886-ebddc3c7eb13"
+      ],
+      "package_ndc": [
+        "0310-9080-12",
+        "0310-9080-28"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "nui": [
+        "N0000175576",
+        "N0000175450"
+      ],
+      "pharm_class_epc": [
+        "Corticosteroid [EPC]"
+      ],
+      "pharm_class_moa": [
+        "Corticosteroid Hormone Receptor Agonists [MoA]"
+      ],
+      "unii": [
+        "021SEF3731",
+        "Q3OKS62Q6X"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96857",
+    "recalling_firm": "AsttraZeneca Pharmaceuticals LP",
+    "address_1": "1800 Concord Pike",
+    "address_2": "N/A",
+    "postal_code": "19897-0001",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "USA Nationwide",
+    "recall_number": "D-0444-2025",
+    "product_description": "Airsupra (albuterol and budesonide) inhalation aerosol, 90 mcg/80 mcg per inhalation, packaged in a) 120-inhalation canister (NDC 0310-9080-12) b) 28-inhalation canister (NDC 0310-9080-28), Rx only, Manufactured for: AstraZeneca Pharmaceuticals LP, Wilmington, DE 19850, By: AstraZeneca Dunkerque Production (AZDP), Dunkerque, France, Product of France, .",
+    "product_quantity": "a) 807,837 canisters; b)  235,698 canisters",
+    "reason_for_recall": "Defective delivery system",
+    "recall_initiation_date": "20250514",
+    "center_classification_date": "20250521",
+    "report_date": "20250528",
+    "code_info": "Lot#:  a) 6270044C00, 6270040D00, 6270034E00, Exp Date 10/2026; 6270053C00, 6270045C00, 6270047C00, 6270056C00, 6270052C00, 6270063E00 Exp 11/30/2026; 6270064C00, 6270071D00, 6270075D00, 6270075F00 Exp Date 12/31/2026; 6270107C00, Exp Date 9/30/2027; b) Lot 6270019E00, Exp Date 7/31/2025; 6270021D00, Exp 8/31/2025; 6270095C00, Exp 2/28/2026"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Sugar Land",
+    "state": "TX",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96446",
+    "recalling_firm": "QuVa Pharma, Inc.",
+    "address_1": "1075 W Park One Dr Ste 100",
+    "address_2": "N/A",
+    "postal_code": "77478-2576",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "U.S. Nationwide",
+    "recall_number": "D-0296-2025",
+    "product_description": "fentaNYL Citrate PF 200 mcg/100 mL (2 mcg/ml) /0.125% Bupivacaine HCl 125 mg/100 mL (1.25 mg/mL), 100 ml in NS Yellow CADD FSFF, Injection for Epidural Use (Not intended For IV Use), Compounded, For Institutional or Office Use Only, QuVa Pharma, 1075 West Park One Drive, Suite 100, Sugar Land, Tx 77478. NDC: 70092-1255-75",
+    "product_quantity": "2,310 cassettes",
+    "reason_for_recall": "Lack of Assurance of Sterility",
+    "recall_initiation_date": "20250306",
+    "center_classification_date": "20250325",
+    "report_date": "20250402",
+    "code_info": "Lot, expiry:  Lots 10140284, 10140285, 10140315, 10140316, exp 04/08/2025; Lot 10140510, exp 04/14/2025; Lot 10140916, exp 04/24/2025"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Bridgewater",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA076899"
+      ],
+      "brand_name": [
+        "SULFAMETHOXAZOLE AND TRIMETHOPRIM"
+      ],
+      "generic_name": [
+        "SULFAMETHOXAZOLE AND TRIMETHOPRIM"
+      ],
+      "manufacturer_name": [
+        "Amneal Pharmaceuticals LLC"
+      ],
+      "product_ndc": [
+        "65162-271",
+        "65162-272"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "SULFAMETHOXAZOLE",
+        "TRIMETHOPRIM"
+      ],
+      "rxcui": [
+        "198334",
+        "198335"
+      ],
+      "spl_id": [
+        "fd58f01a-3607-4f18-97e3-f695bcb32ad5"
+      ],
+      "spl_set_id": [
+        "f0e73842-6002-43c2-97fc-0cadc1bf6346"
+      ],
+      "package_ndc": [
+        "65162-271-05",
+        "65162-271-10",
+        "65162-271-50",
+        "65162-271-11",
+        "65162-272-01",
+        "65162-272-24",
+        "65162-272-10",
+        "65162-272-25",
+        "65162-272-50"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0365168211102",
+        "0365162272109"
+      ],
+      "nui": [
+        "N0000175489",
+        "N0000000191",
+        "N0000187062",
+        "N0000187061",
+        "N0000175504",
+        "M0020790",
+        "N0000185504"
+      ],
+      "pharm_class_epc": [
+        "Dihydrofolate Reductase Inhibitor Antibacterial [EPC]",
+        "Sulfonamide Antimicrobial [EPC]"
+      ],
+      "pharm_class_moa": [
+        "Dihydrofolate Reductase Inhibitors [MoA]",
+        "Cytochrome P450 2C8 Inhibitors [MoA]",
+        "Organic Cation Transporter 2 Inhibitors [MoA]",
+        "Cytochrome P450 2C9 Inhibitors [MoA]"
+      ],
+      "pharm_class_cs": [
+        "Sulfonamides [CS]"
+      ],
+      "unii": [
+        "AN164J8Y0X",
+        "JE42381TNV"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "97438",
+    "recalling_firm": "Amneal Pharmaceuticals, LLC",
+    "address_1": "400 Crossing Blvd Fl 3",
+    "address_2": "N/A",
+    "postal_code": "08807-2863",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Distributed Nationwide in the USA",
+    "recall_number": "D-0615-2025",
+    "product_description": "Sulfamethoxazole and Trimethoprim Tablets, USP 800mg/160mg, Double Strength, Rx Only, Packaged as a) 100-count bottle, NDC 65162-272-10; b) 500-count bottle, NDC  65162-272-50; Manufactured by: Amneal Pharmaceuticals, Pvt. Ltd, Oral Solid Dosage Unit, Ahmedabad, 382213, INDIA, Distributed by: Amneal Pharmaceuticals LLC, Bridgewater, NJ 08807.",
+    "product_quantity": "60,072 100-count, 73,054 500-count bottles",
+    "reason_for_recall": "Presence of a foreign substance.A specific lot of auxiliary polyester coil, used in product packaging was   detected with presence of a micro-organism. No micro-organism was detected on any tablets.",
+    "recall_initiation_date": "20250818",
+    "center_classification_date": "20250904",
+    "report_date": "20250910",
+    "code_info": "Lot a) AM240173, Exp Date 01/31/2027, AM240680, Exp Date 05/31/2027, AM 240921, Exp Date 06/30/2027, AM241191, Exp Date 08/31/2027.  Lot b) AM240176, AM240177, Exp Date 01/31/2027, AM240301, AM240300, Exp Date 02/28/2027, AM240676, AM240677, Exp Date 04/30/2027, AM240678, AM240679, Exp Date 05/30/2027. AM240922, AM240923, AM240924, AM240925, Exp Date 6/30/27, AM241086, Exp Date 7/31/27, AM241087, AM241088, Exp Date 8/31/27."
+  },
+  {
+    "status": "Ongoing",
+    "city": "Pulaski",
+    "state": "TN",
+    "country": "United States",
+    "classification": "Class III",
+    "openfda": {
+      "application_number": [
+        "ANDA205932"
+      ],
+      "brand_name": [
+        "PITAVASTATIN"
+      ],
+      "generic_name": [
+        "PITAVASTATIN CALCIUM"
+      ],
+      "manufacturer_name": [
+        "AvKARE"
+      ],
+      "product_ndc": [
+        "42291-905",
+        "42291-906",
+        "42291-907"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "PITAVASTATIN CALCIUM"
+      ],
+      "rxcui": [
+        "861643",
+        "861648",
+        "861652"
+      ],
+      "spl_id": [
+        "48843604-c6e9-1aec-e063-6294a90aea80"
+      ],
+      "spl_set_id": [
+        "0f11ee80-871e-4f13-e063-6394a90af19d"
+      ],
+      "package_ndc": [
+        "42291-906-90",
+        "42291-907-90",
+        "42291-905-90"
+      ],
+      "original_packager_product_ndc": [
+        "0480-3632",
+        "0480-3633",
+        "0480-3631"
+      ],
+      "unii": [
+        "IYD54XEG3W"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "97160",
+    "recalling_firm": "AvKARE",
+    "address_1": "615 N 1st St",
+    "address_2": "",
+    "postal_code": "38478-2403",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the USA",
+    "recall_number": "D-0528-2025",
+    "product_description": "Pitavastatin Tablets, 1 mg, 90 Tablets per bottle, Rx Only, Manufactured for: AvKARE, Pulaski, TN 38478.  NDC: 42291-905-90",
+    "product_quantity": "1,560 bottles",
+    "reason_for_recall": "Failed Impurity/Degradation Specifications",
+    "recall_initiation_date": "20250626",
+    "center_classification_date": "20250716",
+    "report_date": "20250709",
+    "code_info": "Lot, expiry:  Lot 46208, exp 10/31/2025; Lot 47738, exp 09/30/2026; Lot 46943, exp 05/31/2026;",
+    "more_code_info": ""
+  },
+  {
+    "status": "Terminated",
+    "city": "Ta. Kadi, District Mehsana",
+    "state": "N/A",
+    "country": "India",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96797",
+    "recalling_firm": "KENIL HEALTHCARE PRIVATE LIMITED",
+    "address_1": "Plot 319",
+    "address_2": "Village Acharasan, Ankhol-Vamaj Road",
+    "postal_code": "N/A",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Two or more of the following: Email, Fax, Letter, Press Release, Telephone, Visit",
+    "distribution_pattern": "DE and NC",
+    "recall_number": "D-0438-2025",
+    "product_description": "Nature Mint Anticavity Fluoride Toothpaste, Sodium monofluorophosphate 0.76%, NET WT 0.85 OZ (24 grams) Tube, Made in India, Dist. by Bob Barker Co. Inc., Fuquay-Varina, NC 27526, NDC 53247-131-03",
+    "product_quantity": "616,160 Tubes",
+    "reason_for_recall": "CGMP Deviations",
+    "recall_initiation_date": "20250424",
+    "center_classification_date": "20250519",
+    "termination_date": "20260219",
+    "report_date": "20250528",
+    "code_info": "Lot B0014, B0015, B0022, B0023, Exp Date: 05/31/2026; Lot B0024, B0025, B0026, B0027, B0033, B0034, B0035, B0039, B0040, B0041, B0045, Exp Date: 06/30/2026; Lot B0046, Exp Date: 07/31/2026"
+  },
+  {
+    "status": "Terminated",
+    "city": "Ta. Kadi, District Mehsana",
+    "state": "N/A",
+    "country": "India",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96797",
+    "recalling_firm": "KENIL HEALTHCARE PRIVATE LIMITED",
+    "address_1": "Plot 319",
+    "address_2": "Village Acharasan, Ankhol-Vamaj Road",
+    "postal_code": "N/A",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Two or more of the following: Email, Fax, Letter, Press Release, Telephone, Visit",
+    "distribution_pattern": "DE and NC",
+    "recall_number": "D-0431-2025",
+    "product_description": "Maximum Security Anticavity Gel Toothpaste, Sodium Fluoride 0.22%, Fresh Mint Flavor, Net Wt 0.6 OZ (17 g) Tube, Made in India, Dist. by Bob Barker Co. Inc., Fuquay-Varina, NC 27526, NDC 53247-132-02",
+    "product_quantity": "391,680 Tubes",
+    "reason_for_recall": "CGMP Deviations",
+    "recall_initiation_date": "20250424",
+    "center_classification_date": "20250519",
+    "termination_date": "20260219",
+    "report_date": "20250528",
+    "code_info": "Lot B0009, B0017, Exp Date: 05/31/2026; Lot B0018, B0019, B0036, B0037, B0038, Exp Date: 06/30/2026; Lot B0049, Exp Date: 07/31/2026; B0063, Exp Date: 08/31/2026"
+  },
+  {
+    "status": "Terminated",
+    "city": "Ta. Kadi, District Mehsana",
+    "state": "N/A",
+    "country": "India",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96797",
+    "recalling_firm": "KENIL HEALTHCARE PRIVATE LIMITED",
+    "address_1": "Plot 319",
+    "address_2": "Village Acharasan, Ankhol-Vamaj Road",
+    "postal_code": "N/A",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Two or more of the following: Email, Fax, Letter, Press Release, Telephone, Visit",
+    "distribution_pattern": "DE and NC",
+    "recall_number": "D-0439-2025",
+    "product_description": "Nature Mint Anticavity Fluoride Toothpaste, Sodium monofluorophosphate 0.76%, NET WT 1.5 OZ (43 grams) Tube, Made in India, Dist. by Bob Barker Co. Inc., Fuquay-Varina, NC 27526, NDC 53247-131-04",
+    "product_quantity": "150,768 Tubes",
+    "reason_for_recall": "CGMP Deviations",
+    "recall_initiation_date": "20250424",
+    "center_classification_date": "20250519",
+    "termination_date": "20260219",
+    "report_date": "20250528",
+    "code_info": "Lot B0004, Exp Date: 05/31/2026; B0060, Exp Date: 07/31/2026; Lot B0067, B0071, B0072, Exp Date: 08/31/2026; Lot B0107, B0108, Exp Date: 09/30/2026"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Dawsonville",
+    "state": "GA",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96573",
+    "recalling_firm": "Direct Rx",
+    "address_1": "94 Worldwide Dr",
+    "address_2": "",
+    "postal_code": "30534-6828",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "E-Mail",
+    "distribution_pattern": "Physicians and medical facilities in 5 states: AL, CA, FL, GA, ID",
+    "recall_number": "D-0364-2025",
+    "product_description": "CIPROFLOXACIN OPHTH SOLUTION, 0.3% 5mL bottle, Rx Only, Generic for CILOXAN, Packaged and Distributed by: DIRECT Rx, NDC 61919-795-05.",
+    "product_quantity": "477 bottles.",
+    "reason_for_recall": "Defective Container: Unable to get the solution out of the bottle as the spike of the cap was lodged in the nozzle of the product bottle",
+    "recall_initiation_date": "20250131",
+    "center_classification_date": "20250415",
+    "report_date": "20250423",
+    "code_info": "Lot 11SE2402, Exp Date: 11/30/2025 Lot 14NO2406, Exp Date: 12/31/2025 Lot 29OC2420, Exp Date: 11/30/2025 Lot 30SE2412, Exp Date: 11/30/2025",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Lincoln",
+    "state": "RI",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "M006"
+      ],
+      "brand_name": [
+        "ZAPZYT ACNE TREATMENT GEL"
+      ],
+      "generic_name": [
+        "BENZOYL PEROXIDE"
+      ],
+      "manufacturer_name": [
+        "Focus Consumer Healthcare, LLC"
+      ],
+      "product_ndc": [
+        "71687-0011"
+      ],
+      "product_type": [
+        "HUMAN OTC DRUG"
+      ],
+      "route": [
+        "TOPICAL"
+      ],
+      "substance_name": [
+        "BENZOYL PEROXIDE"
+      ],
+      "rxcui": [
+        "486131"
+      ],
+      "spl_id": [
+        "50a0976b-5606-4c94-e063-6294a90aff49"
+      ],
+      "spl_set_id": [
+        "6079d45c-dd86-6f2e-e053-2991aa0a9743"
+      ],
+      "package_ndc": [
+        "71687-0011-1"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0010768001102"
+      ],
+      "unii": [
+        "W9WZN9A0GM"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96384",
+    "recalling_firm": "Denison Pharmaceuticals, LLC",
+    "address_1": "1 Powder Hill Rd",
+    "address_2": "",
+    "postal_code": "02865-4407",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide within the USA",
+    "recall_number": "D-0273-2025",
+    "product_description": "Zapzyt, Acne Treatment Gel, 10% benzoyl peroxide Gel, packaged in 1 oz (28.35g) tube, Distributed by: FOCUS CONSUMER HEALTHCARE, LLC., 801 Broad St Ste 200, Chattanooga, TN 37402. NDC 71687-0011-1",
+    "product_quantity": "642,131 tubes",
+    "reason_for_recall": "Chemical Contamination: Presence of benzene.",
+    "recall_initiation_date": "20250224",
+    "center_classification_date": "20250312",
+    "report_date": "20250319",
+    "code_info": "Lot #: 9762, Exp. Date 2/28/2025; 9763, 9764, 9765, Exp. Date 3/31/2025; 9869, 9870, Exp. Date 5/31/2025; 9871, 9872, Exp. Date 7/31/2025; 9996, 9997, 9998, Exp. Date 8/31/2025;  9995, Exp. Date 10/31/2025; 0154, 0153, 0326, Exp. Date 1/31/2026; 0155, 0156, 0161,  0327, 0329, 0328, Exp. Date 2/28/2026; 0479, 0480, Exp. Date 5/31/2026.",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Panchmahal",
+    "state": "N/A",
+    "country": "India",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA210560"
+      ],
+      "brand_name": [
+        "BROMFENAC OPHTHALMIC SOLUTION 0.09%"
+      ],
+      "generic_name": [
+        "BROMFENAC OPHTHALMIC SOLUTION 0.09%"
+      ],
+      "manufacturer_name": [
+        "Alembic Pharmaceuticals Inc."
+      ],
+      "product_ndc": [
+        "62332-508"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "OPHTHALMIC"
+      ],
+      "substance_name": [
+        "BROMFENAC SODIUM"
+      ],
+      "rxcui": [
+        "578018"
+      ],
+      "spl_id": [
+        "824d37d0-e25f-4df8-be0e-d9a65046fc10"
+      ],
+      "spl_set_id": [
+        "225070ee-d862-4d41-84b8-5bd7a8a03fd7"
+      ],
+      "package_ndc": [
+        "62332-508-17"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "unii": [
+        "8ECV571Y37"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96836",
+    "recalling_firm": "Alembic Pharmaceuticals Limited",
+    "address_1": "Formulation Division, Village Panelav, P.O. Tajpura, Near Baska, Taluka Halol",
+    "address_2": "N/A",
+    "postal_code": "N/A",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "US Nationwide",
+    "recall_number": "D-0447-2025",
+    "product_description": "Bromfenac Ophthalmic Solution 0.09%, 1.7 mL bottle, Rx only, Sterile, Manufactured for: Alembic Pharmaceuticals, Inc., Bedminster, NJ 07921, USA, Manufactured by Alembic Pharmaceuticals Limitied, Gujarat, India, Made in India, NDC 62332-508-17",
+    "product_quantity": "N/A",
+    "reason_for_recall": "Failed Impurities/Degradation Specifications",
+    "recall_initiation_date": "20250507",
+    "center_classification_date": "20250527",
+    "report_date": "20250604",
+    "code_info": "Lot 7230309, Exp Date: 5/31/2025; Lot 7230310, Exp Date: 5/31/2025; Lot 7230311, Exp Date: 5/31/2025"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Parsippany",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96912",
+    "recalling_firm": "Ascend Laboratories, LLC",
+    "address_1": "339 Jefferson Rd Ste 101",
+    "address_2": "",
+    "postal_code": "07054-3707",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the USA.",
+    "recall_number": "D-0469-2025",
+    "product_description": "Cephalexin for Oral Suspension, USP, 125 mg per 5 mL, 200 mL (when mixed), Rx Only, Manufactured by: Alkem Laboratories Ltd., India, Distributed by: Ascent Laboratories, LLC, Parsippany, NJ 07054, NDC 67877-544-68",
+    "product_quantity": "10,620 - 200 mL bottles",
+    "reason_for_recall": "Failed Impurities/Degradation Specifications An out-of-specification result was observed in the related substance test at the sixth month of stability analysis.    The individual impurity was identified to be Cephalexin Glucose Adduct.",
+    "recall_initiation_date": "20250523",
+    "center_classification_date": "20250612",
+    "report_date": "20250618",
+    "code_info": "Lot #: 23142343, Exp Date: 6/30/2025; 23143526, Exp Date: 9/30/2025; 23144036, Exp Date: 10/31/2025; 23144269, Exp Date: 11/30/2025; Lot 24140027, Exp Date: 12/31/2025; 24144282, Exp Date: 10/31/2026",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Chambersburg",
+    "state": "PA",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "97688",
+    "recalling_firm": "Acuity Specialty Products, Inc.",
+    "address_1": "800 Development Ave",
+    "address_2": "",
+    "postal_code": "17201-4103",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "US Nationwide.",
+    "recall_number": "D-0005-2026",
+    "product_description": "AFCO, Hand Sanitizer (Isopropyl Alcohol-Based, Product 5515), Manufactured by: AFCO, 550 Development Avenue, Chambersburg, PA 17201, Toll Free: 800-345-1329, Package Configuration: a) 4x1 Gallon Case, 5 Gallon Pail, 55 Gallon Drum.",
+    "product_quantity": "",
+    "reason_for_recall": "cGMP deviations: The recall was initiated because required receipt testing of incoming alcohol components used to manufacture the listed hand sanitizers was not performed, so methanol risk could not be excluded.",
+    "recall_initiation_date": "20250929",
+    "center_classification_date": "20251006",
+    "report_date": "20251015",
+    "code_info": "Lot # C2432725, Exp 11/22/2025; Lot # C2508304, Exp 3/24/2026; Lot # C2509304, Exp 4/3/2026.",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Mahwah",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA078251"
+      ],
+      "brand_name": [
+        "CARVEDILOL"
+      ],
+      "generic_name": [
+        "CARVEDILOL"
+      ],
+      "manufacturer_name": [
+        "Glenmark Pharmaceuticals Inc., USA"
+      ],
+      "product_ndc": [
+        "68462-162",
+        "68462-163",
+        "68462-164",
+        "68462-165"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "CARVEDILOL"
+      ],
+      "rxcui": [
+        "200031",
+        "200032",
+        "200033",
+        "686924"
+      ],
+      "spl_id": [
+        "5f5b2d20-cc2a-4e91-b2b9-260e7438ab2c"
+      ],
+      "spl_set_id": [
+        "c4a21f67-7812-4634-beba-f8e85c63c5f2"
+      ],
+      "package_ndc": [
+        "68462-162-60",
+        "68462-162-01",
+        "68462-162-18",
+        "68462-162-05",
+        "68462-162-10",
+        "68462-163-60",
+        "68462-163-01",
+        "68462-163-18",
+        "68462-163-05",
+        "68462-163-10",
+        "68462-164-60",
+        "68462-164-01",
+        "68462-164-18",
+        "68462-164-05",
+        "68462-164-10",
+        "68462-165-60",
+        "68462-165-01",
+        "68462-165-18",
+        "68462-165-05",
+        "68462-165-10"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0368462162019",
+        "0368462163016",
+        "0368462164013",
+        "0368462165010"
+      ],
+      "nui": [
+        "N0000000099",
+        "N0000009923",
+        "N0000009924",
+        "N0000175553",
+        "N0000175556"
+      ],
+      "pharm_class_moa": [
+        "Adrenergic alpha-Antagonists [MoA]",
+        "Adrenergic beta1-Antagonists [MoA]",
+        "Adrenergic beta2-Antagonists [MoA]"
+      ],
+      "pharm_class_epc": [
+        "alpha-Adrenergic Blocker [EPC]",
+        "beta-Adrenergic Blocker [EPC]"
+      ],
+      "unii": [
+        "0K47UL67F2"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96861",
+    "recalling_firm": "Glenmark Pharmaceuticals Inc., USA",
+    "address_1": "750 Corporate Dr",
+    "address_2": "N/A",
+    "postal_code": "07430-2009",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "U.S. Nationwide",
+    "recall_number": "D-0451-2025",
+    "product_description": "Carvedilol Tablets USP 25 mg, 500 -Count bottle, Rx Only, Manufactured by: Glenmark Pharmaceuticals Ltd., Manufactured for Glenmark Pharmaceuticals Inc., USA, Mahwah, NJ 07430. NDC 68462-165-05.",
+    "product_quantity": "18,696 bottles",
+    "reason_for_recall": "CGMP Deviations; presence 'N-Nitroso Carvedilol I' Impurity above the recommended acceptable intake limit",
+    "recall_initiation_date": "20250228",
+    "center_classification_date": "20250528",
+    "report_date": "20250604",
+    "code_info": "Lot, expiry: Lots 19231107, 19231114, 19231152, Exp Feb-25; Lot 19234866, Exp Jan-26"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Grand Prairie",
+    "state": "TX",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96465",
+    "recalling_firm": "Fruit Of The Earth, Inc.",
+    "address_1": "1430 Avenue R",
+    "address_2": "N/A",
+    "postal_code": "75050-1605",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "USA Nationwide",
+    "recall_number": "D-0284-2025",
+    "product_description": "CVS Health Concealing Acne Treatment Cream, CVS, 10% benzoyl peroxide, 1 oz (28 g), Distributed by: CVS Pharmacy, Inc",
+    "product_quantity": "112045 tubes",
+    "reason_for_recall": "Chemical contamination: presence of benzene",
+    "recall_initiation_date": "20250311",
+    "center_classification_date": "20250318",
+    "report_date": "20250326",
+    "code_info": "Lot #: 4970743A, Exp 3/31/2026; 9712793A,  Exp9/30/2026; 8363513B, Exp 12/31/2026; 1391304A, 5101574A, Exp 5/31/2027; 1292084A, 1292084B, 1292084C, Exp 7/31/2027; 2892384A, Exp 8/31/2027; 6203044A, 6203044B, Exp 10/31/2027; 2153564A, 2153564B, Exp 12/31/2027; 2163564A, Exp 1/31/2028"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Smyrna",
+    "state": "TN",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "505G(a)(3)"
+      ],
+      "brand_name": [
+        "HAND SANITIZER"
+      ],
+      "generic_name": [
+        "ETHYL ALCOHOL"
+      ],
+      "manufacturer_name": [
+        "Medline Industries, LP"
+      ],
+      "product_ndc": [
+        "53329-202"
+      ],
+      "product_type": [
+        "HUMAN OTC DRUG"
+      ],
+      "route": [
+        "TOPICAL"
+      ],
+      "substance_name": [
+        "ALCOHOL"
+      ],
+      "rxcui": [
+        "581662"
+      ],
+      "spl_id": [
+        "4a8e1ef2-4cd3-a9a9-e063-6394a90a3990"
+      ],
+      "spl_set_id": [
+        "f84f7050-348d-4f75-ab93-e618ff8de790"
+      ],
+      "package_ndc": [
+        "53329-202-13",
+        "53329-202-04",
+        "53329-202-08",
+        "53329-202-70",
+        "53329-202-84",
+        "53329-202-85",
+        "53329-202-74"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0193489179739",
+        "888277349455"
+      ],
+      "unii": [
+        "3K9958V90M"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96960",
+    "recalling_firm": "Consumer Product Partners, LLC",
+    "address_1": "1 Swan Dr",
+    "address_2": "N/A",
+    "postal_code": "37167-2099",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the USA.",
+    "recall_number": "D-0458-2025",
+    "product_description": "Spectrum Advanced Gel Hand Sanitizer, Ethyl alcohol 70%, 8 FL OZ (236 mL) per bottle, Manufactured for Medline Industries, Inc., Three Lakes Drive, Northfield, IL 60693 USA.  NDC:  53329-202-08, UPC 8 88277 34945 5",
+    "product_quantity": "125,040 bottles",
+    "reason_for_recall": "Subpotent product: Product has cloudy appearance and tested below assay label claim for 70% Ethyl Alcohol",
+    "recall_initiation_date": "20250523",
+    "center_classification_date": "20250605",
+    "report_date": "20250611",
+    "code_info": "Lot, expiry: Lot 0644682, exp 2026/11/14; Lot 0644683, exp 2026/11/16"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Thousand Oaks",
+    "state": "CA",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "BLA103353"
+      ],
+      "brand_name": [
+        "NEUPOGEN"
+      ],
+      "generic_name": [
+        "FILGRASTIM"
+      ],
+      "manufacturer_name": [
+        "Amgen, Inc"
+      ],
+      "product_ndc": [
+        "55513-209",
+        "55513-530",
+        "55513-546",
+        "55513-924"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "INTRAVENOUS",
+        "SUBCUTANEOUS"
+      ],
+      "substance_name": [
+        "FILGRASTIM"
+      ],
+      "rxcui": [
+        "727535",
+        "727537",
+        "727544",
+        "727545",
+        "1649944",
+        "1649946",
+        "1649963",
+        "1649964"
+      ],
+      "spl_id": [
+        "7cedb5f4-cfdd-46a5-836d-e5384c65a224"
+      ],
+      "spl_set_id": [
+        "97cc73cc-b5b7-458a-a933-77b00523e193"
+      ],
+      "package_ndc": [
+        "55513-530-01",
+        "55513-530-10",
+        "55513-530-20",
+        "55513-546-01",
+        "55513-546-10",
+        "55513-546-20",
+        "55513-924-01",
+        "55513-924-10",
+        "55513-924-91",
+        "55513-924-20",
+        "55513-209-01",
+        "55513-209-10",
+        "55513-209-91",
+        "55513-209-20"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0355513546102",
+        "0355513530101"
+      ],
+      "nui": [
+        "M0024696",
+        "N0000009451",
+        "N0000175666"
+      ],
+      "pharm_class_cs": [
+        "Granulocyte Colony-Stimulating Factor [CS]"
+      ],
+      "pharm_class_pe": [
+        "Increased Myeloid Cell Production [PE]"
+      ],
+      "pharm_class_epc": [
+        "Leukocyte Growth Factor [EPC]"
+      ],
+      "unii": [
+        "PVI5M0M1GW"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96325",
+    "recalling_firm": "Amgen, Inc.",
+    "address_1": "1 Amgen Center Dr",
+    "address_2": "N/A",
+    "postal_code": "91320-1730",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the U.S.A. and Belgium/Luxembourg, Brazil, Chile, Colombia, France/French Guiana, Germany, Ireland, Italy/San Marino, Netherlands, Poland, Spain/Andorra, Sweden, Finland, Switzerland/Liechtenstein, United Kingdom of Great Britain and Northern Ireland, Ireland, Denmark, Canada, Hong Kong, Philippines, Israel, Malaysia, Saudi Arabia, Gibraltar.",
+    "recall_number": "D-0285-2025",
+    "product_description": "Neupogen (filgrastim) For Injection, 300mcg/1 mL, 1 mL Single Dose Vials, Rx Only, For Subcutaneous or Intravenous Use Only, Sterile Solution - No Preservative, Amgen Inc., Thousand Oaks, CA 91320, NDC 55513-530-01 (vial), NDC 55513-530-10 (box).",
+    "product_quantity": "313,620 Vials",
+    "reason_for_recall": "Stability data does not support expiry: the products have the potential to be out of specification at the time of expiry of 36-months.",
+    "recall_initiation_date": "20250227",
+    "center_classification_date": "20250318",
+    "report_date": "20250326",
+    "code_info": "Lot #: 1147300, 1147300A, Exp.: 2/28/2025; 1152064, Exp.:3/31/2025; 1154734, 1156806, Exp.: 8/31/2025; 1159109, Exp.: 10/31/2025; 1163909, Exp.: 2/28/2026; 1164631, Exp.: 5/31/2026; 1171366, 1182097, Exp.:8/31/2026; 1176114, Exp.: 2/28/2027; 1182094, Exp.:7/31/2027."
+  },
+  {
+    "status": "Ongoing",
+    "city": "North Bergen",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class I",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "97277",
+    "recalling_firm": "DermaRite Industries, LLC",
+    "address_1": "7777 W Side Ave",
+    "address_2": "N/A",
+    "postal_code": "07047-6436",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide within the USA",
+    "recall_number": "D-0612-2025",
+    "product_description": "KleenFoam, Antimicrobial Foam Soap with Aloe Vera, (Chloroxylenol 0.5%) 34 FL OZ (1000 mL) per cartridge, DermaRite Industries LLC, 7777 West Side Avenue, North Bergen, NJ 07047.  NDC 61924-093-34",
+    "product_quantity": "6,973 cartridges",
+    "reason_for_recall": "Microbial Contamination of Non-Sterile Drug Product: The products were found to be contaminated with the bacteria Burkholderia cepecia.",
+    "recall_initiation_date": "20250717",
+    "center_classification_date": "20250902",
+    "report_date": "20250910",
+    "code_info": "Lot #: 30705A, Exp. Date 8/2025; 30771A, Exp. Date 9/2025; 30920A, Exp. Date 10/2025; 40016A, Exp. Date 1/2026; 40303A, Exp. Date 4/2026; 40428A, Exp. Date 5/2026; 40505A, Exp. Date 6/2026; 41053C, 41053A, 41053B, Exp. Date 12/2026, 50017A, Exp. Date 1/2027."
+  },
+  {
+    "status": "Ongoing",
+    "city": "North Bergen",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class I",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "97277",
+    "recalling_firm": "DermaRite Industries, LLC",
+    "address_1": "7777 W Side Ave",
+    "address_2": "N/A",
+    "postal_code": "07047-6436",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide within the USA",
+    "recall_number": "D-0613-2025",
+    "product_description": "PeriGiene, Health Care Antiseptic, (Chloroxylenol 0.5%) 222 mL (7.5 fl. oz.) per bottle, DermaRite Industries LLC, 7777 West Side Avenue, North Bergen, NJ 07047. NDC 61924-198-08",
+    "product_quantity": "5,703 bottles",
+    "reason_for_recall": "Microbial Contamination of Non-Sterile Drug Product: The products were found to be contaminated with the bacteria Burkholderia cepecia.",
+    "recall_initiation_date": "20250717",
+    "center_classification_date": "20250902",
+    "report_date": "20250910",
+    "code_info": "Lot #: 31013A, Exp. Date 11/2025; 40345A, 40355A, Exp. Date 4/2026; 40571A, 40580A, Exp. Date 6/2026; 40587A, 40591A, Exp. Date 7/2026; 40870.1, 40877.1, Exp. Date 10/2026; 41093A, Exp. Date 12/2026; 50072A, 50079A, Exp. Date 1/2027"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Southlake",
+    "state": "TX",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "97799",
+    "recalling_firm": "FARMAKEIO OUTSOURCING LLC",
+    "address_1": "920 S Kimball Ave Ste 100",
+    "address_2": "N/A",
+    "postal_code": "76092-9019",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "E-Mail",
+    "distribution_pattern": "Nationwide in the USA and Antigua",
+    "recall_number": "D-0136-2026",
+    "product_description": "Testosterone / Triamcinolone Acetonide Pellet (100MG/20MCG), 1 PELLET (STERILE) FOR SUBCUTANEOUS INSERTION, RX ONLY, FarmaKeio Outsourcing, 920 S Kimball Ave, Ste 100, Southlake, TX 76092. NDC 73693-0367-01",
+    "product_quantity": "103,444 pellets",
+    "reason_for_recall": "CGMP Deviations: Potential presence of metal particulate matter",
+    "recall_initiation_date": "20251014",
+    "center_classification_date": "20251029",
+    "report_date": "20251105",
+    "code_info": "Lot, expiry: 3098, 3101, Exp 1/8/2026; 3107, Exp 1/13/2026; 3108, Exp 1/14/2026; 3109, Exp 1/15/2026; 3230, Exp 3/10/2026; 3231, Exp 3/11/2026; 3235, Exp 3/13/2026; 3236, Exp 3/17/2026; 3241, Exp 3/17/2026; 3242, Exp 3/18/2026."
+  },
+  {
+    "status": "Ongoing",
+    "city": "Seymour",
+    "state": "IN",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA203899"
+      ],
+      "brand_name": [
+        "NIACIN"
+      ],
+      "generic_name": [
+        "NIACIN"
+      ],
+      "manufacturer_name": [
+        "Lannett Company, Inc."
+      ],
+      "product_ndc": [
+        "62175-320",
+        "62175-322"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "NIACIN"
+      ],
+      "rxcui": [
+        "1098134",
+        "1098141"
+      ],
+      "spl_id": [
+        "7e9530d1-a940-42e8-b754-0d4089b39db1"
+      ],
+      "spl_set_id": [
+        "d7b66e13-00ed-48a9-a54a-8e474cc31d54"
+      ],
+      "package_ndc": [
+        "62175-320-46",
+        "62175-320-43",
+        "62175-322-46",
+        "62175-322-43"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0362175320469"
+      ],
+      "nui": [
+        "N0000175594",
+        "M0014839"
+      ],
+      "pharm_class_epc": [
+        "Nicotinic Acid [EPC]"
+      ],
+      "pharm_class_cs": [
+        "Nicotinic Acids [CS]"
+      ],
+      "unii": [
+        "2679MF687A"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "97778",
+    "recalling_firm": "Lannett Company Inc.",
+    "address_1": "1101 C Ave W",
+    "address_2": "",
+    "postal_code": "47274-3342",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the USA",
+    "recall_number": "D-0096-2026",
+    "product_description": "Niacin Extended-release Tablets, USP, 1,000 mg, Rx Only, 90 Tablets per bottle, Distributed by: Lannett Company, Inc., Philadelphia, PA 19136.  NDC:  62175-322-46",
+    "product_quantity": "46,848 90-count bottles",
+    "reason_for_recall": "Failed Dissolution Specifications",
+    "recall_initiation_date": "20251010",
+    "center_classification_date": "20251022",
+    "report_date": "20251029",
+    "code_info": "Lot, expiry: 21264027A, Exp 10/30/2025; 22266446A, Exp 12/31/2025; 22266901A, Exp 02/28/2026; 22267553A, 22267554A,  Exp 03/31/2026; 22267555A, Exp 02/28/2026; 22267992A, Exp 04/30/2026; 22267993A, 22267994A, Exp 05/31/2026",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Mahwah",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA079019"
+      ],
+      "brand_name": [
+        "ATOMOXETINE"
+      ],
+      "generic_name": [
+        "ATOMOXETINE"
+      ],
+      "manufacturer_name": [
+        "Northstar Rx LLC"
+      ],
+      "product_ndc": [
+        "16714-755",
+        "16714-756",
+        "16714-757",
+        "16714-758",
+        "16714-759",
+        "16714-760",
+        "16714-761"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "ATOMOXETINE HYDROCHLORIDE"
+      ],
+      "rxcui": [
+        "349591",
+        "349592",
+        "349593",
+        "349594",
+        "349595",
+        "608139",
+        "608143"
+      ],
+      "spl_id": [
+        "a0f55e56-0899-430c-b25d-475d713f3a93"
+      ],
+      "spl_set_id": [
+        "133a4b65-762b-4712-baba-2442546f0379"
+      ],
+      "package_ndc": [
+        "16714-755-01",
+        "16714-756-01",
+        "16714-757-01",
+        "16714-758-01",
+        "16714-759-01",
+        "16714-760-01",
+        "16714-761-01"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0316714760018",
+        "0316714755014",
+        "0316714756011",
+        "0316714761015",
+        "0316714757018"
+      ],
+      "unii": [
+        "57WVB6I2W0"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96194",
+    "recalling_firm": "Glenmark Pharmaceuticals Inc., USA",
+    "address_1": "750 Corporate Dr",
+    "address_2": "N/A",
+    "postal_code": "07430-2009",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide within the U.S",
+    "recall_number": "D-0240-2025",
+    "product_description": "Atomoxetine Capsules, USP, 25 mg, 30 capsule bottles, Rx Only, Manufactured for: Northstar Rx LLC., Memphis, TN 38141, Manufactured by: Glenmark Pharmaceuticals Ltd., Goa, India, NDC 16714-757-01.",
+    "product_quantity": "133,824 bottles",
+    "reason_for_recall": "CGMP Deviations: presence of N-Nitroso Atomoxetine Impurity above the FDA recommended limit.",
+    "recall_initiation_date": "20250129",
+    "center_classification_date": "20250220",
+    "report_date": "20250226",
+    "code_info": "Lot Numbers: 19232506, 19232397, 19232415, Exp.: 5/2025; 19233791, Exp.: 8/2025; 19234248, Exp.: 9/2025; 19240909, Exp.: 2/2026; 19242598, Exp.:6/2026; 19243163, 19243122, Exp.: 7/2026; 19243884, Exp.: 9/2026."
+  },
+  {
+    "status": "Ongoing",
+    "city": "Newmarket",
+    "state": "",
+    "country": "Canada",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "95655",
+    "recalling_firm": "Brands International Corporation",
+    "address_1": "594 Newpark Blvd",
+    "address_2": "",
+    "postal_code": "N/A",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide USA",
+    "recall_number": "D-0205-2025",
+    "product_description": "Kissable Diabetics Foot Cream, NET WT 4 oz (113 g) per tube, Manufactured By: Brands International Corp., Newmarket, ON, L3X 2S2. UPC 6 72008 80925 3",
+    "product_quantity": "unknown",
+    "reason_for_recall": "CGMP Deviations: lack of adequate release testing.",
+    "recall_initiation_date": "20241113",
+    "center_classification_date": "20250117",
+    "report_date": "20250129",
+    "code_info": "Lots: 23319025, 23318024, 23313023, 23311022, 23310021, 23222021, 23220020, 23215019, 23215018, 23214017, 23213016, 23208015, 2313014, 2312213, 2312212, 2312111, 2312110, 2311709, 2311708, 2311607, 2311506, 2311405, 2307904, 23073003, 23072002, 2306901 and 24135003.  All expiration dates within expiry.",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "Columbus",
+    "state": "OH",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96308",
+    "recalling_firm": "Safecor Health, LLC",
+    "address_1": "4060 Business Park Dr Ste B",
+    "address_2": "",
+    "postal_code": "43204-5047",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the USA",
+    "recall_number": "D-0252-2025",
+    "product_description": "Ferrous Sulfate 7.5 mg Iron/0.5 mL Oral Syringe, Delivers: 0.5 mL, Iron Supplement Drops, Mfg by: Akron Pharma, Pkg by: Safecor, Columbus, OH 43204.  NDC: a) 71399748005, b) 39328055750, c) 69618007059.",
+    "product_quantity": "1535 Oral Syringes",
+    "reason_for_recall": "Defective Delivery System: Leakage observed after oral solution was repackaged into unit-dose syringes.",
+    "recall_initiation_date": "20250217",
+    "center_classification_date": "20250305",
+    "report_date": "20250312",
+    "code_info": "Lot #s:  a) 24250093, Exp 03/07/2025; 24321592, Exp 04/04/2025; 24280320, Exp 03/27/2025;  b) 24371268, Exp 04/19/2025;  c) 24400519, Exp 04/07/2025; 24500768, Exp 06/24/2025; 25040972, Exp 07/25/2025.",
+    "more_code_info": ""
+  },
+  {
+    "status": "Ongoing",
+    "city": "La Vergne",
+    "state": "TN",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96151",
+    "recalling_firm": "The Harvard Drug Group LLC dba Major Pharmaceuticals and Rugby Laboratories",
+    "address_1": "341 Mason Rd",
+    "address_2": "N/A",
+    "postal_code": "37086-3606",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide U.S. and Puerto rico",
+    "recall_number": "D-0226-2025",
+    "product_description": "Lorazepam Tablets, USP, 0.5mg, Unit Dose, 100 tablets per carton (10 x 10 blister packs), Rx only, The drug product contained in this package is from NDC # 69315-904 Leading Pharma, LLC., Packaged and Distributed by: Major Pharmaceuticals, Indianapolis, IN 26268 USA, NDC: 0904-6007-61",
+    "product_quantity": "82,281 cartons",
+    "reason_for_recall": "Failed impurities/degradation specifications and Sub-potent Drug: Out-of-specification results were obtained during routine stability testing for Assay and Impurities.",
+    "recall_initiation_date": "20250121",
+    "center_classification_date": "20250219",
+    "report_date": "20250226",
+    "code_info": "Lot #s: N01424, N01425, Exp 03/31/2025; N01659, N01660, Exp 08/31/2025; N01668, 09/2025; N01679, N01704, N01745, Exp 10/31/2025; N01856, Exp 02/28/2026; N01973, Exp 05/31/2026; N02079, Exp 08/31/2026."
+  },
+  {
+    "status": "Ongoing",
+    "city": "Mahwah",
+    "state": "NJ",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {
+      "application_number": [
+        "ANDA090355"
+      ],
+      "brand_name": [
+        "THEOPHYLLINE"
+      ],
+      "generic_name": [
+        "THEOPHYLLINE"
+      ],
+      "manufacturer_name": [
+        "Glenmark Pharmaceuticals Inc., USA"
+      ],
+      "product_ndc": [
+        "68462-356",
+        "68462-380"
+      ],
+      "product_type": [
+        "HUMAN PRESCRIPTION DRUG"
+      ],
+      "route": [
+        "ORAL"
+      ],
+      "substance_name": [
+        "THEOPHYLLINE ANHYDROUS"
+      ],
+      "rxcui": [
+        "313291",
+        "348472"
+      ],
+      "spl_id": [
+        "7c8e32e3-ca36-4ad2-971b-446c12a81992"
+      ],
+      "spl_set_id": [
+        "56fc2167-ceb6-4e3e-8ff7-5e400dfbd533"
+      ],
+      "package_ndc": [
+        "68462-380-01",
+        "68462-380-05",
+        "68462-356-01",
+        "68462-356-05"
+      ],
+      "is_original_packager": [
+        true
+      ],
+      "upc": [
+        "0368462380017",
+        "0368462356012"
+      ],
+      "nui": [
+        "N0000175790",
+        "M0023046"
+      ],
+      "pharm_class_epc": [
+        "Methylxanthine [EPC]"
+      ],
+      "pharm_class_cs": [
+        "Xanthines [CS]"
+      ],
+      "unii": [
+        "0I55128JYK"
+      ]
+    },
+    "product_type": "Drugs",
+    "event_id": "96867",
+    "recalling_firm": "Glenmark Pharmaceuticals Inc., USA",
+    "address_1": "750 Corporate Dr",
+    "address_2": "N/A",
+    "postal_code": "07430-2009",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the USA",
+    "recall_number": "D-0452-2025",
+    "product_description": "Theophylline (Anhydrous) Extended-Release Tablets, 600 mg, 100 Tablets per bottle, Rx Only, Manufactured by: Glenmark Pharmaceuticals Limited. Colvale-Bardez, Goa - 403513, India. Manufactured for: Glenmark Pharmaceuticals Inc., USA, Mahwah, NJ 07430.  NDC: 68462-356-01",
+    "product_quantity": "8,520 100-count bottles",
+    "reason_for_recall": "OOS results reported for the Dissolution (by UV) test.",
+    "recall_initiation_date": "20250515",
+    "center_classification_date": "20250528",
+    "report_date": "20250604",
+    "code_info": "Lots: 19234121, 19234148, Exp Sep-30-25; Lots 19242881, 19242899, Exp Jun-30-26"
+  },
+  {
+    "status": "Ongoing",
+    "city": "Columbus",
+    "state": "OH",
+    "country": "United States",
+    "classification": "Class II",
+    "openfda": {},
+    "product_type": "Drugs",
+    "event_id": "96308",
+    "recalling_firm": "Safecor Health, LLC",
+    "address_1": "4060 Business Park Dr Ste B",
+    "address_2": "",
+    "postal_code": "43204-5047",
+    "voluntary_mandated": "Voluntary: Firm initiated",
+    "initial_firm_notification": "Letter",
+    "distribution_pattern": "Nationwide in the USA",
+    "recall_number": "D-0253-2025",
+    "product_description": "Lorazepam 0.5 mg per 0.25 mL Oral Syringe, Delivers: 0.25 mL, Oral Concentrate, Rx Only, Refrigerate, Mfg by: PAI, Pkg by: Safecor Health, LLC, Columbus, OH 43204, NDC: a) 00054353244, b) 00121077001, c) 65162068784.",
+    "product_quantity": "3465 Oral Syringes",
+    "reason_for_recall": "Defective Delivery System: Leakage observed after oral solution was repackaged into unit-dose syringes.",
+    "recall_initiation_date": "20250217",
+    "center_classification_date": "20250305",
+    "report_date": "20250312",
+    "code_info": "Lot #s:  a) 24210274, Exp 01/31/2025; 24401700, Exp 04/25/2025;  b) 24251067, Exp 03/25/2025; 24421733, Exp 06/03/2025;  c) 24261384, Exp 03/24/2025; 24370127, Exp 04/28/2025.",
+    "more_code_info": ""
+  }
+]

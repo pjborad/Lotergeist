@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Property tests on save",
+      "trigger": "PostFileSave",
+      "description": "Run the fast-check property tests for the Coroner and GS1 packages whenever their source or tests are saved.",
+      "matcher": "packages/(coroner|gs1)/(src|test)/.*\\.ts$",
+      "action": {
+        "type": "command",
+        "command": "npx vitest run packages/coroner packages/gs1",
+        "timeout": 90
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "body-snatcher-rx",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Lot-level recall hunter. Synthetic data only. Kiroween 2026, Frankenstein.",
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@12.16.1",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "seed": "pnpm --filter @bsrx/crypt-seed run seed",
+    "labels": "pnpm --filter @bsrx/web run labels",
+    "dev:api": "pnpm --filter @bsrx/api run dev",
+    "dev:rxterm": "pnpm --filter @bsrx/rxterm98 run dev",
+    "dev:web": "pnpm --filter @bsrx/web run dev",
+    "dev": "bash scripts/dev-lotergeist.sh",
+    "dev:legacy": "bash scripts/dev.sh",
+    "lg:api": "pnpm --filter @bsrx/lg-api run dev",
+    "lg:web": "pnpm --filter @bsrx/lg-web run dev",
+    "lg:fax": "pnpm --filter @bsrx/lg-api run fax",
+    "e2e:lg": "node packages/grave-robber/scripts/lotergeist-e2e.mjs",
+    "test": "vitest run",
+    "typecheck": "pnpm -r --no-bail run typecheck",
+    "build:web": "pnpm --filter @bsrx/web run build",
+    "mcp": "pnpm --filter @bsrx/dead-registry-mcp run start",
+    "hooks:install": "bash scripts/install-hooks.sh",
+    "e2e:fill": "node packages/grave-robber/scripts/soul-catcher-e2e.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "fast-check": "4.10.2",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
+  }
+}

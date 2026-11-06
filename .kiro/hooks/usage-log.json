@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Usage log after each task",
+      "trigger": "PostTaskExec",
+      "description": "Append the completed task and the files it changed to docs/KIRO_USAGE.md.",
+      "action": {
+        "type": "command",
+        "command": "bash scripts/usage-log.sh",
+        "timeout": 20
+      }
+    }
+  ]
+}

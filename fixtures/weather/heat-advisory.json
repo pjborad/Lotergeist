@@ -1,0 +1,15 @@
+{
+  "ambientC": 18,
+  "hazards": [
+    {
+      "id": "fixture-heat-1",
+      "kind": "heat",
+      "label": "HEAT ADVISORY",
+      "center": { "lat": 45.52555, "lon": -122.61601 },
+      "radiusKm": 2.46,
+      "tempF": 98,
+      "fromHour": 14,
+      "toHour": 19
+    }
+  ]
+}

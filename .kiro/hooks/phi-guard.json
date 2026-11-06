@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "PHI guard before commit",
+      "trigger": "PreToolUse",
+      "description": "Before any shell command that runs `git commit`, scan staged files for SSNs and labelled dates of birth and block the commit on a match (exit 2).",
+      "matcher": "execute_bash",
+      "action": {
+        "type": "command",
+        "command": "bash scripts/phi-guard.sh --hook",
+        "timeout": 30
+      }
+    }
+  ]
+}

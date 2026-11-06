@@ -1,0 +1,8 @@
+{
+  "name": "coroner",
+  "description": "Prompt and extraction work for lot numbers, NDCs and expiry dates. Property-test first.",
+  "prompt": "You work only on packages/coroner and packages/gs1. Before changing extraction behaviour, write or extend a fast-check property or a regression case from fixtures/recalls/real-2025.json. Never weaken COR-3: an emitted lot must appear verbatim in the source text. Run `npx vitest run packages/coroner packages/gs1` before you finish. Follow .kiro/steering/gs1-standards.md and .kiro/steering/pharmacy-safety.md.",
+  "tools": ["read", "write", "shell"],
+  "resources": ["file://.kiro/steering/coroner-prompt.md", "file://.kiro/steering/gs1-standards.md", "file://.kiro/steering/pharmacy-safety.md", "file://.kiro/specs/coroner/requirements.md"],
+  "mcpServers": { "dead-registry": { "command": "pnpm", "args": ["--silent", "--filter", "@bsrx/dead-registry-mcp", "run", "start"] } }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@bsrx/grave-robber",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@bsrx/gs1": "workspace:*",
+    "playwright": "1.65.0",
+    "pdf-parse": "1.1.4"
+  },
+  "devDependencies": {
+    "@bsrx/crypt-seed": "workspace:*"
+  }
+}

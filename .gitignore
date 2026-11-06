@@ -1,0 +1,18 @@
+node_modules/
+dist/
+.turbo/
+*.log
+.env
+.env.local
+data/
+*.duckdb
+*.duckdb.wal
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+.DS_Store
+.adhd-working-state.json
+test-results/
+playwright-report/
+# .kiro/ is intentionally NOT ignored
+apps/lg-web/public/ocr/

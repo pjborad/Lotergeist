@@ -1,0 +1,15 @@
+# Soul Catcher tasks
+- [x] COR-1: Coroner reads `product_description` as well as `code_info` (the real D-0526-2026 keeps its NDC there)
+- [x] Real recall D-0526-2026 fixture; part of the demo set
+- [x] RxTerm 98: FILL QUEUE, prescription detail, F6 notes
+- [x] RPA-7 to RPA-9: `writeBack()` with re-read verification and retry
+- [x] PBT for RPA-8 (random lots and serials including characters the terminal HTML-escapes)
+- [x] `fill_scans` table and `/api/fills*` routes
+- [x] SOUL-5 to SOUL-10 verdicts with end-to-end tests (CURSED, WRONG VESSEL, DEPARTED, CAPTURED, garbled)
+- [x] Shared browser scanner: BarcodeDetector with zxing fallback, 2-frame debounce, crop (SOUL-1 to SOUL-3, SOUL-12)
+- [x] Soul Catcher screen: ticket, lantern, soul card, ribbon, mini CRT, USB and typed fallbacks
+- [x] Printable labels: `pnpm labels` writes `labels-fill.pdf` with one label per verdict
+- [x] UI rehearsal with a fake webcam: `packages/grave-robber/scripts/soul-catcher-e2e.mjs`
+- [ ] Try a real webcam and printed labels on the demo laptop
+- [ ] Try a real prescription carton
+- [ ] INF-1 to INF-6 lot inference for past fills
