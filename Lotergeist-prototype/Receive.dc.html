@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lotergeist · Receiving</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F7FA}
+.lg{--bg:#F7F7FA;--surface:#FFFFFF;--surface-2:#FAFAFC;--sunken:#F1F1F5;--border:#E7E7EE;--border-strong:#D7D8E2;--text:#16161D;--muted:#5F6170;--subtle:#6B6D7B;--accent:#6D4AFF;--accent-hover:#5B3BE8;--on-accent:#FFFFFF;--accent-soft:#F1EDFF;--accent-text:#5B3BE8;--danger:#D92D20;--danger-soft:#FEF0EE;--danger-text:#B42318;--warn:#F79009;--warn-soft:#FFF6E5;--warn-text:#B54708;--ok:#12B76A;--ok-soft:#ECFDF3;--ok-text:#067647;--info:#2E90FA;--info-soft:#EFF6FF;--info-text:#175CD3;--shadow:0 1px 2px rgba(16,16,29,.04),0 2px 8px rgba(16,16,29,.04);--shadow-lg:0 12px 32px rgba(16,16,29,.10);--ring:0 0 0 3px rgba(109,74,255,.22);min-height:100vh;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;font-feature-settings:'cv11','ss01';-webkit-font-smoothing:antialiased;display:flex;flex-wrap:wrap;transition:background-color .3s,color .3s}
+.lg[data-theme="dark"]{--bg:#0B0D12;--surface:#12151C;--surface-2:#151922;--sunken:#0F1218;--border:#232836;--border-strong:#2F3546;--text:#ECEDF2;--muted:#A3A7B5;--subtle:#8B90A0;--accent:#8B73FF;--accent-hover:#9E8BFF;--on-accent:#0B0D12;--accent-soft:rgba(139,115,255,.14);--accent-text:#BDAEFF;--danger:#F04438;--danger-soft:rgba(249,112,102,.12);--danger-text:#FDA29B;--warn-soft:rgba(253,176,34,.12);--warn-text:#FEC84B;--ok:#32D583;--ok-soft:rgba(50,213,131,.12);--ok-text:#6CE9A6;--info:#53B1FD;--info-soft:rgba(83,177,253,.12);--info-text:#84CAFF;--shadow:0 1px 2px rgba(0,0,0,.35);--shadow-lg:0 16px 40px rgba(0,0,0,.5);--ring:0 0 0 3px rgba(139,115,255,.35)}
+.lg *{box-sizing:border-box}
+.lg a{color:var(--accent-text)}
+.lg button{font:inherit;cursor:pointer}
+.lg :focus-visible{outline:none;box-shadow:var(--ring)}
+.side{flex:1 1 248px;background:var(--surface);border-right:1px solid var(--border);padding:18px 14px;display:flex;flex-direction:column;gap:18px;transition:background-color .3s,border-color .3s}
+.brand{display:flex;align-items:center;gap:10px;padding:4px 8px;text-decoration:none;color:var(--text)!important}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--subtle);padding:14px 10px 6px}
+.nav a{display:flex;align-items:center;gap:10px;min-height:38px;padding:0 10px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:background-color .15s,color .15s}
+.nav a:hover{background:var(--sunken);color:var(--text)}
+.nav a[aria-current="page"]{background:var(--accent-soft);color:var(--accent-text)}
+.nav svg{width:18px;height:18px;flex-shrink:0}
+.count{margin-left:auto;font-size:11px;font-weight:600;min-width:20px;height:20px;padding:0 6px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:var(--sunken);color:var(--muted)}
+.count.red{background:var(--danger);color:#fff}.count.amber{background:var(--warn);color:#1F1405}
+.theme{display:flex;padding:3px;border-radius:10px;background:var(--sunken);border:1px solid var(--border)}
+.theme button{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;min-height:32px;border:0;border-radius:7px;background:transparent;color:var(--muted);font-size:13px;font-weight:500;transition:all .2s}
+.theme button[aria-pressed="true"]{background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
+.me{display:flex;align-items:center;gap:10px;padding:10px;border-radius:12px;border:1px solid var(--border)}
+.av{width:32px;height:32px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;background:var(--accent-soft);color:var(--accent-text);flex-shrink:0}
+.content{flex:999 1 560px;min-width:0;display:flex;flex-direction:column}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:16px 32px;border-bottom:1px solid var(--border);background:var(--surface);transition:background-color .3s,border-color .3s}
+.crumb{font-size:13px;color:var(--subtle)}
+.h1{margin:2px 0 0;font-size:24px;font-weight:600;letter-spacing:-.02em}
+.page{padding:28px 32px 64px;display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;width:100%;max-width:1320px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);transition:background-color .3s,border-color .3s,box-shadow .2s,transform .2s}
+.pad{padding:22px}
+.h2{margin:0;font-size:16px;font-weight:600;letter-spacing:-.01em}
+.sub{margin:0;font-size:13px;color:var(--muted);line-height:1.5}
+.label{font-size:12px;font-weight:500;color:var(--subtle)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:0 16px;border-radius:10px;border:1px solid var(--border-strong);background:var(--surface);color:var(--text)!important;font-size:14px;font-weight:500;text-decoration:none;white-space:nowrap;transition:background-color .15s,border-color .15s,transform .1s,box-shadow .15s}
+.btn:hover{background:var(--sunken)}
+.btn:active{transform:scale(.98)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)!important;box-shadow:0 1px 2px rgba(16,16,29,.12)}
+.btn.primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn.big{min-height:46px;padding:0 20px;font-size:15px}
+.chip{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;font-size:12px;font-weight:500;padding:3px 9px;border-radius:999px;background:var(--sunken);color:var(--muted)}
+.chip.ok,.ico.ok{background:var(--ok-soft);color:var(--ok-text)}.chip.warn,.ico.warn{background:var(--warn-soft);color:var(--warn-text)}.chip.bad{background:var(--danger-soft);color:var(--danger-text)}.chip.info,.ico.info{background:var(--info-soft);color:var(--info-text)}.chip.accent,.ico.accent{background:var(--accent-soft);color:var(--accent-text)}
+.ico{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:24px;height:24px;border-radius:50%;font-size:12px;font-weight:700}
+.ico:empty{border:1.5px dashed var(--border-strong)}
+.mono{font-family:'JetBrains Mono',monospace;font-size:13px}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--border);border-top:1px solid var(--border)}
+.kv>div{background:var(--surface);padding:14px 20px;transition:background-color .3s}
+.loc{border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:16px;border:1.5px solid var(--accent);background:var(--surface);box-shadow:0 0 0 4px var(--accent-soft);transition:all .3s}
+.loc.cold{border-color:var(--info);box-shadow:0 0 0 4px var(--info-soft)}
+.loc.ctrl{border-color:var(--warn);box-shadow:0 0 0 4px var(--warn-soft)}
+.line{display:flex;align-items:center;gap:12px;padding:10px 8px;border-radius:10px;transition:background-color .2s}
+.line.now{background:var(--accent-soft)}
+.prog{height:8px;border-radius:999px;background:var(--sunken);overflow:hidden}
+.prog>span{display:block;height:100%;border-radius:999px;background:var(--accent);transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.enter{animation:rise .35s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes sweep{0%{top:12%}50%{top:84%}100%{top:12%}}
+.laser{animation:sweep 2.6s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.lg *{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div class="lg" data-theme="{{theme}}">
+
+<aside class="side">
+<a class="brand" href="Dashboard.dc.html"><svg width="32" height="32" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" style="fill: var(--accent-soft)"></rect><path d="M20 7a10 10 0 1 0 8 15A8.5 8.5 0 0 1 20 7z" style="fill: var(--accent)"></path><path d="M14 14v7M10.5 17.5h7" fill="none" style="stroke: var(--surface)" stroke-width="2.2" stroke-linecap="round"></path></svg><span style="display: flex; flex-direction: column; line-height: 1.25"><span style="font-weight: 700; font-size: 15px; letter-spacing: -0.01em">Lotergeist</span><span style="font-size: 12px; color: var(--subtle)">Elm Street · Store 7</span></span></a>
+<nav class="nav" aria-label="Main">
+<span class="nav-label">Operations</span>
+<a href="Dashboard.dc.html"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="6" height="6" rx="1.5"></rect><rect x="11" y="3" width="6" height="6" rx="1.5"></rect><rect x="3" y="11" width="6" height="6" rx="1.5"></rect><rect x="11" y="11" width="6" height="6" rx="1.5"></rect></svg>Today</a>
+<a href="Receive.dc.html" aria-current="page"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 5h10v9H2zM12 8.5h3.2l2.8 3v2.5h-6z"></path><circle cx="5.5" cy="15.5" r="1.5"></circle><circle cx="14.5" cy="15.5" r="1.5"></circle></svg>Receiving<span class="count">2</span></a>
+<a href="Inventory.dc.html"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 4h14M3 10h14M3 16h14M4 4v12M16 4v12"></path></svg>Inventory</a>
+<a href="Dispense.dc.html"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="2.5" width="10" height="15" rx="2"></rect><path d="M8 7h4M10 5v4M8 12.5h4"></path></svg>Fill &amp; pickup<span class="count amber">1</span></a>
+<span class="nav-label">Care</span>
+<a href="Patients.dc.html"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="7" r="3.2"></circle><path d="M3.5 17c1.2-3 3.6-4.5 6.5-4.5s5.3 1.5 6.5 4.5"></path></svg>Patients</a>
+<a href="Recall.dc.html"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M10 2.5l7 3v4.5c0 4-3 6.8-7 8-4-1.2-7-4-7-8V5.5z"></path><path d="M10 7v4M10 13.5v.3" stroke-linecap="round"></path></svg>Recalls<span class="count red">1</span></a>
+<span class="nav-label">Admin</span>
+<a href="Integrations.dc.html"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 2.5v4M13 2.5v4M5 6.5h10v3a5 5 0 01-10 0zM10 14.5v3"></path></svg>Integrations</a>
+</nav>
+<div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px">
+<div class="theme" role="group" aria-label="Theme"><button aria-pressed="{{isLight}}" onClick="{{toLight}}"><svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="3.5"></circle><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.3 4.3l1.4 1.4M14.3 14.3l1.4 1.4M4.3 15.7l1.4-1.4M14.3 5.7l1.4-1.4"></path></svg>Light</button><button aria-pressed="{{isDark}}" onClick="{{toDark}}"><svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15.5 12.5A6.5 6.5 0 0 1 7.5 4.5a6.5 6.5 0 1 0 8 8z"></path></svg>Dark</button></div>
+<div class="me"><span class="av" style="background: var(--ok-soft); color: var(--ok-text)">KP</span><span style="display: flex; flex-direction: column; min-width: 0; line-height: 1.3"><span style="font-size: 14px; font-weight: 600">K. Patel, CPhT</span><span style="font-size: 12px; color: var(--subtle)">Technician</span></span></div>
+</div>
+</aside>
+
+<div class="content">
+<header class="top">
+<div style="min-width: 0; flex: 1 1 320px"><div class="crumb">Operations · Receiving · ASH-1105-07</div><h1 class="h1">Check in Ashgrove delivery</h1></div>
+<div style="flex: 0 1 320px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span class="label">Checked in</span><span style="font-weight: 600; font-variant-numeric: tabular-nums">{{doneCount}} of 38</span></div>
+<div class="prog"><span style="{{progStyle}}"></span></div>
+</div>
+</header>
+
+<main class="page">
+<section style="flex: 1 1 540px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+
+<template data-sc-if value="{{notDone}}" hint-placeholder-val="{{true}}">
+<div class="card enter" style="overflow: hidden">
+<div style="display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; align-items: center">
+<div aria-hidden="true" style="position: relative; width: 120px; height: 120px; flex-shrink: 0; border-radius: 16px; background: var(--surface-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; overflow: hidden">
+<div style="display: grid; grid-template-columns: repeat(12, 6px)">
+<template data-sc-for list="{{dm}}" as="c" hint-placeholder-count="144"><span style="{{c.s}}"></span></template>
+</div>
+<span class="laser" style="position: absolute; left: 10px; right: 10px; height: 2px; border-radius: 2px; background: var(--accent); box-shadow: 0 0 12px 2px var(--accent)"></span>
+</div>
+<div style="flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<span class="chip ok" style="align-self: flex-start"><span class="ico ok" style="width: 16px; height: 16px; font-size: 10px; background: transparent">✓</span>2D barcode read</span>
+<h2 class="h2" style="font-size: 20px; line-height: 1.3">{{it.name}}</h2>
+<p class="sub">{{it.maker}} · NDC <span class="mono" style="color: var(--text)">{{it.ndc}}</span></p>
+</div>
+</div>
+<dl class="kv" style="margin: 0">
+<template data-sc-for list="{{it.fields}}" as="f" hint-placeholder-count="4">
+<div><dt class="label">{{f.k}} <span class="mono" style="font-size: 11px">({{f.ai}})</span></dt><dd class="mono" style="margin: 4px 0 0; font-size: 15px; color: var(--text)">{{f.v}}</dd></div>
+</template>
+</dl>
+</div>
+
+<div class="{{locCls}} enter">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px; min-width: 0">
+<span class="label">Put away at</span>
+<span style="font-size: 28px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15">{{it.loc}}</span>
+<span class="sub" style="font-size: 14px">{{it.why}}</span>
+</div>
+<span class="{{it.zoneCls}}" style="font-size: 13px; padding: 5px 12px">{{it.zone}}</span>
+</div>
+<ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px">
+<template data-sc-for list="{{it.checks}}" as="c" hint-placeholder-count="4">
+<li style="display: flex; align-items: center; gap: 10px; font-size: 14px"><span class="ico ok">✓</span>{{c}}</li>
+</template>
+</ul>
+<div style="display: flex; gap: 10px; flex-wrap: wrap">
+<button class="btn primary big" onClick="{{next}}">Confirm put-away &amp; scan next</button>
+<button class="btn big">Report a problem</button>
+</div>
+</div>
+</template>
+
+<template data-sc-if value="{{done}}" hint-placeholder-val="{{false}}">
+<div class="card pad enter" style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start; background: var(--ok-soft); border-color: transparent">
+<span class="ico ok" style="width: 52px; height: 52px; background: var(--surface)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+<h2 class="h2" style="font-size: 22px">Delivery checked in</h2>
+<p class="sub" style="font-size: 15px">38 packages · every lot and serial recorded · transaction info stored for 6 years · 0 discrepancies.</p>
+<div style="display: flex; gap: 10px; flex-wrap: wrap"><a href="Inventory.dc.html" class="btn primary big">View in inventory</a><button class="btn big" onClick="{{reset}}">Replay demo</button></div>
+</div>
+</template>
+</section>
+
+<aside class="card" aria-labelledby="inv" style="flex: 1 1 360px; min-width: 0; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; padding: 2px 6px 6px"><h2 id="inv" class="h2">Invoice ASH-1105-07</h2><span class="label">EDI 856 · TI/TS attached</span></div>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px">
+<template data-sc-for list="{{lines}}" as="l" hint-placeholder-count="8">
+<li class="{{l.cls}}"><span class="{{l.icon}}">{{l.mark}}</span><span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px; font-weight: 500">{{l.name}}</span><span class="label">{{l.sub}}</span></span><span class="mono" style="color: var(--muted)">{{l.qty}}</span></li>
+</template>
+</ul>
+</aside>
+</main>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1440,"height":1180}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); var t = null; try { t = localStorage.getItem('lg-theme'); } catch (e) {} this.state = { theme: t, i: 0 }; }
+  renderVals() {
+    var self = this;
+    var theme = this.state.theme || this.props.theme || 'light';
+    var setT = function (v) { try { localStorage.setItem('lg-theme', v); } catch (e) {} self.setState({ theme: v }); };
+    var i = this.state.i;
+    var items = [
+      { name: 'Amoxicillin 500 mg capsules, 100 ct', maker: 'Marrowfield Labs', ndc: '70004-226-01',
+        fields: [{ k: 'GTIN', ai: '01', v: '00370004226011' }, { k: 'Lot', ai: '10', v: 'AMX0926B' }, { k: 'Expiry', ai: '17', v: '2028-09-30' }, { k: 'Serial', ai: '21', v: '10443812' }],
+        loc: 'Aisle 2 · Bay A · Shelf 3 · Bin 14', why: 'Room temperature. Shelved by generic name in A–C; fast mover at eye level.', zone: 'Shelf', zoneCls: 'chip accent', kind: '',
+        checks: ['Matches invoice line 6', 'Transaction info verified', 'Expiry more than 12 months out', 'Lot not on any active recall'] },
+      { name: 'Insulin glargine 100 units/mL, 5 × 3 mL pens', maker: 'Nightjar Biologics', ndc: '70004-623-15',
+        fields: [{ k: 'GTIN', ai: '01', v: '00370004623155' }, { k: 'Lot', ai: '10', v: 'GX4471C' }, { k: 'Expiry', ai: '17', v: '2027-08-31' }, { k: 'Serial', ai: '21', v: '0000912' }],
+        loc: 'Fridge F1 · Shelf 2 · Bin B', why: 'Refrigerate at 2–8 °C. Put away within 15 minutes of opening the tote.', zone: 'Cold chain', zoneCls: 'chip info', kind: ' cold',
+        checks: ['Matches invoice line 7', 'Shipper temperature log 3.8 °C', 'Expiry more than 9 months out', 'Lot not on any active recall'] },
+      { name: 'Oxycodone HCl 5 mg tablets, 100 ct', maker: 'Hollow Creek Pharma', ndc: '70004-310-10',
+        fields: [{ k: 'GTIN', ai: '01', v: '00370004310109' }, { k: 'Lot', ai: '10', v: 'OX25L072' }, { k: 'Expiry', ai: '17', v: '2028-03-31' }, { k: 'Serial', ai: '21', v: '55020417' }],
+        loc: 'C-II Safe · Drawer 1', why: 'Schedule II. Perpetual count goes from 13 to 14 bottles; a second person must witness.', zone: 'Controlled', zoneCls: 'chip warn', kind: ' ctrl',
+        checks: ['Matches CSOS order 7731', 'Transaction info verified', 'Witness: J. Rivera, PharmD', 'Lot not on any active recall'] }
+    ];
+    var done = i >= items.length;
+    var it = items[Math.min(i, items.length - 1)];
+    var x = 7 + i * 13, dm = [];
+    for (var r = 0; r < 12; r++) for (var c = 0; c < 12; c++) {
+      var on;
+      if (c === 0 || r === 11) on = true; else if (r === 0) on = c % 2 === 0; else if (c === 11) on = r % 2 === 1;
+      else { x = (x * 1103515245 + 12345) & 0x7fffffff; on = (x >> 8) % 100 < 48; }
+      dm.push({ s: 'width: 6px; height: 6px; background: ' + (on ? 'var(--text)' : 'transparent') });
+    }
+    var base = [
+      { name: 'Lisinopril 10 mg · 90 tab', sub: 'Lot LS0811A · exp 2028-02', qty: '6/6' },
+      { name: 'Metformin ER 500 mg · 100 tab', sub: 'Lot MF2604K · exp 2028-05', qty: '8/8' },
+      { name: 'Atorvastatin 20 mg · 90 tab', sub: 'Lot AT24K118 · exp 2027-12', qty: '6/6' },
+      { name: 'Sertraline 50 mg · 30 tab', sub: 'Lot SR1003C · exp 2028-01', qty: '10/10' },
+      { name: 'Albuterol HFA 90 mcg', sub: 'Lot AB77Q2 · exp 2027-10', qty: '5/5' }
+    ];
+    var lines = base.map(function (l) { return Object.assign({ st: 'done' }, l); });
+    items.forEach(function (t, k) { lines.push({ name: t.name.split(',')[0], sub: k < i ? ('Lot ' + t.fields[1].v + ' · ' + t.loc) : (k === i ? 'Scanning now' : 'Waiting for scan'), qty: (k < i ? '1' : '0') + '/1', st: k < i ? 'done' : (k === i ? 'now' : 'todo') }); });
+    lines = lines.map(function (l) {
+      return Object.assign({}, l, { cls: 'line' + (l.st === 'now' ? ' now' : ''), mark: l.st === 'done' ? '✓' : (l.st === 'now' ? '•' : ''), icon: 'ico' + (l.st === 'done' ? ' ok' : (l.st === 'now' ? ' accent' : '')) });
+    });
+    var doneCount = 35 + Math.min(i, 3);
+    return {
+      it: it, dm: dm, lines: lines, done: done, notDone: !done, doneCount: doneCount,
+      locCls: 'loc' + it.kind,
+      progStyle: 'width: ' + Math.round(doneCount / 38 * 100) + '%',
+      next: function () { self.setState({ i: i + 1 }); },
+      reset: function () { self.setState({ i: 0 }); },
+      theme: theme, isLight: theme === 'light' ? 'true' : 'false', isDark: theme === 'dark' ? 'true' : 'false',
+      toLight: function () { setT('light'); }, toDark: function () { setT('dark'); }
+    };
+  }
+}
+</script>
+</body>
+</html>

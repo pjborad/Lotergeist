@@ -74,8 +74,16 @@ const RECALL_PATIENTS: { name: string; id: string; rx: string; lot: 1 | 3; date:
 
 const slug = (n: string) => n.toLowerCase().replace(/[^a-z]+/g, ".");
 
+/** Bump when the seed changes. In demo mode an older synthetic database is wiped and re-seeded. */
+export const SEED_VERSION = "2";
+
 export function seedDatabase(db: Db, cfg: Config, now = Date.now()) {
-  if (db.get("SELECT 1 FROM meta WHERE key = 'seeded'")) return false;
+  if (db.get("SELECT 1 FROM meta WHERE key = 'seeded'")) {
+    const v = db.get<{ value: string }>("SELECT value FROM meta WHERE key = 'seed_version'")?.value ?? "1";
+    if (v === SEED_VERSION || !cfg.demo) return false;
+    console.log(`Demo database is seed v${v}; re-seeding synthetic data as v${SEED_VERSION}.`);
+    db.clearAll();
+  }
   const R = rng(1105);
   const today = new Date(now);
   const Y = today.getUTCFullYear(), M = today.getUTCMonth();
@@ -85,12 +93,13 @@ export function seedDatabase(db: Db, cfg: Config, now = Date.now()) {
   db.tx(() => {
     // ---------- store and staff
     db.run("INSERT INTO stores VALUES (?,?,?,?,?)", "store-7", "Elm Street Pharmacy · Store 7", "0000007", "7 Elm Street (synthetic)", "(555) 010-2200");
-    const users: [string, string, string, string, string, string, string][] = [
-      ["u-rivera", "J. Rivera, PharmD", "j.rivera@elmstreetrx.example", "pharmacist", "JR", "Pharmacist in charge", "#2A2350"],
-      ["u-patel", "K. Patel, CPhT", "k.patel@elmstreetrx.example", "technician", "KP", "Technician", "#1F3A35"],
-      ["u-diaz", "M. Diaz", "m.diaz@elmstreetrx.example", "cashier", "MD", "Cashier · POS 2", "#3A2A1F"]
+    const users: [string, string, string, string, string, string, string, string][] = [
+      ["u-rivera", "J. Rivera, PharmD", "j.rivera@elmstreetrx.example", "pharmacist", "JR", "Pharmacist in charge", "#2A2350", "Jordan"],
+      ["u-patel", "K. Patel, CPhT", "k.patel@elmstreetrx.example", "technician", "KP", "Technician", "#1F3A35", "Kiran"],
+      ["u-diaz", "M. Diaz", "m.diaz@elmstreetrx.example", "cashier", "MD", "Cashier · POS 2", "#3A2A1F", "Maya"],
+      ["u-grant", "S. Grant", "s.grant@elmstreetrx.example", "admin", "SG", "Admin · integrations", "#1F2A3A", "Sam"]
     ];
-    for (const u of users) db.run("INSERT INTO users (id, store_id, name, email, role, pw_hash, initials, title, tint) VALUES (?,?,?,?,?,?,?,?,?)", u[0], "store-7", u[1], u[2], u[3], hashPassword(DEMO_PASSWORD), u[4], u[5], u[6]);
+    for (const u of users) db.run("INSERT INTO users (id, store_id, name, email, role, pw_hash, initials, title, tint, first_name) VALUES (?,?,?,?,?,?,?,?,?,?)", u[0], "store-7", u[1], u[2], u[3], hashPassword(DEMO_PASSWORD), u[4], u[5], u[6], u[7]);
 
     // ---------- products
     for (const p of PRODUCTS) {
@@ -245,7 +254,7 @@ export function seedDatabase(db: Db, cfg: Config, now = Date.now()) {
         db.run("INSERT OR IGNORE INTO ti_records (delivery_id, gtin, lot, serial, expiry) VALUES (?,?,?,?,?)", "ASH-1105-07", gtinOf(ndc10), lot, serial, exp);
         void pkg;
       }
-      ev("Received", key, todayAt(17, 55), "K. Patel, CPhT", `${qty} units · delivery ASH-1105-07`);
+      ev("Received", key, todayAt(17, 5 + lineNo), "K. Patel, CPhT", `${qty} units · delivery ASH-1105-07`);
       db.run("INSERT INTO delivery_lines (delivery_id, line_no, ndc11, name, expected_qty, received_qty, sub) VALUES (?,?,?,?,?,?,?)", "ASH-1105-07", lineNo, ndc11Digits(ndc10), name, qty, qty, `Lot ${lot} · exp ${exp.slice(0, 7)}`);
     }
     const lines07b: [string, string, number][] = [["70004-226-01", "Amoxicillin 500 mg · 100 cap", 1], ["70004-623-15", "Insulin glargine 100 U/mL · 5 pens", 1], ["70004-310-10", "Oxycodone HCl 5 mg · 100 tab", 1]];
@@ -256,7 +265,7 @@ export function seedDatabase(db: Db, cfg: Config, now = Date.now()) {
 
     // ---------- today's fill queue (insulin and atorvastatin come from named lots; the others reuse existing stock)
     const queue: [string, string, string, string, string, string, string, string][] = [
-      ["0072210", "S-0612", "70004-623-15", "Insulin glargine 100 units/mL · 5 × 3 mL pens", "Inject 20 units under the skin at bedtime", "Dr. A. Nwosu", "to_fill", "waiting"],
+      ["0072210", "S-0612", "70004-623-15", "Insulin glargine 100 units/mL · 5 × 3 mL pens", "Inject 20 units under the skin every morning and at bedtime", "Dr. A. Nwosu", "to_fill", "waiting"],
       ["0072214", "S-0448", "70004-803-90", "Atorvastatin 20 mg · 90 tab", "Take 1 tablet by mouth daily", "Dr. L. Moreno", "to_fill", "18:45"],
       ["0072219", "S-0423", "70004-226-01", "Amoxicillin 500 mg · 100 cap", "Take 1 capsule three times daily for 10 days", "Dr. L. Moreno", "to_verify", "19:00"],
       ["0072198", "S-0490", "70004-804-30", "Sertraline 50 mg · 30 tab", "Take 1 tablet by mouth daily", "Dr. L. Moreno", "ready", "in bin B-14"],
@@ -274,10 +283,30 @@ export function seedDatabase(db: Db, cfg: Config, now = Date.now()) {
       db.run("INSERT INTO lot_events (at, kind, lot_id, package_id, user_name, note) VALUES (?,?,?,?,?,?)", todayAt(17, 30), "Filled", pkg.lot_id, pkg.id, "K. Patel, CPhT", `Rx ${rx}`);
     }
 
+    // ---------- days supply as written on each queue order. 0072210 is written as 90 days on purpose: Rx Watcher should catch it.
+    for (const [rx, days] of [["0072210", 90], ["0072214", 90], ["0072219", 10], ["0072198", 30], ["0072187", 90]] as const) db.run("UPDATE prescriptions SET days_supply = ? WHERE rx = ?", days, rx);
+
+    // ---------- Daniel Brooks: the profile the Patients screen and Rx Watcher read (synthetic)
+    db.run("UPDATE patients SET conditions = ?, allergies = ? WHERE id = 'S-0612'", "Type 2 diabetes, hypertension, high cholesterol", "penicillin");
+    const hist: [string, string, string, string, string, string, number, number, string, number, number][] = [
+      ["2026-10-14", "70004-802-10", "Metformin ER 500 mg · 60 tab", "2 tablets with evening meal", "MF2604K", "Dr. A. Nwosu", 60, 30, "Active", 1, 4],
+      ["2026-10-14", "70004-801-90", "Lisinopril 10 mg · 30 tab", "1 tablet daily", "LS0811A", "Dr. A. Nwosu", 30, 30, "Active", 1, 4],
+      ["2026-09-19", "", "Atorvastatin 40 mg · 30 tab", "1 tablet at bedtime", "AT24K301", "Dr. A. Nwosu", 30, 30, "Active", 0, 5],
+      ["2026-09-02", "", "Prednisone 20 mg · 10 tab", "2 tablets daily for 5 days", "PD7711B", "Dr. L. Ortiz (urgent care)", 10, 5, "Completed", 0, 0],
+      ["2026-08-01", "70004-623-15", "Insulin glargine 100 U/mL · 5 pens", "20 units at bedtime", "GX3920A", "Dr. A. Nwosu", 1, 68, "Replaced", 0, 3],
+      ["2026-03-18", "70004-623-15", "Insulin glargine 100 U/mL · 5 pens", "18 units at bedtime", "GX3101B", "Dr. A. Nwosu", 1, 75, "Completed", 0, 4],
+      ["2026-03-03", "", "Ciprofloxacin 500 mg · 14 tab", "1 tablet twice daily for 7 days", "CP1102", "Dr. L. Ortiz (urgent care)", 14, 7, "Completed", 0, 0]
+    ];
+    for (const h of hist) db.run("INSERT INTO med_history (patient_id, filled_on, ndc11, drug, sig, lot, prescriber, qty, days_supply, status, auto_refill, refills_left) VALUES ('S-0612',?,?,?,?,?,?,?,?,?,?,?)",
+      h[0], h[1] ? ndc11Digits(h[1]) : "", h[2], h[3], h[4], h[5], h[6], h[7], h[8], h[9], h[10]);
+    // A second patient with a clean profile, so the matches list on Patients has more than one real row.
+    db.run("INSERT INTO med_history (patient_id, filled_on, ndc11, drug, sig, lot, prescriber, qty, days_supply, status, auto_refill, refills_left) VALUES ('S-0448',?,?,?,?,?,?,?,?,?,?,?)",
+      "2026-08-12", ndc11Digits("70004-803-90"), "Atorvastatin 20 mg · 90 tab", "1 tablet by mouth daily", "AT24K001", "Dr. L. Moreno", 90, 90, "Active", 0, 2);
+
     // ---------- recent activity shown on Today (the feed also fills from live actions)
     const feed: [number, number, string, string, string][] = [
       [18, 12, "Sold", "70004-803-90|AT24K118", "POS 2 · M. Diaz"], [18, 7, "Filled", "70004-623-15|GX4471C", "K. Patel, CPhT"],
-      [17, 55, "Received", "70004-226-01|AMX0626C", "K. Patel, CPhT"], [17, 30, "Returned", "70004-088-12|224015", "J. Rivera, PharmD"]
+      [17, 55, "Received", "70004-226-01|AMX0926B", "K. Patel, CPhT"], [17, 30, "Returned", "70004-088-12|224015", "J. Rivera, PharmD"]
     ];
     for (const [h, m, kind, key, who] of feed) ev(kind, key, todayAt(h, m), who, kind === "Returned" ? "Returned to vendor" : "");
 
@@ -287,6 +316,7 @@ export function seedDatabase(db: Db, cfg: Config, now = Date.now()) {
 
     db.run("INSERT INTO tasks (title, sub, href, due, dot) VALUES (?,?,?,?,?)", "Count Schedule II safe", "Biennial count · 14 products", "/inventory?filter=ctrl", "Fri", "#5E687B");
     db.run("INSERT INTO meta (key, value) VALUES ('seeded', ?)", String(now));
+    db.run("INSERT INTO meta (key, value) VALUES ('seed_version', ?)", SEED_VERSION);
     db.run("INSERT INTO meta (key, value) VALUES ('last_sync', ?)", String(now - 2 * 60_000));
   });
   return true;

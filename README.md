@@ -2,14 +2,22 @@
 
 A pharmacy lot ledger: receive and put away stock by scanning, track every package by lot and serial, record the lot on each fill, and turn an FDA recall into held stock and a patient notification list.
 
-Run it: `pnpm install`, `pnpm lg:fax` (once, makes the demo fax image), then `pnpm dev` and open http://localhost:5173. Sign in with a demo account (all share the password `moonlight-rx-2026`): `j.rivera@elmstreetrx.example` (pharmacist), `k.patel@…` (technician), `m.diaz@…` (cashier).
+Run it: `pnpm install`, `pnpm lg:fax` (once, makes the demo fax image), then `pnpm dev` and open http://localhost:5173. Sign in with a demo account (all share the password `moonlight-rx-2026`): `j.rivera@elmstreetrx.example` (pharmacist), `k.patel@…` (technician), `m.diaz@…` (cashier), `s.grant@…` (admin: integrations only). UI follows `Lotergeist-prototype/` (light and dark), plan in `docs/plan.md`.
 
+The eight screens: Sign in, Today, Receiving, Inventory, Fill & pickup, Patients, Recalls, Integrations.
+
+- Rx Watcher (`apps/lg-api/src/rxwatcher.ts`, rules in `drugs.ts`): reviews every new order (at start-up and every minute). Deterministic rules decide: frequency vs label, days supply vs quantity, dose vs this patient's history, allergy class, interactions, duplicate therapy, early refill of C-II. An optional LLM (`LLM_PROVIDER=bedrock|anthropic`) may only explain or add a lower-confidence "possible issue"; it never removes a rule hit. A flagged order cannot be scanned until a pharmacist approves (with a reason), rejects, or asks the prescriber to change it.
+- Prescriber change loop: sandbox NCPDP SCRIPT `RxChangeRequest` / `RxChangeResponse`. An approved change creates a new immutable version (`0072210-R1`) that Rx Watcher re-checks. A practice system can answer over `POST /v1/change-requests/:id/response`.
+- Patients: search by name, DOB, phone or Rx; a reason is required to open a profile and is written to the audit log. Safety review (past vs current medicines), medication history with lot per fill, refills and refill sync.
+- Voicemail outreach (`outreach.ts`, `voice.ts`): the default recall channel. The script is checked so it never names the medicine, the reason or a patient ID. It is rendered to real speech with ElevenLabs or OpenAI if a key is set, else the best macOS voice (novelty voices excluded), else the browser's voice. **Nothing is dialled**: outcomes (answered with transfer, voicemail, retry tomorrow, call list) are simulated, calling window 9 AM–8 PM patient time, callbacks show the open recall. For a better local voice, download "Ava (Premium)" in System Settings → Accessibility → Spoken Content and set `MAC_VOICE`.
+- Integrations (`integrations.ts`, `partner-api.ts`, `webhooks.ts`): OAuth 2.0 client credentials at `/oauth/token` (1-hour tokens), per-partner scopes, IP allowlist and rate limit; REST `/v1/*`, MCP `/mcp` (stateless JSON-RPC, tools filtered by scope, PHI scrubbed from output), FHIR R4 `/fhir/r4` (Medication with `batch.lotNumber`; patient resources need `patient.read` + BAA + admin approval). HMAC-signed webhooks with retries. Every partner call goes to the API activity log. The Integrations page has a live "try it" console.
+- Audit: append-only and hash-chained (`GET /api/audit/verify`, admin export as NDJSON).
 - Scanning: webcam GS1 DataMatrix (BarcodeDetector, zxing fallback), USB scanner or typing. "Print test labels" shows real DataMatrix codes for the demo stock.
 - OCR: tesseract.js runs in the browser from `apps/lg-web/public/ocr` (run `pnpm --filter @bsrx/lg-web run ocr:assets` once to download it). Used for labels without a barcode and for the recall fax.
 - Data: SQLite (`data/lotergeist.sqlite`), synthetic only. The pharmacist can reset it via `POST /api/demo/reset`.
 - Tests: `pnpm test` (API incl. property test of ledger invariants), `pnpm e2e:lg` (fake webcam + OCR in Chromium, needs the stack running).
 
-Not real, on purpose: SMS and email go to a sandbox outbox, SSO is a demo stand-in, there is no second factor, the fridge temperature is simulated. Not verified: a physical webcam, OCR accuracy on curved labels. The Body Snatcher Rx code (`apps/api`, `apps/web`, `packages/*`) is kept as legacy; `pnpm dev:legacy` starts it.
+Not real, on purpose: SMS, email and phone calls are sandboxed (outbox and simulated call outcomes), the prescriber channel is a SCRIPT-shaped sandbox (no Surescripts), the drug rules are a small curated table (not a licensed interaction database), SSO is a demo stand-in, there is no second factor, the fridge temperature is simulated. Not verified: a physical webcam, OCR accuracy on curved labels. The Body Snatcher Rx code (`apps/api`, `apps/web`, `packages/*`) is kept as legacy; `pnpm dev:legacy` starts it.
 
 ---
 

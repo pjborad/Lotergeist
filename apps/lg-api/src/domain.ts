@@ -3,7 +3,7 @@ import { ndc10ToGtin14, ndc10ToNdc11, parseNdc } from "@bsrx/gs1";
 
 export const DAY = 86_400_000;
 
-export type Role = "technician" | "pharmacist" | "cashier";
+export type Role = "technician" | "pharmacist" | "cashier" | "admin";
 export type Zone = "shelf" | "cold" | "controlled" | "quarantine" | "rtv";
 export type Storage = "room" | "cold" | "c2";
 export type PackageStatus = "pending_putaway" | "on_shelf" | "dispensed" | "quarantined" | "returned" | "destroyed" | "adjusted";

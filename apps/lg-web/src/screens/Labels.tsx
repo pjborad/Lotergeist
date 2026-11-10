@@ -1,46 +1,39 @@
-import { useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { get } from "../lib/api";
 import { gs1Text } from "../lib/gs1";
+import { DataMatrix } from "../components/DataMatrix";
+import { btn, C, Footer, MONO, pill, TONES } from "../components/kit";
+import { mainStyle, PageHeader } from "../components/Shell";
 
-function Code({ text }: { text: string }) {
-  const ref = useRef<HTMLCanvasElement>(null);
-  useEffect(() => {
-    let alive = true;
-    void import("bwip-js/browser").then((m) => {
-      if (!alive || !ref.current) return;
-      const b = (m.default ?? m) as unknown as { toCanvas: (c: HTMLCanvasElement, o: Record<string, unknown>) => void };
-      try { b.toCanvas(ref.current, { bcid: "gs1datamatrix", text, scale: 4, padding: 4, backgroundcolor: "FFFFFF" }); } catch { /* blank */ }
-    });
-    return () => { alive = false; };
-  }, [text]);
-  return <canvas ref={ref} role="img" aria-label={`GS1 DataMatrix ${text}`} />;
-}
-
-/** Real GS1 DataMatrix codes for the demo stock. Show them to the camera (print them, or hold up a phone). */
+/** Real GS1 DataMatrix codes for the demo stock. Point the camera at the screen, a phone, or a printout. */
 export function Labels() {
   const q = useQuery({ queryKey: ["labels"], queryFn: () => get("/api/demo/labels") });
   const groups = new Map<string, any[]>();
   for (const l of q.data?.labels ?? []) groups.set(l.group, [...(groups.get(l.group) ?? []), l]);
   return (
     <>
-      <div className="spread noprint"><div><h1>Test labels</h1><p className="sub">These are real GS1 DataMatrix codes for the demo stock. Point the camera at the screen or print the page.</p></div><button className="btn" onClick={() => window.print()}>Print</button></div>
-      {[...groups].map(([g, ls]) => (
-        <section key={g} style={{ marginTop: 20 }}>
-          <h3 style={{ marginBottom: 10 }}>{g}</h3>
-          <div className="labelsheet">
-            {ls.map((l) => (
-              <div className="card" key={`${l.ndc10}-${l.lot}-${l.serial}`}>
-                <Code text={gs1Text(l)} />
-                <div style={{ fontWeight: 600, marginTop: 6 }}>{l.product}</div>
-                <div className="mono dim" style={{ fontSize: 12 }}>NDC {l.ndc10}<br />LOT {l.lot} · EXP {l.expiry}<br />SN {l.serial}</div>
-                {l.note && <div className="dimmer" style={{ fontSize: 12 }}>{l.note}</div>}
-                {l.scanned && <div className="tag gray" style={{ marginTop: 6 }}>already received</div>}
-              </div>
-            ))}
-          </div>
-        </section>
-      ))}
+      <PageHeader title="Test labels" sub="Real GS1 DataMatrix codes for the demo stock. Hold them up to the camera, or print this page.">
+        <button className="noprint" onClick={() => window.print()} style={btn("primary", { minHeight: 44, fontSize: 14 })}>Print labels</button>
+      </PageHeader>
+      <main style={mainStyle()}>
+        {[...groups].map(([g, ls]) => (
+          <section key={g} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <h2 style={{ margin: 0, fontSize: 16, fontWeight: 600 }}>{g}</h2>
+            <div className="labelsheet">
+              {ls.map((l) => (
+                <div key={`${l.ndc10}-${l.lot}-${l.serial}`} style={{ background: C.card, border: `1px solid ${C.line}`, borderRadius: 14, padding: 16, display: "flex", flexDirection: "column", gap: 8 }}>
+                  <div style={{ background: "#fff", borderRadius: 8, padding: 8, display: "flex", justifyContent: "center" }}><DataMatrix text={gs1Text(l)} label={`Label for ${l.product} lot ${l.lot} serial ${l.serial}`} /></div>
+                  <span style={{ fontWeight: 600, fontSize: 14 }}>{l.product}</span>
+                  <span style={{ fontFamily: MONO, fontSize: 12, color: C.dim, lineHeight: 1.6 }}>NDC {l.ndc10}<br />LOT {l.lot} · EXP {l.expiry}<br />SN {l.serial}</span>
+                  {l.note && <span style={{ fontSize: 12, color: C.dimmer }}>{l.note}</span>}
+                  {l.scanned && <span style={pill(...TONES.gray!, { alignSelf: "flex-start" })}>Already received</span>}
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
+        <Footer />
+      </main>
     </>
   );
 }

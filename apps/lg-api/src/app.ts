@@ -5,8 +5,16 @@ import cookie from "@fastify/cookie";
 import cors from "@fastify/cors";
 import fastifyStatic from "@fastify/static";
 import { z, ZodError } from "zod";
+import { parseElementString } from "@bsrx/gs1";
 import { actorFromToken, login, logout, type SessionUser } from "./auth";
-import { audit, HttpError, todayIso, type Actor, type Ctx } from "./core";
+import { audit, HttpError, todayIso, verifyAuditChain, type Actor, type Ctx } from "./core";
+import { draftPrescriberMessage, reviewPending, reviewRx, reviewView } from "./rxwatcher";
+import { decide, listMessages, proposeFix, respond } from "./prescriber";
+import { addWebhook, deliveries, WEBHOOK_EVENTS } from "./webhooks";
+import { ALL_SCOPES, apiActivity, createPartner, listPartners, rotateSecret, SCOPES, securityPosture, seedPartners, updatePartner, type Scope } from "./integrations";
+import { registerPartnerApi } from "./partner-api";
+import { patientProfile, refillSync, searchPatients } from "./patients";
+import { inboundCall, outreachResults, previewVoicemail, runOutreachAgent, startVoicemail, voicemailDraft } from "./outreach";
 import { fillQueue, printLabel, rxDetail, scanFill, sell, sendBack, verifyDispense } from "./fill";
 import { adjustLot, listLots, lotDetail, moveLot } from "./inventory";
 import { parseLabelText } from "./ocr-text";
@@ -115,6 +123,24 @@ export async function buildApp(ctx: Ctx): Promise<FastifyInstance> {
   // ---- fill & pickup
   app.get("/api/rx", async () => fillQueue(ctx));
   app.get("/api/rx/:rx", async (req) => rxDetail(ctx, A(req), (req.params as { rx: string }).rx));
+  // ---- Rx Watcher and the prescriber channel
+  const rxp = (req: FastifyRequest) => (req.params as { rx: string }).rx;
+  app.get("/api/rx/:rx/review", async (req) => { only(req, "technician", "pharmacist"); return reviewView(ctx, rxp(req)); });
+  app.post("/api/rx/:rx/review", async (req) => { only(req, "technician", "pharmacist"); return reviewRx(ctx, A(req), rxp(req)); });
+  app.get("/api/rx/:rx/change-draft", async (req) => { only(req, "pharmacist"); return { message: draftPrescriberMessage(ctx, rxp(req)), proposal: proposeFix(ctx, rxp(req)) }; });
+  const proposalBody = z.object({ directions: z.string().min(5).max(300), daysSupply: z.number().int().min(1).max(400).nullable() });
+  app.post("/api/rx/:rx/decision", async (req) => {
+    const b = z.object({ action: z.enum(["approve", "reject", "change"]), reason: z.string().max(500).optional(), message: z.string().max(2000).optional(), proposal: proposalBody.optional() }).parse(req.body);
+    return decide(ctx, A(req), rxp(req), b);
+  });
+  app.get("/api/prescriber-messages", async (req) => { only(req, "technician", "pharmacist"); return listMessages(ctx, (req.query as { rx?: string }).rx); });
+  // Sandbox only: the pharmacist records the prescriber's RxChangeResponse (in production it arrives from Surescripts).
+  app.post("/api/prescriber-messages/:id/respond", async (req) => {
+    only(req, "pharmacist");
+    const b = z.object({ response: z.enum(["approved", "denied"]), directions: z.string().max(300).optional(), daysSupply: z.number().int().min(1).max(400).optional(), note: z.string().max(300).optional() }).parse(req.body);
+    return respond(ctx, `sandbox via ${A(req).name}`, A(req), Number((req.params as { id: string }).id), b);
+  });
+
   app.post("/api/rx/:rx/scan", async (req) => scanFill(ctx, A(req), (req.params as { rx: string }).rx, scanBody.parse(req.body)));
   const did = (req: FastifyRequest) => Number((req.params as { id: string }).id);
   app.post("/api/dispenses/:id/label", async (req) => printLabel(ctx, A(req), did(req)));
@@ -152,7 +178,24 @@ export async function buildApp(ctx: Ctx): Promise<FastifyInstance> {
     const b = z.object({ sms: z.string().min(10).max(1000), emailSubject: z.string().min(3).max(300), emailBody: z.string().min(10).max(6000), attest: z.boolean() }).parse(req.body);
     return sendNotifications(ctx, A(req), rid(req), { sms: b.sms, emailSubject: b.emailSubject, emailBody: b.emailBody }, b.attest);
   });
-  app.get("/api/recalls/:id/results", async (req) => recallResults(ctx, rid(req)));
+  app.get("/api/recalls/:id/results", async (req) => ({ ...recallResults(ctx, rid(req)), voice: outreachResults(ctx, rid(req)) }));
+
+  // ---- voicemail outreach (sandbox: audio is real TTS, calls are simulated; nothing is dialled)
+  app.get("/api/recalls/:id/voicemail", async (req) => { only(req, "pharmacist"); return voicemailDraft(ctx, rid(req), A(req)); });
+  app.post("/api/recalls/:id/voicemail/preview", async (req) => previewVoicemail(ctx, A(req), rid(req), z.object({ script: z.string().min(1).max(2000) }).parse(req.body).script));
+  app.post("/api/recalls/:id/voicemail", async (req) => {
+    const b = z.object({ script: z.string().min(1).max(2000), attest: z.boolean() }).parse(req.body);
+    return startVoicemail(ctx, A(req), rid(req), b.script, b.attest);
+  });
+  app.post("/api/outreach/run", async (req) => { only(req, "pharmacist"); return { placed: await runOutreachAgent(ctx) }; });
+  app.get("/api/recalls/:id/calls", async (req) => { only(req, "pharmacist"); return outreachResults(ctx, rid(req)); });
+  app.post("/api/calls/inbound", async (req) => inboundCall(ctx, z.object({ from: z.string().min(7).max(30) }).parse(req.body).from));
+  app.get("/api/audio/:id", async (req, reply) => {
+    const a = ctx.db.get<{ mime: string; bytes: Uint8Array }>("SELECT mime, bytes FROM audio WHERE id = ?", (req.params as { id: string }).id);
+    if (!a) return reply.code(404).send({ error: "No such recording." });
+    return reply.type(a.mime).header("Cache-Control", "private, max-age=3600").send(Buffer.from(a.bytes));
+  });
+  app.get("/api/voice", async () => ({ provider: ctx.voice?.name ?? "browser", voice: ctx.voice?.voice ?? "device voice" }));
   app.post("/api/recalls/:id/return-pickup", async (req) => scheduleReturn(ctx, A(req), rid(req)));
   app.post("/api/recalls/:id/manufacturer-response", async (req) => respondToManufacturer(ctx, A(req), rid(req)));
   app.post("/api/recalls/:id/close", async (req) => { closeRecall(ctx, A(req), rid(req)); return { ok: true }; });
@@ -187,10 +230,49 @@ export async function buildApp(ctx: Ctx): Promise<FastifyInstance> {
   app.get("/api/search", async (req) => {
     const q = String((req.query as { q?: string }).q ?? "").trim();
     if (q.length < 2) return { lots: [], rx: [] };
+    const g = parseElementString(q);
+    if (g.ok && g.value.lot) return { lots: listLots(ctx, { q: g.value.lot }).rows.slice(0, 6), rx: [], scanned: { lot: g.value.lot, serial: g.value.serial ?? "" } };
     return { lots: listLots(ctx, { q }).rows.slice(0, 6), rx: fillQueue(ctx).filter((r) => [r.rx, r.patient, r.drug].some((v) => v.toLowerCase().includes(q.toLowerCase()))).slice(0, 6) };
   });
 
-  app.get("/api/audit", async (req) => { only(req, "pharmacist"); return ctx.db.all("SELECT * FROM audit ORDER BY id DESC LIMIT 100"); });
+  app.get("/api/audit", async (req) => { only(req, "pharmacist", "admin"); return ctx.db.all("SELECT id, at, user_name, workstation, action, entity, entity_id, reason, hash FROM audit ORDER BY id DESC LIMIT 100"); });
+  app.get("/api/audit/verify", async (req) => { only(req, "pharmacist", "admin"); return verifyAuditChain(ctx); });
+  app.get("/api/audit/export", async (req, reply) => {
+    only(req, "admin");
+    audit(ctx, A(req), "audit.export", "audit", "all");
+    const rows = ctx.db.all("SELECT id, at, user_id, user_name, store_id, workstation, action, entity, entity_id, reason, prev_hash, hash FROM audit ORDER BY id");
+    return reply.type("application/x-ndjson").header("Content-Disposition", 'attachment; filename="lotergeist-audit.ndjson"').send(rows.map((r) => JSON.stringify(r)).join("\n"));
+  });
+
+  // ---- patients (every profile view is logged with a reason, plan 3.6)
+  app.get("/api/patients", async (req) => { only(req, "technician", "pharmacist"); return searchPatients(ctx, String((req.query as { q?: string }).q ?? "")); });
+  app.get("/api/patients/:id", async (req) => {
+    only(req, "technician", "pharmacist");
+    const q = req.query as { reason?: string };
+    return patientProfile(ctx, A(req), (req.params as { id: string }).id, q.reason ?? "");
+  });
+  app.post("/api/patients/:id/refill-sync", async (req) => { only(req, "pharmacist"); return refillSync(ctx, A(req), (req.params as { id: string }).id); });
+
+  // ---- integrations (admin changes; pharmacists can look)
+  const iid = (req: FastifyRequest) => (req.params as { id: string }).id;
+  const scopeEnum = z.enum(ALL_SCOPES as [Scope, ...Scope[]]);
+  app.get("/api/integrations", async (req) => {
+    only(req, "admin", "pharmacist");
+    return { partners: listPartners(ctx), scopes: SCOPES, events: WEBHOOK_EVENTS, activity: apiActivity(ctx), deliveries: deliveries(ctx), security: securityPosture(ctx), sink: ctx.db.all("SELECT id, at, event, verified FROM webhook_inbox ORDER BY id DESC LIMIT 10"), canEdit: A(req).role === "admin" };
+  });
+  app.post("/api/integrations", async (req) => {
+    const b = z.object({ partner: z.string().min(3).max(80), kind: z.enum(["REST", "MCP", "FHIR"]), scopes: z.array(scopeEnum).min(1), ipAllowlist: z.array(z.string().max(45)).max(20).optional(), baa: z.boolean().optional(), purpose: z.string().max(300).optional(), ratePerMin: z.number().int().min(1).max(6000).optional() }).parse(req.body);
+    return createPartner(ctx, A(req), b);
+  });
+  app.post("/api/integrations/:id", async (req) => {
+    const b = z.object({ scopes: z.array(scopeEnum).optional(), ipAllowlist: z.array(z.string().max(45)).max(20).optional(), baa: z.boolean().optional(), purpose: z.string().max(300).optional(), status: z.enum(["active", "revoked"]).optional(), ratePerMin: z.number().int().min(1).max(6000).optional() }).parse(req.body);
+    return updatePartner(ctx, A(req), iid(req), b);
+  });
+  app.post("/api/integrations/:id/rotate", async (req) => rotateSecret(ctx, A(req), iid(req)));
+  app.post("/api/integrations/:id/webhooks", async (req) => {
+    const b = z.object({ url: z.string().max(500), events: z.array(z.string()).min(1) }).parse(req.body);
+    return addWebhook(ctx, A(req), iid(req), b.url, b.events);
+  });
 
   // ---- demo helpers: the labels a camera can scan, and a reset
   app.get("/api/demo/labels", async () => {
@@ -209,9 +291,15 @@ export async function buildApp(ctx: Ctx): Promise<FastifyInstance> {
     only(req, "pharmacist");
     ctx.db.clearAll();
     seedDatabase(ctx.db, ctx.cfg, ctx.now());
+    seedPartners(ctx);
     await ingestFaxInbox(ctx);
+    await reviewPending(ctx);
     return { ok: true };
   });
+
+  // ---- partner surfaces: /oauth/token, /v1, /mcp, /fhir/r4 (their own auth, scopes and log)
+  seedPartners(ctx);
+  await registerPartnerApi(app, ctx);
 
   // ---- built web app
   app.get("/fax/:file", async (req, reply) => {

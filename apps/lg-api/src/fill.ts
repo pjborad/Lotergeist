@@ -1,4 +1,5 @@
-import { activeRecallFor, audit, expiryCheck, HttpError, lotEvent, resolveScan, todayIso, type Actor, type Check, type Ctx, type ScanInput } from "./core";
+import { reviewRx } from "./rxwatcher";
+import { activeRecallFor, audit, emit, expiryCheck, HttpError, lotEvent, resolveScan, todayIso, type Actor, type Check, type Ctx, type ScanInput } from "./core";
 
 export type RxStatus = "to_fill" | "filled" | "to_verify" | "ready" | "sold";
 const STEP: Record<RxStatus, number> = { to_fill: 0, filled: 1, to_verify: 2, ready: 3, sold: 4 };
@@ -8,22 +9,37 @@ export interface QueueItem { rx: string; patient: string; patientId: string; dru
 
 export function fillQueue(ctx: Ctx): QueueItem[] {
   return ctx.db.all<any>(
-    `SELECT r.rx, r.drug, r.due, r.status, p.name, p.id AS pid FROM prescriptions r JOIN patients p ON p.id = r.patient_id
-     WHERE r.status <> 'sold' OR r.due >= ? ORDER BY CASE r.status WHEN 'to_fill' THEN 0 WHEN 'filled' THEN 1 WHEN 'to_verify' THEN 2 WHEN 'ready' THEN 3 ELSE 4 END, r.rx`, todayIso(ctx)
-  ).filter((r) => r.status !== "sold" || r.due === todayIso(ctx)).map((r) => ({ rx: r.rx, patient: r.name, patientId: r.pid, drug: r.drug, due: r.due, status: r.status, statusLabel: STATUS_LABEL[r.status as RxStatus] }));
+    `SELECT r.rx, r.drug, r.due, r.status, r.review, p.name, p.id AS pid,
+       (SELECT COUNT(*) FROM rx_findings f WHERE f.rx = r.rx AND f.severity IN ('needs_review','block') AND f.source = 'rule') AS flags
+     FROM prescriptions r JOIN patients p ON p.id = r.patient_id
+     WHERE r.status <> 'replaced' AND (r.status <> 'sold' OR r.due >= ?) ORDER BY CASE r.status WHEN 'to_fill' THEN 0 WHEN 'filled' THEN 1 WHEN 'to_verify' THEN 2 WHEN 'ready' THEN 3 ELSE 4 END, r.rx`, todayIso(ctx)
+  ).filter((r) => r.status !== "sold" || r.due === todayIso(ctx)).map((r) => ({
+    rx: r.rx, patient: r.name, patientId: r.pid, drug: r.drug, due: r.due, status: r.status,
+    statusLabel: r.status === "to_fill" ? REVIEW_LABEL[r.review as string] ?? STATUS_LABEL.to_fill : STATUS_LABEL[r.status as RxStatus],
+    review: r.review as string, flags: Number(r.flags),
+    watcher: r.review === "none" ? "Not checked" : r.review === "pending" ? `${r.flags} flag${r.flags === 1 ? "" : "s"}` : r.review === "approved" && r.flags ? "Approved with flags" : r.flags && r.review !== "clear" ? "Resolved" : "Clear"
+  }));
 }
 
+const REVIEW_LABEL: Record<string, string> = { pending: "To review", on_hold: "On hold", rejected: "Rejected", none: "To review" };
+
+/** An order may be scanned only after Rx Watcher cleared it or a pharmacist decided (plan G5). */
+export const FILLABLE_REVIEW = new Set(["clear", "approved"]);
+
 export function rxDetail(ctx: Ctx, actor: Actor, rx: string) {
-  const r = ctx.db.get<any>("SELECT r.*, p.name AS pname, p.dob, p.phone, p.email, p.preferred, p.sms_consent, p.email_consent, p.allergies, pr.name AS product FROM prescriptions r JOIN patients p ON p.id = r.patient_id LEFT JOIN products pr ON pr.ndc11 = r.ndc11 WHERE r.rx = ?", rx);
+  const r = ctx.db.get<any>("SELECT r.*, p.name AS pname, p.dob, p.phone, p.email, p.preferred, p.sms_consent, p.email_consent, p.allergies, pr.name AS product, pr.ndc10 FROM prescriptions r JOIN patients p ON p.id = r.patient_id LEFT JOIN products pr ON pr.ndc11 = r.ndc11 WHERE r.rx = ?", rx);
   if (!r) throw new HttpError(404, "Unknown prescription.");
   const full = actor.role !== "cashier"; // cashiers see enough to hand over the medicine, not the whole profile
   const d = ctx.db.get<any>(
     `SELECT d.*, k.serial, k.expiry, k.location, l.lot FROM dispenses d LEFT JOIN packages k ON k.id = d.package_id LEFT JOIN lots l ON l.id = k.lot_id
      WHERE d.rx_id = ? AND d.state <> 'sent_back' ORDER BY d.id DESC LIMIT 1`, r.id);
+  const pick = ctx.db.get<{ location: string }>("SELECT k.location FROM packages k JOIN lots l ON l.id = k.lot_id WHERE l.ndc11 = ? AND k.status = 'on_shelf' AND l.status <> 'recalled' ORDER BY l.expiry, k.id LIMIT 1", r.ndc11);
   return {
+    pickFrom: pick?.location ?? "",
     rx: r.rx, step: STEP[r.status as RxStatus], status: r.status as RxStatus, statusLabel: STATUS_LABEL[r.status as RxStatus],
     patient: { id: r.patient_id, name: r.pname, dob: full ? r.dob : null, phone: r.phone ? r.phone : null, email: full ? r.email || null : null, preferred: r.preferred, smsConsent: !!r.sms_consent, allergies: full ? r.allergies : "" },
-    prescription: { drug: r.drug, ndc11: r.ndc11, directions: r.directions, prescriber: r.prescriber, refills: r.refills, qty: r.qty },
+    prescription: { drug: r.drug, ndc11: r.ndc11, ndc10: r.ndc10 ?? "", directions: r.directions, prescriber: r.prescriber, refills: r.refills, qty: r.qty, daysSupply: r.days_supply ?? null, version: r.version ?? 0, parentRx: r.parent_rx ?? null, packSize: ctx.db.get<{ pack_size: string }>("SELECT pack_size FROM products WHERE ndc11 = ?", r.ndc11)?.pack_size ?? "" },
+    review: r.review as string, reviewNote: r.review_note as string | null, replacedBy: r.status === "replaced" ? ctx.db.get<{ rx: string }>("SELECT rx FROM prescriptions WHERE parent_rx = ? ORDER BY version DESC LIMIT 1", r.rx)?.rx ?? null : null,
     dispense: d ? { id: d.id, state: d.state, lot: d.lot ?? "", serial: d.serial ?? "", expiry: d.expiry ?? "", location: d.location ?? "", labelPrinted: !!d.label_printed, filledBy: d.filled_by, verifiedBy: d.verified_by, soldAt: d.sold_at, register: d.register, contact: d.contact_json ? JSON.parse(d.contact_json) : {} } : null
   };
 }
@@ -39,7 +55,13 @@ export async function scanFill(ctx: Ctx, actor: Actor, rx: string, input: ScanIn
   need(actor, "technician", "pharmacist");
   const r = ctx.db.get<any>("SELECT * FROM prescriptions WHERE rx = ?", rx);
   if (!r) throw new HttpError(404, "Unknown prescription.");
+  if (r.status === "replaced") throw new HttpError(409, `This order was replaced by a new version. Fill the new version instead.`, "replaced");
   if (r.status !== "to_fill") throw new HttpError(409, "This prescription already has a package scanned.", "already_scanned");
+  let review: string = r.review ?? "none";
+  if (review === "none") review = (await reviewRx(ctx, actor, rx)).review;
+  if (!FILLABLE_REVIEW.has(review)) {
+    throw new HttpError(409, review === "on_hold" ? "This order is on hold waiting for the prescriber." : review === "rejected" ? "This order was rejected." : "Rx Watcher flagged this order. A pharmacist must review it first.", "needs_review");
+  }
   const { scan, product } = await resolveScan(ctx, input);
 
   if (product.ndc11 !== r.ndc11) {
@@ -135,5 +157,6 @@ export function sell(ctx: Ctx, actor: Actor, dispenseId: number, body: { idCheck
     if (d.lot_id) lotEvent(ctx, "Sold", d.lot_id, actor.name, `Rx ${d.rx}`, d.package_id, at);
   });
   audit(ctx, actor, "fill.sell", "dispense", dispenseId, undefined, { rx: d.rx, lot: d.lot, serial: d.serial });
+  emit(ctx, "dispense.sold", { rx: d.rx, lot: d.lot ?? "", dispenseId });
   return { soldAt: at, register: "POS 2", rx: d.rx, drug: d.drug, patient: d.name, lot: d.lot ?? "", serial: d.serial ?? "", expiry: d.expiry ?? "", contact };
 }

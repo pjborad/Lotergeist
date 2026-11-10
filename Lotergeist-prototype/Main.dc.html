@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lotergeist · Sign in</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F7FA}
+.lg{--bg:#F7F7FA;--surface:#FFFFFF;--surface-2:#FAFAFC;--sunken:#F1F1F5;--border:#E7E7EE;--border-strong:#D7D8E2;--text:#16161D;--muted:#5F6170;--subtle:#6B6D7B;--accent:#6D4AFF;--accent-hover:#5B3BE8;--on-accent:#FFFFFF;--accent-soft:#F1EDFF;--accent-text:#5B3BE8;--shadow:0 1px 2px rgba(16,16,29,.04),0 2px 8px rgba(16,16,29,.04);--ring:0 0 0 3px rgba(109,74,255,.22);min-height:100vh;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;font-feature-settings:'cv11','ss01';-webkit-font-smoothing:antialiased;display:flex;flex-wrap:wrap;transition:background-color .3s,color .3s}
+.lg[data-theme="dark"]{--bg:#0B0D12;--surface:#12151C;--surface-2:#151922;--sunken:#0F1218;--border:#232836;--border-strong:#2F3546;--text:#ECEDF2;--muted:#A3A7B5;--subtle:#8B90A0;--accent:#8B73FF;--accent-hover:#9E8BFF;--on-accent:#0B0D12;--accent-soft:rgba(139,115,255,.14);--accent-text:#BDAEFF;--shadow:0 1px 2px rgba(0,0,0,.35);--ring:0 0 0 3px rgba(139,115,255,.35)}
+.lg *{box-sizing:border-box}
+.lg a{color:var(--accent-text)}
+.lg button{font:inherit;cursor:pointer}
+.lg :focus-visible{outline:none;box-shadow:var(--ring)}
+.night{flex:1 1 560px;min-width:0;position:relative;overflow:hidden;padding:44px 52px;display:flex;flex-direction:column;justify-content:space-between;gap:40px;background:radial-gradient(ellipse 80% 60% at 72% 18%,#2A2160 0%,#12122A 52%,#0A0B14 100%);color:#ECEDF2;min-height:640px}
+.field{width:100%;height:48px;padding:0 14px;border-radius:12px;border:1px solid var(--border-strong);background:var(--surface);color:var(--text);font:inherit;font-size:15px;transition:border-color .15s,box-shadow .15s}
+.field:focus{outline:none;border-color:var(--accent);box-shadow:var(--ring)}
+.label{font-size:13px;font-weight:500;color:var(--muted)}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;height:50px;border-radius:12px;border:1px solid var(--border-strong);background:var(--surface);color:var(--text)!important;font-size:15px;font-weight:500;text-decoration:none;transition:background-color .15s,transform .1s,box-shadow .15s}
+.btn:hover{background:var(--sunken)}
+.btn:active{transform:scale(.99)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)!important;font-weight:600;box-shadow:0 6px 16px rgba(109,74,255,.25)}
+.btn.primary:hover{background:var(--accent-hover)}
+.theme{display:flex;padding:3px;border-radius:10px;background:var(--sunken);border:1px solid var(--border)}
+.theme button{display:flex;align-items:center;gap:6px;min-height:30px;padding:0 10px;border:0;border-radius:7px;background:transparent;color:var(--muted);font-size:12px;font-weight:500;transition:all .2s}
+.theme button[aria-pressed="true"]{background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
+.feat{display:flex;gap:14px;align-items:flex-start}
+.feat .i{width:38px;height:38px;flex-shrink:0;border-radius:11px;background:rgba(167,139,250,.14);border:1px solid rgba(167,139,250,.22);display:flex;align-items:center;justify-content:center}
+@keyframes drift{0%{transform:translate(-3%,0)}100%{transform:translate(3%,-2%)}}
+@keyframes twinkle{0%,100%{opacity:.25}50%{opacity:.9}}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.fog{animation:drift 22s ease-in-out infinite alternate}
+.star{position:absolute;border-radius:50%;background:#fff;animation:twinkle 4s ease-in-out infinite}
+.enter{animation:rise .5s cubic-bezier(.2,.8,.2,1) both}
+@media (prefers-reduced-motion:reduce){.lg *{animation:none!important;transition:none!important}}
+</style>
+</helmet>
+<div class="lg" data-theme="{{theme}}">
+
+<section class="night">
+<div aria-hidden="true" style="position: absolute; right: 12%; top: 10%; width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #FBFAFF 0%, #D6CEFA 45%, #8E80CC 100%); box-shadow: 0 0 90px 24px rgba(167,139,250,0.28)"></div>
+<div aria-hidden="true" style="position: absolute; right: calc(12% - 38px); top: calc(10% - 20px); width: 150px; height: 150px; border-radius: 50%; background: #1A1740"></div>
+<span aria-hidden="true" class="star" style="left: 18%; top: 22%; width: 3px; height: 3px"></span>
+<span aria-hidden="true" class="star" style="left: 42%; top: 12%; width: 2px; height: 2px; animation-delay: 1s"></span>
+<span aria-hidden="true" class="star" style="left: 58%; top: 36%; width: 2px; height: 2px; animation-delay: 2s"></span>
+<span aria-hidden="true" class="star" style="left: 30%; top: 46%; width: 2px; height: 2px; animation-delay: 3s"></span>
+<span aria-hidden="true" class="star" style="left: 8%; top: 60%; width: 2px; height: 2px; animation-delay: 1.5s"></span>
+<div aria-hidden="true" class="fog" style="position: absolute; left: -10%; right: -10%; bottom: -40px; height: 300px; background: radial-gradient(ellipse 50% 60% at 30% 70%, rgba(167,139,250,0.12), transparent 70%), radial-gradient(ellipse 40% 50% at 75% 80%, rgba(148,163,184,0.12), transparent 70%)"></div>
+
+<div style="position: relative; display: flex; align-items: center; gap: 12px">
+<svg width="40" height="40" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="9" fill="#2A2350"></rect><path d="M20 7a10 10 0 1 0 8 15A8.5 8.5 0 0 1 20 7z" fill="#A78BFA"></path><path d="M14 14v7M10.5 17.5h7" stroke="#2A2350" stroke-width="2.2" stroke-linecap="round" fill="none"></path></svg>
+<div><div style="font-weight: 700; font-size: 18px; letter-spacing: -0.01em">Lotergeist</div><div style="font-size: 12px; color: #A3A7B5">Pharmacy operations</div></div>
+</div>
+
+<div class="enter" style="position: relative; max-width: 520px; display: flex; flex-direction: column; gap: 28px">
+<h1 style="margin: 0; font-size: clamp(34px, 3.6vw, 50px); line-height: 1.08; font-weight: 700; letter-spacing: -0.03em">From the delivery dock to the medicine cabinet. <span style="color: #C4B5FD">Every lot accounted for.</span></h1>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div class="feat"><span class="i"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#C4B5FD" stroke-width="1.6" aria-hidden="true"><path d="M3 6V3h3M14 3h3v3M17 14v3h-3M6 17H3v-3M6 7v6M9 7v6M12 7v6M14 7v6"></path></svg></span><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Scan once at receiving</span><span style="color: #A3A7B5; font-size: 14px; line-height: 1.5">Lot, expiry and serial read from the barcode, with a spot to put it away.</span></span></div>
+<div class="feat"><span class="i"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#C4B5FD" stroke-width="1.6" aria-hidden="true"><path d="M1.5 10S4.5 4 10 4s8.5 6 8.5 6-3 6-8.5 6S1.5 10 1.5 10z"></path><circle cx="10" cy="10" r="2.5"></circle></svg></span><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">A second set of eyes on every order</span><span style="color: #A3A7B5; font-size: 14px; line-height: 1.5">Rx Watcher flags odd doses and supply math; you decide.</span></span></div>
+<div class="feat"><span class="i"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#C4B5FD" stroke-width="1.6" aria-hidden="true"><path d="M10 2.5l7 3v4.5c0 4-3 6.8-7 8-4-1.2-7-4-7-8V5.5z"></path><path d="M10 7v4M10 13.5v.3" stroke-linecap="round"></path></svg></span><span style="display: flex; flex-direction: column; gap: 2px"><span style="font-weight: 600">Recalls handled in minutes</span><span style="color: #A3A7B5; font-size: 14px; line-height: 1.5">Enter the recall number; affected stock and patients appear, ready to call.</span></span></div>
+</div>
+</div>
+<p style="position: relative; margin: 0; font-size: 12px; color: #8B90A0">Demo environment · synthetic data only · not for clinical use</p>
+</section>
+
+<section style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; padding: 28px 24px 48px">
+<div style="display: flex; justify-content: flex-end"><div class="theme" role="group" aria-label="Theme"><button aria-pressed="{{isLight}}" onClick="{{toLight}}"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="10" cy="10" r="3.5"></circle><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.3 4.3l1.4 1.4M14.3 14.3l1.4 1.4M4.3 15.7l1.4-1.4M14.3 5.7l1.4-1.4"></path></svg>Light</button><button aria-pressed="{{isDark}}" onClick="{{toDark}}"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15.5 12.5A6.5 6.5 0 0 1 7.5 4.5a6.5 6.5 0 1 0 8 8z"></path></svg>Dark</button></div></div>
+<div style="flex: 1; display: flex; align-items: center; justify-content: center">
+<form class="enter" style="width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 6px"><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">Welcome back</h2><p style="margin: 0; color: var(--muted); font-size: 15px">Sign in with your pharmacy staff account.</p></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="store" class="label">Pharmacy</label><div style="position: relative"><input id="store" class="field" value="Elm Street Pharmacy · Store 7" readonly style="padding-right: 40px"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" style="position: absolute; right: 14px; top: 16px; color: var(--subtle)"><path d="M4 6l4 4 4-4"></path></svg></div></div>
+<div style="display: flex; flex-direction: column; gap: 8px"><label for="email" class="label">Work email</label><input id="email" type="email" class="field" value="j.rivera@elmstreetrx.example"></div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; justify-content: space-between; align-items: baseline"><label for="pw" class="label">Password</label><a href="#" style="font-size: 13px; text-decoration: none; font-weight: 500">Forgot?</a></div>
+<div style="position: relative"><input id="pw" type="{{pwType}}" class="field" value="moonlight-rx-2026" style="padding-right: 52px"><button type="button" onClick="{{togglePw}}" aria-label="{{pwLabel}}" style="position: absolute; right: 4px; top: 4px; width: 40px; height: 40px; border: 0; border-radius: 9px; background: transparent; color: var(--subtle); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1.5 10S4.5 4 10 4s8.5 6 8.5 6-3 6-8.5 6S1.5 10 1.5 10z"></path><circle cx="10" cy="10" r="2.5"></circle></svg></button></div>
+</div>
+<label style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); cursor: pointer"><input type="checkbox" checked style="width: 18px; height: 18px; accent-color: var(--accent)">Trust this workstation for 12 hours</label>
+<a href="Dashboard.dc.html" class="btn primary">Sign in</a>
+<div style="display: flex; align-items: center; gap: 12px; color: var(--subtle); font-size: 12px"><span style="flex: 1; height: 1px; background: var(--border)"></span>or<span style="flex: 1; height: 1px; background: var(--border)"></span></div>
+<a href="Dashboard.dc.html" class="btn"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true" style="color: var(--accent-text)"><rect x="4" y="9" width="12" height="8" rx="2"></rect><path d="M7 9V6a3 3 0 016 0v3"></path></svg>Badge tap or single sign-on</a>
+<p style="margin: 0; font-size: 12px; line-height: 1.6; color: var(--subtle)">Access is logged for HIPAA audit. A second factor is required on new workstations.</p>
+</form>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); var t = null; try { t = localStorage.getItem('lg-theme'); } catch (e) {} this.state = { theme: t, show: false }; }
+  renderVals() {
+    var self = this;
+    var theme = this.state.theme || this.props.theme || 'light';
+    var setT = function (v) { try { localStorage.setItem('lg-theme', v); } catch (e) {} self.setState({ theme: v }); };
+    return {
+      pwType: this.state.show ? 'text' : 'password',
+      pwLabel: this.state.show ? 'Hide password' : 'Show password',
+      togglePw: function () { self.setState({ show: !self.state.show }); },
+      theme: theme, isLight: theme === 'light' ? 'true' : 'false', isDark: theme === 'dark' ? 'true' : 'false',
+      toLight: function () { setT('light'); }, toDark: function () { setT('dark'); }
+    };
+  }
+}
+</script>
+</body>
+</html>

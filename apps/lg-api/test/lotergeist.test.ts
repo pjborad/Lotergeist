@@ -136,23 +136,68 @@ describe("receiving: scan, check, put away", () => {
   });
 });
 
+describe("Rx Watcher and the prescriber change loop (plan 3.5, 6.1)", () => {
+  it("flags the insulin order: twice-daily basal insulin and 90 days written for a 34-day quantity", async () => {
+    const r = await json("k.patel", "POST", "/api/rx/0072210/review");
+    expect(r.review).toBe("pending");
+    const flagged = r.findings.filter((f: any) => f.severity === "needs_review").map((f: any) => f.rule).sort();
+    expect(flagged).toEqual(["days-supply", "frequency"]);
+    expect(r.findings.find((f: any) => f.rule === "days-supply").evidence.expected).toBe(34);
+    expect(r.findings.find((f: any) => f.rule === "interaction").severity).toBe("monitor"); // lisinopril on profile
+    expect(r.findings.find((f: any) => f.rule === "allergy").severity).toBe("pass");
+  });
+  it("will not fill a flagged order, and only a pharmacist decides", async () => {
+    const scan = await call("k.patel", "POST", "/api/rx/0072210/scan", { raw: buildGs1("70004-623-15", "GX4471C", "2027-08-31", "0000907") });
+    expect(scan.json().code).toBe("needs_review");
+    expect((await call("k.patel", "POST", "/api/rx/0072210/decision", { action: "approve", reason: "looks fine to me" })).statusCode).toBe(403);
+    expect((await call("j.rivera", "POST", "/api/rx/0072210/decision", { action: "approve" })).json().code).toBe("reason_required");
+  });
+  it("asks the prescriber to change it; the order is on hold", async () => {
+    const draft = await json("j.rivera", "GET", "/api/rx/0072210/change-draft");
+    expect(draft.proposal).toEqual({ directions: "Inject 20 units under the skin once daily at bedtime", daysSupply: 68 });
+    expect(draft.message).toContain("[PHARMACY PHONE]");
+    const r = await json("j.rivera", "POST", "/api/rx/0072210/decision", { action: "change", message: draft.message, proposal: draft.proposal });
+    expect(r.review).toBe("on_hold");
+    expect(r.message).toMatchObject({ type: "RxChangeRequest", status: "sent", sandbox: true });
+    expect((await call("k.patel", "POST", "/api/rx/0072210/scan", { raw: "x" })).json().code).toBe("needs_review");
+  });
+  it("the prescriber approves: new order 0072210-R1 replaces the original and clears review", async () => {
+    const [m] = await json("j.rivera", "GET", "/api/prescriber-messages?rx=0072210");
+    const r = await json("j.rivera", "POST", `/api/prescriber-messages/${m.id}/respond`, { response: "approved" });
+    expect(r.newRx).toBe("0072210-R1");
+    expect(r.review.review).toBe("clear");
+    expect(r.review.findings.find((f: any) => f.rule === "days-supply").severity).toBe("pass");
+    const old = await json("k.patel", "GET", "/api/rx/0072210");
+    expect(old.replacedBy).toBe("0072210-R1");
+    expect((await call("k.patel", "POST", "/api/rx/0072210/scan", { raw: "x" })).json().code).toBe("replaced");
+    const q = await json("k.patel", "GET", "/api/rx");
+    expect(q.map((x: any) => x.rx)).toContain("0072210-R1");
+    expect(q.map((x: any) => x.rx)).not.toContain("0072210");
+    expect(ctx.db.get<any>("SELECT directions, version, parent_rx FROM prescriptions WHERE rx = '0072210'").directions).toContain("every morning and at bedtime"); // versions are immutable
+  });
+  it("cannot answer the same change request twice", async () => {
+    const [m] = await json("j.rivera", "GET", "/api/prescriber-messages?rx=0072210");
+    expect((await call("j.rivera", "POST", `/api/prescriber-messages/${m.id}/respond`, { response: "approved" })).statusCode).toBe(409);
+  });
+});
+
 describe("fill and pickup: lot and serial land on the prescription", () => {
   let dispenseId = 0;
   it("blocks the wrong drug", async () => {
     const raw = buildGs1("70004-803-90", "AT24K118", "2027-12-31", "24118001");
-    const r = await call("k.patel", "POST", "/api/rx/0072210/scan", { raw });
+    const r = await call("k.patel", "POST", "/api/rx/0072210-R1/scan", { raw });
     expect(r.statusCode).toBe(409);
     expect(r.json().code).toBe("wrong_ndc");
   });
   it("blocks a serial that was never received", async () => {
-    const r = await call("k.patel", "POST", "/api/rx/0072210/scan", { raw: buildGs1("70004-623-15", "GX4471C", "2027-08-31", "0004444") });
+    const r = await call("k.patel", "POST", "/api/rx/0072210-R1/scan", { raw: buildGs1("70004-623-15", "GX4471C", "2027-08-31", "0004444") });
     expect(r.json().code).toBe("not_in_ledger");
   });
   it("scans the insulin pen, saving lot and serial on the fill", async () => {
-    const r = await json("k.patel", "POST", "/api/rx/0072210/scan", { raw: buildGs1("70004-623-15", "GX4471C", "2027-08-31", "0000907") });
+    const r = await json("k.patel", "POST", "/api/rx/0072210-R1/scan", { raw: buildGs1("70004-623-15", "GX4471C", "2027-08-31", "0000907") });
     expect(r).toMatchObject({ lot: "GX4471C", serial: "0000907", ndc: "70004-623-15" });
     dispenseId = r.dispenseId;
-    expect((await json("k.patel", "GET", "/api/rx/0072210")).step).toBe(1);
+    expect((await json("k.patel", "GET", "/api/rx/0072210-R1")).step).toBe(1);
   });
   it("won't scan the same package twice", async () => {
     const r = await call("k.patel", "POST", "/api/rx/0072214/scan", { raw: buildGs1("70004-623-15", "GX4471C", "2027-08-31", "0000907") });
@@ -165,7 +210,7 @@ describe("fill and pickup: lot and serial land on the prescription", () => {
     expect((await call("j.rivera", "POST", `/api/dispenses/${dispenseId}/verify`, { checklist: [true, true, true, true] })).statusCode).toBe(200);
     expect((await call("m.diaz", "POST", `/api/dispenses/${dispenseId}/sell`, { idChecked: true, counseled: false, signature: true })).statusCode).toBe(422);
     const sale = await json("m.diaz", "POST", `/api/dispenses/${dispenseId}/sell`, { idChecked: true, counseled: true, signature: true });
-    expect(sale).toMatchObject({ rx: "0072210", lot: "GX4471C", serial: "0000907", patient: "Daniel Brooks" });
+    expect(sale).toMatchObject({ rx: "0072210-R1", lot: "GX4471C", serial: "0000907", patient: "Daniel Brooks" });
     expect(sale.contact.sms).toBe("(555) 010-0142");
   });
   it("a cashier does not see the patient's allergies or date of birth", async () => {
@@ -268,6 +313,8 @@ describe("property: ledger invariants hold under random operations", () => {
       const b = await boot();
       const tech = (await b.a.inject({ method: "POST", url: "/api/auth/login", payload: { storeId: "store-7", email: "j.rivera@elmstreetrx.example", password: PW } })).cookies.map((c) => `${c.name}=${c.value}`).join("; ");
       const post = (url: string, payload?: unknown) => b.a.inject({ method: "POST", url, payload: (payload ?? {}) as never, headers: { cookie: tech } });
+      await post("/api/rx/0072210/review");
+      await post("/api/rx/0072210/decision", { action: "approve", reason: "property test: pharmacist accepts as written" });
       const shelf = b.c.db.all<{ serial: string; gtin: string; lot: string; ndc10: string; expiry: string }>(
         "SELECT k.serial, k.gtin, l.lot, p.ndc10, k.expiry FROM packages k JOIN lots l ON l.id = k.lot_id JOIN products p ON p.ndc11 = l.ndc11 WHERE k.status = 'on_shelf' LIMIT 400");
       const rxs = ["0072210", "0072214"];

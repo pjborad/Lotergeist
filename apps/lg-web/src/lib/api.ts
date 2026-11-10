@@ -20,7 +20,7 @@ export async function api<T = any>(method: "GET" | "POST", url: string, body?: u
 export const get = <T = any>(url: string) => api<T>("GET", url);
 export const post = <T = any>(url: string, body: unknown = {}) => api<T>("POST", url, body);
 
-export type Role = "technician" | "pharmacist" | "cashier";
+export type Role = "technician" | "pharmacist" | "cashier" | "admin";
 export interface User { id: string; name: string; role: Role; initials: string; title: string; tint: string; storeId: string; email: string }
 export interface Check { id: string; label: string; state: "pass" | "fail" | "warn"; detail?: string }
 export interface ScanInput { raw?: string; fields?: { ndc?: string; lot?: string; expiry?: string; serial?: string }; source?: "datamatrix" | "ocr" | "typed" }

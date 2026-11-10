@@ -1,7 +1,7 @@
 import path from "node:path";
 import { OpenFdaClient } from "@bsrx/summoner";
 import { autopsy } from "@bsrx/coroner";
-import type { Actor, Ctx } from "./core";
+import { emit, type Actor, type Ctx } from "./core";
 import { monthEnd, ndcFromAny } from "./domain";
 import { listDeliveries } from "./receiving";
 import { listLots } from "./inventory";
@@ -19,7 +19,7 @@ export function todayView(ctx: Ctx, actor: Actor) {
   const now = ctx.now();
   const nowD = new Date(now);
   const hour = nowD.getUTCHours();
-  const first = actor.name.replace(/^[A-Z]\.\s*/, "").split(/[ ,]/)[0] ?? actor.name;
+  const first = ctx.db.get<{ f: string | null }>("SELECT first_name AS f FROM users WHERE id = ?", actor.id)?.f ?? actor.name.replace(/^[A-Z]\.\s*/, "").split(/[ ,]/)[0] ?? actor.name;
   const shift = hour >= 6 && hour < 14 ? "day shift" : hour >= 14 && hour < 22 ? "evening shift" : "night shift";
   const sync = Number(ctx.db.get<{ value: string }>("SELECT value FROM meta WHERE key = 'last_sync'")?.value ?? now);
 
@@ -32,7 +32,8 @@ export function todayView(ctx: Ctx, actor: Actor) {
       const units = ctx.db.get<{ n: number }>(
         `SELECT count(*) AS n FROM packages k JOIN lots l ON l.id = k.lot_id WHERE k.status IN ('on_shelf','quarantined') AND EXISTS (SELECT 1 FROM recall_lots rl WHERE rl.recall_id = ? AND upper(rl.lot) = upper(l.lot))`, r.id)!.n;
       const fax = ctx.db.get<{ received_at: number }>("SELECT received_at FROM fax_inbox WHERE recall_id = ? ORDER BY id DESC LIMIT 1", r.id);
-      return { id: r.id, status: r.status, product: r.product, lotsReceived: lots.length, units, patients: imp.patientCount, faxAt: fax?.received_at ?? null };
+      const drug = ctx.db.get<{ name: string }>("SELECT p.name FROM recall_lots rl JOIN products p ON p.ndc11 = rl.ndc11 WHERE rl.recall_id = ? LIMIT 1", r.id)?.name.split(" · ")[0] ?? r.product;
+      return { id: r.id, status: r.status, product: r.product, drug, lotsReceived: lots.length, units, patients: imp.patientCount, faxAt: fax?.received_at ?? null };
     }).filter((b) => b.lotsReceived > 0)[0] ?? null;
 
   const deliveries = listDeliveries(ctx).filter((d) => d.status !== "closed");
@@ -61,6 +62,14 @@ export function todayView(ctx: Ctx, actor: Actor) {
   // ---- work queue
   const tasks: { title: string; sub: string; when: string; href: string; dot: string }[] = [];
   if (banner && actor.role === "pharmacist") tasks.push({ title: `Work recall ${banner.id}`, sub: banner.status === "notified" ? "Messages sent · call list and returns remain" : `Quarantine ${banner.units} units · notify ${banner.patients} patients`, when: "Now", href: "/recalls", dot: "#F87171" });
+  // Rx Watcher flags (plan 3.2 "Up next"): orders that need a pharmacist before they can be filled
+  for (const f of ctx.db.all<{ rx: string; name: string; drug: string; n: number; review: string }>(
+    `SELECT r.rx, p.name, r.drug, r.review, (SELECT count(*) FROM rx_findings x WHERE x.rx = r.rx AND x.severity IN ('needs_review','block') AND x.source = 'rule') AS n
+     FROM prescriptions r JOIN patients p ON p.id = r.patient_id WHERE r.status = 'to_fill' AND r.review IN ('pending','on_hold') ORDER BY r.rx`)) {
+    tasks.push({ title: f.review === "on_hold" ? `Waiting on prescriber · Rx ${f.rx}` : `Review Rx ${f.rx} for ${f.name}`, sub: f.review === "on_hold" ? `${f.drug.split(" · ")[0]} · change request sent` : `Rx Watcher: ${f.n} item${f.n === 1 ? "" : "s"} need review · ${f.drug.split(" · ")[0]}`, when: "Now", href: `/fill?rx=${f.rx}`, dot: "#F79009" });
+  }
+  const callList = ctx.db.get<{ n: number }>("SELECT count(*) AS n FROM outreach_calls c WHERE c.outcome = 'call_list' AND c.id = (SELECT max(id) FROM outreach_calls d WHERE d.patient_id = c.patient_id AND d.recall_id = c.recall_id)")!.n;
+  if (callList && actor.role === "pharmacist") tasks.push({ title: `Call ${callList} patient${callList === 1 ? "" : "s"} the voicemail could not reach`, sub: "Pharmacist call list · recall outreach", when: "Today", href: "/recalls", dot: "#F04438" });
   for (const d of deliveries) tasks.push({ title: `Check in delivery ${d.id}`, sub: `${d.expected - d.checkedIn} of ${d.expected} packages left · ${d.note}`, when: d.arrived.replace("Today ", ""), href: "/receiving", dot: "#FB923C" });
   const toVerify = ctx.db.get<{ n: number }>("SELECT count(*) AS n FROM prescriptions WHERE status = 'to_verify'")!.n;
   if (toVerify) tasks.push({ title: `Verify ${toVerify} filled prescription${toVerify === 1 ? "" : "s"}`, sub: "Lots scanned, awaiting pharmacist check", when: "19:00", href: "/fill", dot: "#A78BFA" });
@@ -69,7 +78,7 @@ export function todayView(ctx: Ctx, actor: Actor) {
   for (const t of ctx.db.all<any>("SELECT * FROM tasks WHERE done = 0")) tasks.push({ title: t.title, sub: t.sub, when: t.due, href: t.href, dot: t.dot });
 
   const feed = ctx.db.all<any>(
-    `SELECT e.at, e.kind, e.user_name, l.lot, p.name FROM lot_events e JOIN lots l ON l.id = e.lot_id JOIN products p ON p.ndc11 = l.ndc11 ORDER BY e.at DESC, e.id DESC LIMIT 8`
+    `SELECT e.at, e.kind, e.user_name, l.lot, p.name FROM lot_events e JOIN lots l ON l.id = e.lot_id JOIN products p ON p.ndc11 = l.ndc11 ORDER BY e.at DESC, e.id DESC LIMIT 5`
   ).map((e) => ({ time: hhmm(e.at), kind: e.kind, product: e.name.split(" · ")[0], lot: e.lot, by: e.user_name }));
 
   return {
@@ -89,10 +98,10 @@ export async function pollOpenFda(ctx: Ctx): Promise<{ checked: number; matched:
   if (!res.cached) {
     for (const rec of res.records) {
       if (ctx.db.get("SELECT 1 FROM recalls WHERE id = ?", rec.recall_number)) continue;
-      const a = await autopsy(`${rec.product_description}\n${rec.code_info}`, { llm: null });
+      const a = await autopsy(`${rec.product_description}\n${rec.code_info}`, { llm: ctx.llm ?? null });
       const ndc = a.ndcs[0] ? ndcFromAny(a.ndcs[0].value)?.ndc11 ?? "" : "";
       const hit = a.lots.some((l) => ctx.db.get("SELECT 1 FROM lots WHERE upper(lot) = upper(?) AND (? = '' OR ndc11 = ?)", l.value, ndc, ndc));
-      if (hit) { await lookupRecall(ctx, null, { number: rec.recall_number }, { autoConfirm: false }); matched.push(rec.recall_number); }
+      if (hit) { await lookupRecall(ctx, null, { number: rec.recall_number }, { autoConfirm: false }); matched.push(rec.recall_number); emit(ctx, "recall.matched", { recallId: rec.recall_number, source: "night-watch" }); }
     }
     ctx.db.run("INSERT OR REPLACE INTO meta (key, value) VALUES ('last_sync', ?)", String(ctx.now()));
   }
