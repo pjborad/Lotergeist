@@ -4,7 +4,7 @@ import { createLlmFromEnv } from "@bsrx/coroner";
 import { normalizeLot } from "@bsrx/gs1";
 import { OpenFdaClient, recordFromText, type RecallRecord } from "@bsrx/summoner";
 import path from "node:path";
-import { audit, HttpError, lotEvent, type Actor, type Ctx } from "./core";
+import { audit, emit, HttpError, lotEvent, type Actor, type Ctx } from "./core";
 import { ndcFromAny, ndc11Pretty } from "./domain";
 
 const CONFIRM_AT = 0.95;
@@ -22,7 +22,7 @@ const needPharmacist = (actor: Actor) => {
 
 export interface RecallLotView {
   lot: string; ndc10: string; expiry: string; confidence: number; source: string; confirmed: boolean; needsConfirm: boolean; why: string;
-  received: number; onShelf: number; dispensed: number;
+  received: number; onShelf: number; dispensed: number; firstReceived: number | null;
 }
 export interface RecallView {
   id: string; step: string; status: string; classification: string; level: string; reason: string; firm: string; initiated: string; product: string;
@@ -64,6 +64,7 @@ export async function lookupRecall(ctx: Ctx, actor: Actor | null, input: { numbe
       id, "review", "new", rec.classification, levelOf(raw, rec.reason_for_recall), rec.reason_for_recall, rec.recalling_firm, initiated, rec.product_description.split(",")[0] ?? rec.product_description,
       rec.code_info, rec.product_description, JSON.stringify(rec.raw), source, text ?? null, ctx.now(), actor?.name ?? "system", rec.cached ? 1 : 0);
     audit(ctx, actor, "recall.lookup", "recall", id, undefined, { source, number });
+    emit(ctx, "recall.opened", { recallId: id, source });
   } else if (text) {
     ctx.db.run("UPDATE recalls SET fax_text = ? WHERE id = ?", text, id);
   }
@@ -118,10 +119,11 @@ function lotsMatching(ctx: Ctx, lot: string, ndc11: string) {
 
 function lotCounts(ctx: Ctx, lot: string, ndc11: string) {
   const ids = lotsMatching(ctx, lot, ndc11).map((x) => x.id);
-  if (!ids.length) return { received: 0, onShelf: 0, dispensed: 0 };
+  if (!ids.length) return { received: 0, onShelf: 0, dispensed: 0, firstReceived: null as number | null };
   const m = ids.map(() => "?").join(",");
   const n = (where: string) => ctx.db.get<{ n: number }>(`SELECT count(*) AS n FROM packages WHERE lot_id IN (${m}) AND ${where}`, ...ids)!.n;
-  return { received: n("status <> 'pending_putaway'"), onShelf: n("status IN ('on_shelf','quarantined')"), dispensed: n("status = 'dispensed'") };
+  const first = ctx.db.get<{ t: number | null }>(`SELECT min(received_at) AS t FROM packages WHERE lot_id IN (${m}) AND status <> 'pending_putaway'`, ...ids)!.t;
+  return { received: n("status <> 'pending_putaway'"), onShelf: n("status IN ('on_shelf','quarantined')"), dispensed: n("status = 'dispensed'"), firstReceived: first };
 }
 
 export function confirmRecallLot(ctx: Ctx, actor: Actor, recallId: string, lot: string): RecallView {
@@ -154,7 +156,7 @@ export function quarantineRecalled(ctx: Ctx, actor: Actor | null, recallId: stri
       }
     }
   }
-  if (moved) audit(ctx, actor, "recall.quarantine", "recall", recallId, undefined, { units: moved });
+  if (moved) { audit(ctx, actor, "recall.quarantine", "recall", recallId, undefined, { units: moved }); emit(ctx, "recall.matched", { recallId, unitsQuarantined: moved }); }
   return moved;
 }
 
@@ -210,7 +212,7 @@ export function recallImpact(ctx: Ctx, recallId: string, opts: { includeUnconfir
 // ------------------------------------------------------------------ messages
 
 export const PHARMACY_PHONE = "(555) 010-2200";
-export const DEFAULT_SMS = `Hi {first_name}, a medicine you picked up on {sold_date} is part of a safety recall. Please don't use it. Call ${PHARMACY_PHONE} for a free replacement.`;
+export const DEFAULT_SMS = `Elm Street Pharmacy: Hi {first_name}, a medicine you picked up on {sold_date} is part of a safety recall. Please don't use it. Call ${PHARMACY_PHONE} for a free replacement.`;
 export const DEFAULT_EMAIL_SUBJECT = "Important: a medicine you received has been recalled";
 export const DEFAULT_EMAIL_BODY = `Dear {first_name},
 

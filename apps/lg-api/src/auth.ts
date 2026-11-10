@@ -4,9 +4,9 @@ import { newToken, verifyPassword, type Role } from "./domain";
 const LOCK_AFTER = 5;
 const LOCK_MS = 15 * 60_000;
 
-export interface SessionUser { id: string; name: string; role: Role; initials: string; title: string; tint: string; storeId: string; email: string }
+export interface SessionUser { id: string; firstName: string; name: string; role: Role; initials: string; title: string; tint: string; storeId: string; email: string }
 
-const toUser = (u: any): SessionUser => ({ id: u.id, name: u.name, role: u.role, initials: u.initials, title: u.title, tint: u.tint, storeId: u.store_id, email: u.email });
+const toUser = (u: any): SessionUser => ({ id: u.id, firstName: u.first_name ?? u.name, name: u.name, role: u.role, initials: u.initials, title: u.title, tint: u.tint, storeId: u.store_id, email: u.email });
 
 export function login(ctx: Ctx, body: { storeId: string; email: string; password: string; trusted: boolean; workstation: string }) {
   const u = ctx.db.get<any>("SELECT * FROM users WHERE lower(email) = lower(?)", body.email.trim());

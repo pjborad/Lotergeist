@@ -42,6 +42,7 @@ export function listLots(ctx: Ctx, opts: { filter?: string; q?: string } = {}): 
 
   const counts: Record<string, number> = { all: rows.length, recall: 0, exp: 0, cold: 0, ctrl: 0 };
   for (const r of rows) for (const tg of r.tags) counts[tg] = (counts[tg] ?? 0) + 1;
+  counts.products = new Set(rows.map((r) => r.ndc10)).size;
 
   const q = opts.q?.trim().toLowerCase();
   let out = rows;

@@ -71,9 +71,9 @@ try {
   const tech = await session("k.patel");
   let p = tech.page;
   await p.goto(`${BASE}/#/receiving`);
-  await p.waitForSelector("text=Receive & put away");
-  await p.getByRole("button", { name: "Start camera" }).click();
-  await p.waitForSelector(".cam .frame");
+  await p.waitForSelector("text=Check in delivery from");
+  await p.getByRole("button", { name: "Scan with camera" }).click();
+  await p.getByRole("button", { name: "Stop camera" }).waitFor();
   const amox = find("AMX0926B", "10443850");
   await p.evaluate((u) => window.__hold(u), `data:image/png;base64,${await png(gs1(amox))}`);
   await p.waitForSelector("text=Transaction information verified", { timeout: 15000 });
@@ -92,6 +92,10 @@ try {
   await p.waitForSelector("text=not in the supplier", { timeout: 15000 }).then(() => check("unknown serial fails the TI/TS check", true), () => check("unknown serial fails the TI/TS check", false));
   check("Confirm is disabled on a failed check", await p.getByRole("button", { name: "Confirm put-away" }).isDisabled());
   await p.evaluate(() => window.__lower());
+  await p.getByRole("button", { name: "Report a problem" }).click();
+  await p.getByRole("radio", { name: "Suspect product" }).click();
+  await p.getByRole("button", { name: "Quarantine & log problem" }).click();
+  await p.waitForSelector("text=Problem logged", { timeout: 8000 }).then(() => check("suspect package quarantined via Report a problem", true), () => check("suspect package quarantined via Report a problem", false));
 
   // 2. OCR of a printed label ------------------------------------------------------------------
   await p.waitForTimeout(2200);
@@ -104,42 +108,93 @@ try {
   await p.screenshot({ path: path.join(SHOTS, "receive-ocr.png") });
   await tech.ctx.close();
 
-  // 3. FILL with the camera -----------------------------------------------------------------
+  // 3. RX WATCHER: flag -> change request -> prescriber approves -> R1 --------------------------
+  p = pharm.page;
+  await p.goto(`${BASE}/#/fill?rx=0072210`);
+  await p.waitForSelector("text=Rx Watcher");
+  await p.waitForSelector("text=Unusual frequency for insulin glargine", { timeout: 10000 }).then(() => check("Rx Watcher flags twice-daily basal insulin", true), () => check("Rx Watcher flags twice-daily basal insulin", false));
+  check("Rx Watcher flags the 90-day supply as about 34 days", (await p.locator("main").innerText()).includes("about 34 days"));
+  await p.screenshot({ path: path.join(SHOTS, "fill-review.png"), fullPage: true });
+  await p.getByRole("button", { name: "Ask prescriber to change" }).click();
+  await p.waitForSelector("#cr-dir");
+  check("proposed fix is once daily at bedtime, 68 days", (await p.locator("#cr-dir").inputValue()).includes("once daily at bedtime") && (await p.locator("#cr-days").inputValue()) === "68");
+  await p.getByRole("button", { name: "Send change request" }).click();
+  await p.waitForSelector("text=/Waiting for Dr\\. A\\. Nwosu/", { timeout: 8000 }).then(() => check("change request sent, order on hold", true), () => check("change request sent, order on hold", false));
+  await p.getByRole("button", { name: "Prescriber approved" }).click();
+  await p.waitForSelector("text=Rx 0072210-R1", { timeout: 8000 }).then(() => check("prescriber approval creates Rx 0072210-R1", true), () => check("prescriber approval creates Rx 0072210-R1", false));
+  await p.waitForSelector("text=All checks clear", { timeout: 8000 }).then(() => check("R1 re-reviewed and clear", true), () => check("R1 re-reviewed and clear", false));
+  await p.screenshot({ path: path.join(SHOTS, "fill-r1.png"), fullPage: true });
+
+  // 4. FILL with the camera -----------------------------------------------------------------
   const t2 = await session("k.patel");
   p = t2.page;
-  await p.goto(`${BASE}/#/fill?rx=0072210`);
+  await p.goto(`${BASE}/#/fill?rx=0072210-R1`);
   await p.waitForSelector("text=Daniel Brooks");
-  await p.getByRole("button", { name: "Start camera" }).click();
-  await p.waitForSelector(".cam .frame");
+  await p.getByRole("button", { name: "Scan with camera" }).click();
+  await p.getByRole("button", { name: "Stop camera" }).waitFor();
   const pen = find("GX4471C", "0000907");
   await p.evaluate((u) => window.__hold(u), `data:image/png;base64,${await png(gs1(pen))}`);
   await p.waitForSelector("text=Print label", { timeout: 15000 }).then(() => check("fill scan saves lot and serial, moves to Label", true), () => check("fill scan saves lot and serial, moves to Label", false));
   await p.screenshot({ path: path.join(SHOTS, "fill-scan.png") });
   await t2.ctx.close();
 
-  // 4. RECALL: fax image -> OCR -> lots -> impact -> notify ---------------------------------------
+  // 5. RECALL: fax image -> OCR -> lots -> impact -> notify ---------------------------------------
   p = pharm.page;
   await p.goto(`${BASE}/#/recalls`);
   await p.waitForSelector("text=Fax inbox");
-  await p.getByRole("button", { name: "Read with OCR" }).click();
-  await p.waitForSelector("text=Patients found", { timeout: 120000 }).then(() => check("fax image read by OCR opens the recall", true), () => check("fax image read by OCR opens the recall", false));
+  await p.getByRole("button", { name: "Read this fax with OCR" }).click();
+  await p.waitForSelector("text=Already with patients", { timeout: 120000 }).then(() => check("fax image read by OCR opens the recall", true), () => check("fax image read by OCR opens the recall", false));
   const body = await p.locator("main").innerText();
   check("both recalled lots found from the fax", body.includes("PRORX050925-1") && body.includes("PRORX050925-3"));
   check("197 units held, 17 patients", /197/.test(body) && /17/.test(body));
   await p.screenshot({ path: path.join(SHOTS, "recall-review.png"), fullPage: true });
   const confirms = p.getByRole("button", { name: "Confirm lot" });
   for (let n = await confirms.count(); n > 0; n = await confirms.count()) { await confirms.first().click(); await p.waitForTimeout(500); }
-  await p.getByRole("button", { name: /Next: write the message/ }).click();
+  await p.getByRole("button", { name: "Continue to patient messages" }).click();
   await p.waitForSelector("text=Text message");
+  await p.waitForSelector("text=Pharmacist voicemail");
+  await p.getByRole("button", { name: /Hear it as a patient would/ }).click();
+  await p.waitForSelector("text=/Preview for .* · (recorded with|read by)/", { timeout: 30000 }).then(() => check("voicemail preview rendered to speech", true), () => check("voicemail preview rendered to speech", false));
+  await p.screenshot({ path: path.join(SHOTS, "recall-calls.png"), fullPage: true });
   await p.getByLabel(/I am the pharmacist/).check();
-  await p.getByRole("button", { name: /^Send \d+ messages/ }).click();
-  await p.waitForSelector("text=Messages sent to the sandbox", { timeout: 10000 });
+  await p.getByRole("button", { name: /^Start \d+ calls/ }).click();
+  await p.waitForSelector("text=Patients contacted for recall", { timeout: 60000 });
+  await p.waitForSelector("text=Call log", { timeout: 10000 }).then(() => check("call log shows every attempt", true), () => check("call log shows every attempt", false));
   await p.waitForSelector("text=/12 \\/ 13/", { timeout: 15000 }).then(() => check("12 of 13 texts delivered, 1 pending", true), () => check("12 of 13 texts delivered, 1 pending", false));
   await p.screenshot({ path: path.join(SHOTS, "recall-done.png"), fullPage: true });
 
-  // 5. After the recall, the recalled lot is blocked at the dock
+  // 6. PATIENTS: reason required, safety review
+  await p.goto(`${BASE}/#/patients`);
+  await p.locator("#psearch").fill("Daniel");
+  await p.getByRole("button", { name: "Search" }).click();
+  await p.getByRole("button", { name: /Daniel Brooks/ }).click();
+  await p.getByRole("button", { name: "Dispensing" }).click();
+  await p.getByRole("button", { name: "Open profile" }).click();
+  await p.waitForSelector("text=Rx Watcher · past vs current medicines", { timeout: 8000 });
+  const pt = await p.locator("main").innerText();
+  check("patient safety review: late atorvastatin and lisinopril with insulin", /Atorvastatin refill is \d+ days late/.test(pt) && pt.includes("Lisinopril with insulin"));
+  check("profile view is logged with the reason", pt.includes("reason: Dispensing"));
+  await p.screenshot({ path: path.join(SHOTS, "patients.png"), fullPage: true });
+
+  // 7. INTEGRATIONS as admin: rotate a secret, call MCP live
+  const adm = await session("s.grant");
+  p = adm.page;
+  await p.goto(`${BASE}/#/integrations`);
+  await p.waitForSelector("text=Connected partners");
+  await p.getByRole("tab", { name: "MCP server" }).click();
+  await p.getByRole("button", { name: /Rotate int-rx-concierge and fill in/ }).click();
+  await p.getByRole("button", { name: "Send request" }).click();
+  await p.waitForSelector("text=/\"recalled\": true/", { timeout: 10000 }).then(() => check("live MCP tools/call from the Integrations page", true), () => check("live MCP tools/call from the Integrations page", false));
+  await p.waitForSelector("text=get_recall_status", { timeout: 10000 }).then(() => check("the call shows in API activity", true), () => check("the call shows in API activity", false));
+  await p.screenshot({ path: path.join(SHOTS, "integrations.png"), fullPage: true });
+  await p.getByRole("button", { name: "Dark" }).click();
+  await p.screenshot({ path: path.join(SHOTS, "integrations-dark.png") });
+  await adm.ctx.close();
+  p = pharm.page;
+
+  // 8. After the recall, the recalled lot is blocked at the dock
   await p.goto(`${BASE}/#/inventory?filter=recall`);
-  await p.waitForSelector("tbody tr td.mono");
+  await p.waitForSelector("text=Recalled · held");
   check("recalled lots show in inventory", (await p.locator("tbody tr").count()) >= 2);
 } catch (e) {
   console.log("ERROR", e);

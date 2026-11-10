@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import { gtin14ToNdc10Digits, isValidGtin, ndcHyphenations, parseElementString, yymmddToIso } from "@bsrx/gs1";
 import type { Config } from "./config";
 import type { Db } from "./db";
@@ -14,16 +15,48 @@ export interface Ctx {
   db: Db;
   notify: import("./notify").Notifier;
   now: () => number;
+  /** set by the webhook dispatcher; called for every domain event */
+  onEvent?: (e: { id: number; type: string; payload: Record<string, unknown> }) => void;
+  /** optional LLM (Bedrock / Anthropic). null = rules and regex only */
+  llm?: import("@bsrx/coroner").LlmClient | null;
+  /** voice provider for outreach */
+  voice?: import("./voice").VoiceProvider;
 }
 
 export const todayIso = (ctx: Ctx) => ctx.cfg.today ?? new Date(ctx.now()).toISOString().slice(0, 10);
 
-export function audit(ctx: Ctx, actor: Actor | null, action: string, entity: string, entityId: string | number, before?: unknown, after?: unknown) {
+const auditHash = (prev: string, r: { at: number; user_id: string | null; action: string; entity: string; entity_id: string; before_json: string | null; after_json: string | null; reason: string | null }) =>
+  crypto.createHash("sha256").update([prev, r.at, r.user_id ?? "", r.action, r.entity, r.entity_id, r.before_json ?? "", r.after_json ?? "", r.reason ?? ""].join("\u241f")).digest("hex");
+
+/** Append-only, hash-chained audit (plan 10.3): each row commits to the one before it, so edits or deletes are detectable. */
+export function audit(ctx: Ctx, actor: Actor | null, action: string, entity: string, entityId: string | number, before?: unknown, after?: unknown, reason?: string) {
+  const prev = ctx.db.get<{ hash: string | null }>("SELECT hash FROM audit ORDER BY id DESC LIMIT 1")?.hash ?? "GENESIS";
+  const row = {
+    at: ctx.now(), user_id: actor?.id ?? null, action, entity, entity_id: String(entityId),
+    before_json: before === undefined ? null : JSON.stringify(before), after_json: after === undefined ? null : JSON.stringify(after), reason: reason ?? null
+  };
   ctx.db.run(
-    "INSERT INTO audit (at, user_id, user_name, store_id, workstation, action, entity, entity_id, before_json, after_json) VALUES (?,?,?,?,?,?,?,?,?,?)",
-    ctx.now(), actor?.id ?? null, actor?.name ?? "system", actor?.storeId ?? "store-7", actor?.workstation ?? "server", action, entity, String(entityId),
-    before === undefined ? null : JSON.stringify(before), after === undefined ? null : JSON.stringify(after)
+    "INSERT INTO audit (at, user_id, user_name, store_id, workstation, action, entity, entity_id, before_json, after_json, reason, prev_hash, hash) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+    row.at, row.user_id, actor?.name ?? "system", actor?.storeId ?? "store-7", actor?.workstation ?? "server", action, entity, row.entity_id, row.before_json, row.after_json, row.reason, prev, auditHash(prev, row)
   );
+}
+
+/** Walk the whole chain. Returns the first broken row id, or null when intact. */
+export function verifyAuditChain(ctx: Ctx): { ok: boolean; rows: number; brokenAt: number | null } {
+  const rows = ctx.db.all<any>("SELECT * FROM audit ORDER BY id");
+  let prev = "GENESIS";
+  for (const r of rows) {
+    if (r.prev_hash !== prev || r.hash !== auditHash(prev, r)) return { ok: false, rows: rows.length, brokenAt: r.id };
+    prev = r.hash;
+  }
+  return { ok: true, rows: rows.length, brokenAt: null };
+}
+
+/** Domain events: stored for the webhook dispatcher and for the Today feed. */
+export function emit(ctx: Ctx, type: string, payload: Record<string, unknown>) {
+  const id = Number(ctx.db.run("INSERT INTO events (at, type, payload) VALUES (?,?,?)", ctx.now(), type, JSON.stringify(payload)).lastInsertRowid);
+  ctx.onEvent?.({ id, type, payload });
+  return id;
 }
 
 export function lotEvent(ctx: Ctx, kind: string, lotId: number, who: string, note = "", packageId: number | null = null, at = ctx.now()) {

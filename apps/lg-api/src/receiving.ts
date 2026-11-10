@@ -1,11 +1,11 @@
 import { verifyPassword, ndc11Pretty, suggestLocation, type Suggestion } from "./domain";
 import {
-  audit, ensureLot, expiryCheck, getProductByNdc11, HttpError, lotEvent, recallCheck, resolveScan, type Actor, type Check, type Ctx, type Product, type ResolvedScan, type ScanInput
+  audit, emit, ensureLot, expiryCheck, getProductByNdc11, HttpError, lotEvent, recallCheck, resolveScan, type Actor, type Check, type Ctx, type Product, type ResolvedScan, type ScanInput
 } from "./core";
 
 export interface DeliveryLineView { lineNo: number; name: string; sub: string; qty: string; state: "done" | "now" | "todo" }
 export interface DeliveryView {
-  id: string; wholesaler: string; status: string; expected: number; checkedIn: number; arrived: string; note: string; tiDoc: string;
+  id: string; wholesaler: string; status: string; expected: number; checkedIn: number; problems: number; arrived: string; note: string; tiDoc: string;
   lines: DeliveryLineView[];
 }
 
@@ -41,7 +41,8 @@ export function deliveryView(ctx: Ctx, id: string, currentNdc?: string): Deliver
       qty: `${l.received_qty} / ${l.expected_qty}`, state: done ? "done" : now ? "now" : "todo"
     };
   });
-  return { id: d.id, wholesaler: d.wholesaler, status: d.status, expected: d.expected, checkedIn, arrived: d.arrived, note: d.note, tiDoc: d.ti_doc, lines };
+  const problems = ctx.db.get<{ n: number }>("SELECT count(*) AS n FROM problems WHERE delivery_id = ?", id)!.n;
+  return { id: d.id, wholesaler: d.wholesaler, status: d.status, expected: d.expected, checkedIn, problems, arrived: d.arrived, note: d.note, tiDoc: d.ti_doc, lines };
 }
 
 function pendingForLine(ctx: Ctx, deliveryId: string, ndc11: string, exceptId: number) {
@@ -149,6 +150,7 @@ export function confirmPutaway(ctx: Ctx, actor: Actor, packageId: number, witnes
     if (open === 0) ctx.db.run("UPDATE deliveries SET status = 'closed' WHERE id = ?", pkg.delivery_id);
   });
   audit(ctx, actor, "receive.putaway", "package", pkg.id, { status: "pending_putaway" }, { status: "on_shelf", location: sug.location, witness: witnessName || undefined });
+  emit(ctx, "delivery.checked_in", { deliveryId: pkg.delivery_id, ndc11: product.ndc11, lot: pkg.lot ?? null, serial: pkg.serial });
   return deliveryView(ctx, pkg.delivery_id, product.ndc11)!;
 }
 

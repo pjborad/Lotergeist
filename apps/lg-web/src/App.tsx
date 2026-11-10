@@ -11,6 +11,8 @@ import { Fill } from "./screens/Fill";
 import { Recalls } from "./screens/Recalls";
 import { Labels } from "./screens/Labels";
 import { Outbox } from "./screens/Outbox";
+import { Patients } from "./screens/Patients";
+import { Integrations } from "./screens/Integrations";
 
 export function App() {
   const qc = useQueryClient();
@@ -27,7 +29,9 @@ export function App() {
   return (
     <Shell user={user}>
       <Routes>
-        <Route path="/" element={<Today user={user} />} />
+        <Route path="/" element={user.role === "admin" ? <Navigate to="/integrations" replace /> : <Today user={user} />} />
+        <Route path="/patients" element={<Patients user={user} />} />
+        <Route path="/integrations" element={<Integrations user={user} />} />
         <Route path="/receiving" element={<Receiving user={user} />} />
         <Route path="/inventory" element={<Inventory user={user} />} />
         <Route path="/fill" element={<Fill user={user} />} />

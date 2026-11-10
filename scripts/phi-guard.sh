@@ -28,9 +28,13 @@ while IFS= read -r f; do
     scripts/phi-guard.sh|pnpm-lock.yaml|*.png|*.pdf|*.zip|*.duckdb|*.sqlite) continue ;;
   esac
   if [[ "${1:-}" != "--all" ]]; then content="$(git show ":$f" 2>/dev/null || true)"; else content="$(cat "$f")"; fi
-  if grep -Eiq -e "$SSN" -e "$DOB" <<<"$content"; then
+  # The clickable design prototype shows the synthetic demo patient (S-0612) with a labelled DOB on purpose.
+  # Allow that one pattern there; SSNs are still blocked everywhere, including the prototype.
+  pats=(-e "$SSN" -e "$DOB")
+  case "$f" in Lotergeist-prototype/*) pats=(-e "$SSN") ;; esac
+  if grep -Eiq "${pats[@]}" <<<"$content"; then
     echo "phi-guard: $f looks like it contains PHI (SSN or labelled date of birth)." >&2
-    grep -Ein -e "$SSN" -e "$DOB" <<<"$content" | head -3 | sed 's/^/    /' >&2
+    grep -Ein "${pats[@]}" <<<"$content" | head -3 | sed 's/^/    /' >&2
     hits=$((hits + 1))
   fi
 done <<<"$files"
